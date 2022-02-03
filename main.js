@@ -18,6 +18,7 @@ const GetData = () => {
       table.appendChild(headerrow);
       responses.forEach((response) => {
         let row = document.createElement("tr");
+        row.id = "appt" + response.numeroApp;
         Object.values(response).forEach((text) => {
           let cell = document.createElement("td");
           let textnode = document.createTextNode(text);
@@ -36,16 +37,17 @@ document.getElementById("btn").addEventListener("click", GetData);
 
 const postData = () => {
   const url =
-    "https://script.google.com/macros/s/AKfycbzJDVPoFJlGrtbGO_fbequfLBIxDg00A4clTYSHwdw0-TxZd54Uf--v89utV2BbDnpN5Q/exec";
+    "https://script.google.com/macros/s/AKfycbzCEYJOzJug18AjxteAzrb1RATNHqv8aCLRNmafGwD026TTm6TuiqAKJ7bXrWVr5m7Yjw/exec";
+
   fetch(url, {
     method: "POST",
-    node: "no-cors",
-    cache: "no-cache",
-    headers: {
-      "content-type": "application/json",
-    },
+    mode: "cors",
+    credentials: "include", // include, *same-origin, omit
     redirect: "follow",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8",
+    },
     body: JSON.stringify({nom: "jhone"}),
   });
 };
-document.getElementById("btn").addEventListener("click", postData);
+document.getElementById("btn-post").addEventListener("click", postData);
