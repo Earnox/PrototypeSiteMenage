@@ -1,7 +1,44 @@
 body {
   text-align: center;
-  background-color: lightblue;
 }
 h1 {
   color: blue;
+}
+th {
+  margin: auto;
+}
+.t2p4 {
+  background-color: #f1d0ec;
+}
+.t3p6 {
+  background-color: #b6d7a8;
+}
+.t2p4-5 {
+  background-color: #ffe599;
+}
+.t3p6-7 {
+  background-color: #a4c2f4;
+}
+table {
+  margin: auto;
+}
+
+.tstaff {
+  background-color: lightcoral;
+}
+
+.occuper {
+  background-color: #ffe599;
+}
+.app-en-chauffe {
+  background-color: #b6d7a8;
+}
+.pret {
+  background-color: #b6d7a8;
+}
+.pret-bcs {
+  background-color: #b6d7a8;
+}
+.libre-sale {
+  background-color: lightpink;
 }
