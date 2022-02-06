@@ -6,6 +6,11 @@ h1 {
 }
 th {
   margin: auto;
+  /* border: 1px solid black; */
+  padding: 5px;
+}
+td {
+  margin: auto;
 }
 .t2p4 {
   background-color: #f1d0ec;

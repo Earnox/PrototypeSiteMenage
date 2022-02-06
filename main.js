@@ -6,7 +6,7 @@ const GetData = () => {
       const divTableauApp = document.getElementById("tableauNumeroapp");
       let table = document.createElement("table");
       let headerrow = document.createElement("tr");
-      let headers = Object.keys(responses[0]);
+      let headers = Object.keys(responses[0]); // get the key of only one object
       delete headers[6];
       let bagroundColorColum = [];
       //console.log(Object.keys(responses[0]));
@@ -22,50 +22,68 @@ const GetData = () => {
         let row = document.createElement("tr");
         row.id = "appt" + response.numeroApp;
         bagroundColorColum.push(response.colorBagroud);
-        // console.log(bagroundColorColum);
+
         delete response.colorBagroud;
 
         Object.values(response).forEach((text) => {
-          // console.log(response);
           let cell = document.createElement("td");
           let textnode = document.createTextNode(text);
-          console.log("ici log text    " + text);
-          console.log("ici rps status    " + response.status);
+          let listStatut = [
+            "occuper",
+            "app en chauffe",
+            "prêt",
+            "prêt BCS",
+            "libre/sale",
+          ];
+          let select = document.createElement("select");
+
+          select.name = "status";
+          // console.log("ici log text    " + text);
+          // console.log("ici rps status    " + response.status);
           // get if text is numb app then put the bagroud color
           if (text == response.numeroApp) {
             cell.classList = "t" + response.typologie;
           }
+          // do a loop of the list statu to have value and text for drop down list
+
+          // if statut in the loop then put the right class liste for color
           if (text == response.status) {
-            // switch (text) {
-            //   case text == "occupé":
-            //     cell.classList = "occuper";
-            //     break;
-            //   case text == "app en chauffe":
-            //     cell.classList = "app-en-chauffe";
-            //     break;
-            //   case text == "prêt":
-            //     cell.classList = "pret";
-            //     break;
-            //   case text == "prêt BCS":
-            //     cell.classList = "pret-bcs";
-
-            //   case text == "libre/sale":
-            //     cell.classList = "libre-sale";
-            // }
-            if (text == "occupé") {
-              cell.classList = "occuper";
+            //console.log(text);
+            let option;
+            listStatut.forEach((statut) => {
+              option = document.createElement("option");
+              option.text = statut;
+              select.appendChild(option);
+            });
+            if (text === "occupé") {
+              option.classList = "occuper";
+              select.classList = "occuper";
+              option.setAttribute("selected", "");
+              option.value = text;
+              option.text = text;
             } else if (text == "app en chauffe") {
-              cell.classList = "app-en-chauffe";
+              select.classList = "app-en-chauffe";
+              option.setAttribute("selected", "");
+              option.text = text;
             } else if (text == "prêt") {
-              cell.classList = "pret";
+              select.classList = "pret";
+              option.setAttribute("selected", "");
+              option.text = text;
             } else if (text == "prêt BCS") {
-              cell.classList = "pret-bcs";
+              select.classList = "pret-bcs";
+              option.setAttribute("selected", "");
+              option.text = text;
             } else if (text == "libre/sale") {
-              cell.classList = "libre-sale";
+              select.classList = "libre-sale";
+              option.setAttribute("selected", "");
+              option.text = text;
             }
-          }
 
-          cell.appendChild(textnode);
+            //console.log(select);
+            cell.appendChild(select);
+          } else {
+            cell.appendChild(textnode);
+          }
           row.appendChild(cell);
         });
         table.appendChild(row);
