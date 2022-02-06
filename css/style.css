@@ -2,7 +2,9 @@ body {
   text-align: center;
 }
 h1 {
-  color: blue;
+  color: white;
+  vertical-align: center;
+  font-size: bolder;
 }
 th {
   margin: auto;
@@ -46,4 +48,24 @@ table {
 }
 .libre-sale {
   background-color: lightpink;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin: 0;
+}
+.header {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  background-color: rgb(33, 103, 146);
+}
+.main {
+  grid-column: 1 / 4;
+  grid-row: 2;
+}
+.footer {
+  grid-column: 1 / 4;
+  grid-row: 3;
 }
