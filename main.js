@@ -9,7 +9,6 @@ const GetData = () => {
       let headers = Object.keys(responses[0]); // get the key of only one object
       delete headers[6];
       let bagroundColorColum = [];
-      //console.log(Object.keys(responses[0]));
 
       headers.forEach((headertext) => {
         let textNodeHeader = document.createTextNode(headertext);
@@ -22,9 +21,7 @@ const GetData = () => {
         let row = document.createElement("tr");
         row.id = "appt" + response.numeroApp;
         bagroundColorColum.push(response.colorBagroud);
-
         delete response.colorBagroud;
-
         Object.values(response).forEach((text) => {
           let cell = document.createElement("td");
           let textnode = document.createTextNode(text);
@@ -38,8 +35,7 @@ const GetData = () => {
           let select = document.createElement("select");
 
           select.name = "status";
-          // console.log("ici log text    " + text);
-          // console.log("ici rps status    " + response.status);
+
           // get if text is numb app then put the bagroud color
           if (text == response.numeroApp) {
             cell.classList = "t" + response.typologie;
@@ -48,8 +44,8 @@ const GetData = () => {
 
           // if statut in the loop then put the right class liste for color
           if (text == response.status) {
-            //console.log(text);
             let option;
+
             listStatut.forEach((statut) => {
               option = document.createElement("option");
               option.text = statut;
@@ -78,13 +74,20 @@ const GetData = () => {
               option.setAttribute("selected", "");
               option.text = text;
             }
-
-            //console.log(select);
             cell.appendChild(select);
+            console.log(table.rows.length);
+          } else if (text.hasOwnProperty("commentaire")) {
+            // console.log(text);
+            let textareacom = document.createElement("textarea");
+            textareacom.innerText = text;
+            placeholder = "je suis un text";
+            textareacom.setAttribute("placeholder", "test");
+            cell.appendChild(textareacom);
           } else {
             cell.appendChild(textnode);
           }
           row.appendChild(cell);
+          // console.log(response);
         });
         table.appendChild(row);
       });
@@ -111,4 +114,5 @@ const postData = () => {
     body: JSON.stringify({nom: "jhone"}),
   });
 };
+window.addEventListener("load", GetData);
 document.getElementById("btn-post").addEventListener("click", postData);
