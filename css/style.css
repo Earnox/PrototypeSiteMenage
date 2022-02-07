@@ -1,11 +1,8 @@
 body {
   text-align: center;
+  margin: 0;
 }
-h1 {
-  color: white;
-  vertical-align: center;
-  font-size: bolder;
-}
+
 th {
   margin: auto;
   /* border: 1px solid black; */
@@ -49,17 +46,36 @@ table {
 .libre-sale {
   background-color: lightpink;
 }
+h1 {
+  color: #ffffff;
+  vertical-align: center;
+  font-size: bolder;
+  grid-row: 1;
+  grid-column: 1/4;
+}
+header > nav {
+  grid-row: 2;
+  grid-column: 3/4;
+}
 .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
-  margin: 0;
+  height: 100%;
+  width: 100%;
 }
 .header {
   grid-column: 1 / 4;
   grid-row: 1;
-  background-color: rgb(33, 103, 146);
+  background-color: #438eb9;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: 1fr, 0.5fr;
+  height: 100%;
+  width: 100%;
+  /* couleur Odalys header */
 }
 .main {
   grid-column: 1 / 4;
@@ -68,4 +84,67 @@ table {
 .footer {
   grid-column: 1 / 4;
   grid-row: 3;
+}
+.navbar {
+  overflow: hidden;
+
+  grid-row: 2;
+  grid-column: 3/4;
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+  background-color: #62a8d1;
+}
+.navbar a {
+  float: right;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: #62a8d1;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
