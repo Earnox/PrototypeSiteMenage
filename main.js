@@ -37,7 +37,7 @@ const GetData = () => {
           select.name = "status";
 
           // get if text is numb app then put the bagroud color
-          if (text == response.numeroApp) {
+          if (text == response.numeroApp || text == response.typologie) {
             cell.classList = "t" + response.typologie;
           }
           // do a loop of the list statu to have value and text for drop down list
@@ -75,7 +75,7 @@ const GetData = () => {
               option.text = text;
             }
             cell.appendChild(select);
-            console.log(table.rows.length);
+            //console.log(table.rows.length);
           } else if (text.hasOwnProperty("commentaire")) {
             // console.log(text);
             let textareacom = document.createElement("textarea");
