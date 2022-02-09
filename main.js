@@ -6,24 +6,30 @@ const GetData = () => {
       const divTableauApp = document.getElementById("tableauNumeroapp");
       let table = document.createElement("table");
       let headerrow = document.createElement("tr");
-      let headers = Object.keys(responses[0]); // get the key of only one object
-      delete headers[6];
-      let bagroundColorColum = [];
 
+      let headers = Object.keys(responses[0]); // get the key of only one object
+      delete headers[6]; // delete the colum of baground colo
+      let bagroundColorColum = [];
+      // get an create a header row
       headers.forEach((headertext) => {
         let textNodeHeader = document.createTextNode(headertext);
         let header = document.createElement("th");
         header.appendChild(textNodeHeader);
         headerrow.appendChild(header);
       });
+
       table.appendChild(headerrow);
+      // do a new loop to get deeper in the array and get the text of the key's
       responses.forEach((response) => {
+        // création d'un row puit metre l'id en fonction du numéro de l'appartement
         let row = document.createElement("tr");
         row.id = "appt" + response.numeroApp;
         bagroundColorColum.push(response.colorBagroud);
         delete response.colorBagroud;
+        //
+        //
+
         Object.values(response).forEach((text) => {
-          let cell = document.createElement("td");
           let textnode = document.createTextNode(text);
           let listStatut = [
             "occuper",
@@ -32,6 +38,7 @@ const GetData = () => {
             "prêt BCS",
             "libre/sale",
           ];
+          let cell = document.createElement("td");
           let select = document.createElement("select");
 
           select.name = "status";
@@ -76,10 +83,9 @@ const GetData = () => {
             }
             cell.appendChild(select);
             //console.log(table.rows.length);
-          } else if (text.hasOwnProperty("commentaire")) {
-            // console.log(text);
+          } else if (response.commentaire === text && text != "") {
             let textareacom = document.createElement("textarea");
-            textareacom.innerText = text;
+            textareacom.innerText = response.commentaire;
             placeholder = "je suis un text";
             textareacom.setAttribute("placeholder", "test");
             cell.appendChild(textareacom);
@@ -87,8 +93,13 @@ const GetData = () => {
             cell.appendChild(textnode);
           }
           row.appendChild(cell);
+
           // console.log(response);
         });
+        if (row.lastChild.innerText === "") {
+          let noTextArea = document.createElement("textarea");
+          row.lastChild.appendChild(noTextArea);
+        }
         table.appendChild(row);
       });
 
@@ -97,11 +108,11 @@ const GetData = () => {
   );
 };
 
-document.getElementById("btn").addEventListener("click", GetData);
+//document.getElementById("btn").addEventListener("click", GetData);
 
 const postData = () => {
   const url =
-    "https://script.google.com/macros/s/AKfycbzCEYJOzJug18AjxteAzrb1RATNHqv8aCLRNmafGwD026TTm6TuiqAKJ7bXrWVr5m7Yjw/exec";
+    "https://script.google.com/macros/s/AKfycbyAD4E6D4mX3sMR_sC23nmSwrR7AMNKEOLF2PH-azPdSWS3Ma5cAuvtTkTdbDwlZxN2Gg/exec";
 
   fetch(url, {
     method: "POST",
@@ -114,5 +125,6 @@ const postData = () => {
     body: JSON.stringify({nom: "jhone"}),
   });
 };
-window.addEventListener("load", GetData);
-document.getElementById("btn-post").addEventListener("click", postData);
+
+window.addEventListener("load", GetData());
+document.getElementById("btn-post").addEventListener("click", postData());
