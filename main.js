@@ -1,6 +1,6 @@
 const GetData = () => {
   const url =
-    "https://script.google.com/macros/s/AKfycbyAD4E6D4mX3sMR_sC23nmSwrR7AMNKEOLF2PH-azPdSWS3Ma5cAuvtTkTdbDwlZxN2Gg/exec";
+    "https://script.google.com/macros/s/AKfycby9GV22oKinoCbdMRzqiLhWHKBtbh-3-Ghs9oMNDZ98-HVs33OksWwZU6bZSa5yzd7Z2w/exec";
   fetch(url).then((reponses) =>
     reponses.json().then((responses) => {
       const divTableauApp = document.getElementById("tableauNumeroapp");
@@ -112,7 +112,7 @@ const GetData = () => {
 
 const asyncSendDATA = async function SenData(valueToSend) {
   const url =
-    "https://script.google.com/macros/s/AKfycbzIhWBADaxc-r91AbymHClDJTqG5uX1hRGkzQ61psy1OoJmB6d-WgiGfm4G0OIZukAsOQ/exec";
+    "https://script.google.com/macros/s/AKfycbx8GyMdIe077rPFgD4ibfNkoA-lGCr4Au5o3izsS-uZ08glwmfKI8m5MHsivGheTYZtTQ/exec";
   let reponsefetch = await fetch(url, {
     method: "POST",
     mode: "no-cors",
@@ -131,23 +131,28 @@ const asyncSendDATA = async function SenData(valueToSend) {
 
   // if response is okay reload page to set the color
   if (data[0].status === 0) {
-    location.reload();
+    //location.reload();
   }
 };
 
-function getChangeStatus(event) {
+async function getChangeStatus(event) {
   let target = event.target;
 
   let valueEvent = event.target.value;
+
   let parentTarget = target.parentElement;
   // go back utile get the row of the event
   let rowEvent = parentTarget.parentElement;
   // get first col for id
   let appartement = rowEvent.firstChild.innerText;
   // get las col for the commente
-  let commentaire = rowEvent.lastChild.firstChild;
+  let commentaireTD = rowEvent.lastChild;
+  console.log(commentaireTD);
   // get the value of the cell
-  commentaire = commentaire.value;
+  let commentairetextarea = commentaireTD.lastChild;
+  // get again the last chile of the td first is text ^^
+  let commentairetextareavalue = commentairetextarea.value;
+  console.log(commentairetextareavalue);
   // get first child of the row event
   let appartementTD = rowEvent.firstChild;
   // get the next td to get the statut
@@ -159,7 +164,7 @@ function getChangeStatus(event) {
   const valueToSend = {
     id: appartement,
     status: statut,
-    commentaire: commentaire,
+    commentaire: commentairetextareavalue,
   };
   return asyncSendDATA(valueToSend);
 }
