@@ -32,7 +32,7 @@ const GetData = () => {
         Object.values(response).forEach((text) => {
           let textnode = document.createTextNode(text);
           let listStatut = [
-            "occuper",
+            "occupé",
             "app en chauffe",
             "prêt",
             "prêt BCS",
@@ -110,21 +110,68 @@ const GetData = () => {
 
 //document.getElementById("btn").addEventListener("click", GetData);
 
-const postData = () => {
+const asyncSendDATA = async function SenData(valueToSend) {
   const url =
-    "https://script.google.com/macros/s/AKfycbyAD4E6D4mX3sMR_sC23nmSwrR7AMNKEOLF2PH-azPdSWS3Ma5cAuvtTkTdbDwlZxN2Gg/exec";
-
-  fetch(url, {
+    "https://script.google.com/macros/s/AKfycbzIhWBADaxc-r91AbymHClDJTqG5uX1hRGkzQ61psy1OoJmB6d-WgiGfm4G0OIZukAsOQ/exec";
+  let reponsefetch = await fetch(url, {
     method: "POST",
-    mode: "cors",
-    credentials: "include", // include, *same-origin, omit
-    redirect: "follow",
+    mode: "no-cors",
+    cache: "no-cache",
+    // credentials: "include", // include, *same-origin, omit
+
     headers: {
-      "Content-Type": "text/plain;charset=utf-8",
+      "Content-Type": "application/json", // before ;charset=utf-8  text/plain
     },
-    body: JSON.stringify({nom: "jhone"}),
+
+    //redirect: "follow",
+    body: JSON.stringify(valueToSend),
   });
+  // get the response in a array to be able to read
+  let data = await [reponsefetch];
+  console.log(data);
+  // if response is okay reload page to set the color
+  if (data[0].status === 0) {
+    location.reload();
+  }
+
+  // if (reponsefetch) {
+  //   console.log("gg tous est bon ");
+  // }
 };
 
+function getChangeStatus(event) {
+  let target = event.target;
+  console.log(event.target);
+  let valueEvent = event.target.value;
+  let parentTarget = target.parentElement;
+  // go back utile get the row of the event
+  let rowEvent = parentTarget.parentElement;
+  // get first col for id
+  let appartement = rowEvent.firstChild.innerText;
+  // get las col for the commente
+  let commentaire = rowEvent.lastChild.firstChild;
+  // get the value of the cell
+  commentaire = commentaire.value;
+  // get first child of the row event
+  let appartementTD = rowEvent.firstChild;
+  // get the next td to get the statut
+  let colStatut = appartementTD.nextSibling;
+  // get the value of the cel statue
+  let statut = colStatut.firstChild.value;
+  console.log(statut);
+
+  //body to send of the value ligne edited
+  const valueToSend = {
+    id: appartement,
+    status: statut,
+    commentaire: commentaire,
+  };
+  return asyncSendDATA(valueToSend);
+}
+
+const divtable = document.getElementById("tableauNumeroapp");
+
+divtable.addEventListener("change", getChangeStatus);
+
 window.addEventListener("load", GetData());
-document.getElementById("btn-post").addEventListener("click", postData());
+document.getElementById("btn-post").addEventListener("click", asyncSendDATA);
