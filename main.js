@@ -86,8 +86,8 @@ const GetData = () => {
           } else if (response.commentaire === text && text != "") {
             let textareacom = document.createElement("textarea");
             textareacom.innerText = response.commentaire;
-            placeholder = "je suis un text";
-            textareacom.setAttribute("placeholder", "test");
+
+            textareacom.setAttribute("placeholder", "t");
             cell.appendChild(textareacom);
           } else {
             cell.appendChild(textnode);
@@ -128,20 +128,16 @@ const asyncSendDATA = async function SenData(valueToSend) {
   });
   // get the response in a array to be able to read
   let data = await [reponsefetch];
-  console.log(data);
+
   // if response is okay reload page to set the color
   if (data[0].status === 0) {
     location.reload();
   }
-
-  // if (reponsefetch) {
-  //   console.log("gg tous est bon ");
-  // }
 };
 
 function getChangeStatus(event) {
   let target = event.target;
-  console.log(event.target);
+
   let valueEvent = event.target.value;
   let parentTarget = target.parentElement;
   // go back utile get the row of the event
@@ -158,7 +154,6 @@ function getChangeStatus(event) {
   let colStatut = appartementTD.nextSibling;
   // get the value of the cel statue
   let statut = colStatut.firstChild.value;
-  console.log(statut);
 
   //body to send of the value ligne edited
   const valueToSend = {
