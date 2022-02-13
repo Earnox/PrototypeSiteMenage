@@ -14,6 +14,7 @@ const GetData = () => {
       headers.forEach((headertext) => {
         let textNodeHeader = document.createTextNode(headertext);
         let header = document.createElement("th");
+        header.classList = "table";
         header.appendChild(textNodeHeader);
         headerrow.appendChild(header);
       });
@@ -131,7 +132,8 @@ const asyncSendDATA = async function SenData(valueToSend) {
 
   // if response is okay reload page to set the color
   if (data[0].status === 0) {
-    location.reload();
+    // location.reload();
+    // here to check if all is good in the response
   }
 };
 
