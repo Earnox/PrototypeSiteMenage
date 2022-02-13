@@ -75,7 +75,7 @@ h1 {
 .navbar {
   overflow: hidden;
 }
-.dropdown-noBoostrap {
+.dropdown {
   float: right;
   overflow: hidden;
   background-color: #62a8d1;
@@ -90,7 +90,7 @@ h1 {
   background-color: #62a8d1;
 }
 
-.dropdown-noBoostrap .dropbtn {
+.dropdown .dropbtn {
   font-size: 16px;
   border: none;
   outline: none;
