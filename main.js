@@ -87,7 +87,7 @@ const GetData = () => {
             let textareacom = document.createElement("textarea");
             textareacom.innerText = response.commentaire;
 
-            textareacom.setAttribute("placeholder", "t");
+            // textareacom.setAttribute("placeholder", "t");
             cell.appendChild(textareacom);
           } else {
             cell.appendChild(textnode);
@@ -131,7 +131,7 @@ const asyncSendDATA = async function SenData(valueToSend) {
 
   // if response is okay reload page to set the color
   if (data[0].status === 0) {
-    //location.reload();
+    location.reload();
   }
 };
 

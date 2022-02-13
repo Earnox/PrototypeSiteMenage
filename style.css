@@ -1,6 +1,10 @@
 body {
   text-align: center;
-  margin: 0;
+  margin: auto;
+  padding: auto;
+
+  height: 100%;
+  width: 100%;
 }
 
 th {
