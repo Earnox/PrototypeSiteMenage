@@ -53,16 +53,16 @@ h1 {
   color: #ffffff;
   vertical-align: center;
   font-size: bolder;
-  /* margin-bottom: -9%; */
+  margin-bottom: -2%;
 }
 
 .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  grid-template-rows: 1fr, 2fr, 1fr;
-  height: 100%;
-  width: 100%;
+  grid-template-rows: 0.5fr, 2fr, 1fr;
+  /* height: 100%;
+  width: 100%; */
 }
 .header {
   grid-column: 1 / 5;
