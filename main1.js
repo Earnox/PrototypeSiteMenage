@@ -226,5 +226,43 @@ async function getChangeStatus(event) {
   return asyncSendDATA(valueToSend);
 }
 
+const changeColorStatut = (e) => {
+  let tdStatut = table.getElementsByClassName("status")[0];
+  console.log(tdStatut);
+  let listStatut = DropDownListStatus();
+  let classtdStatut = tdStatut.classList;
+  // console.log(e.target.parentElement);
+  // console.log(tdStatut);
+  let eventTarget = e.target;
+  let eventTargetValue = eventTarget.value;
+  console.log(eventTarget.classList.value);
+
+  if (eventTargetValue === "occupé") {
+    console.log("déja ici");
+    // console.log(eventTargetValue);
+
+    // console.log("event class : " + eventTarget.classList);
+    eventTarget.classList = "occuper form-control form-control-lg";
+    // eventTarget.options[0].setAttribute("selected", true);
+    // console.log("event class : " + eventTarget.classList);
+    // console.log("on est dans occ");
+  } else if (eventTargetValue == "app en chauffe") {
+    eventTarget.classList = "form-control form-control-lg app-en-chauffe";
+    // eventTarget.options[1].setAttribute("selected", true);
+  } else if (eventTargetValue == "prêt") {
+    eventTarget.classList = "pret  form-control form-control-lg";
+    //eventTarget.options[2].setAttribute("selected", true);
+  } else if (eventTargetValue == "prêt BCS") {
+    eventTarget.classList = "pret-bcs  form-control form-control-lg";
+    //eventTarget.options[3].setAttribute("selected", true);
+  } else if (eventTargetValue == "libre/sale") {
+    eventTarget.classList = "libre-sale form-control form-control-lg";
+  }
+};
+// console.log(eventTarget.classList);
+
+let colStatut = document.getElementsByClassName("status");
 window.addEventListener("load", getDataAppart());
+table.addEventListener("change", getChangeStatus);
+table.addEventListener("change", changeColorStatut);
 table.addEventListener("change", getChangeStatus);

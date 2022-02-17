@@ -26,12 +26,13 @@ header > div > ul > li {
   flex-direction: row;
   align-items: center;
 }
+
 /* Ici comence le css pour la table  */
 
 
-thead{
+thead {
   font-size: 1.5em;
-  background-color: lavender
+  background-color: lavender;
 }
 .t2p4 {
   background-color: #f1d0ec;
@@ -67,5 +68,4 @@ thead{
 }
 .status {
   vertical-align: middle;
-
 }
