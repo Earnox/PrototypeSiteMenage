@@ -1,0 +1,71 @@
+body {
+  text-align: center;
+  margin: 0%;
+  padding: 0%;
+  width: 100%;
+  overflow-x: hidden;
+}
+header {
+  width: 100%;
+}
+h1 {
+  display: block;
+}
+header,
+footer {
+  /* couleur Odalys header */
+  background-color: #438eb9;
+  color: aliceblue;
+}
+
+header > div > ul > li > a {
+  color: aliceblue;
+}
+header > div > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+/* Ici comence le css pour la table  */
+
+
+thead{
+  font-size: 1.5em;
+  background-color: lavender
+}
+.t2p4 {
+  background-color: #f1d0ec;
+}
+.t3p6 {
+  background-color: #b6d7a8;
+}
+.t2p4-5 {
+  background-color: #ffe599;
+}
+.t3p6-7 {
+  background-color: #a4c2f4;
+}
+
+.tstaff {
+  background-color: lightcoral;
+}
+
+.occuper {
+  background-color: #ffe599;
+}
+.app-en-chauffe {
+  background-color: #b6d7a8;
+}
+.pret {
+  background-color: #b6d7a8;
+}
+.pret-bcs {
+  background-color: #b6d7a8;
+}
+.libre-sale {
+  background-color: lightpink;
+}
+.status {
+  vertical-align: middle;
+
+}

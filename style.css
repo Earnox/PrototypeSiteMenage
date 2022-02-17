@@ -51,7 +51,7 @@ td {
 }
 h1 {
   color: #ffffff;
-  vertical-align: center;
+  /* vertical-align: bottom; */
   font-size: bolder;
   margin-bottom: -2%;
   margin-top: 0%;

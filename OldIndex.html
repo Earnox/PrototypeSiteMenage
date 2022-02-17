@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Application Gouvernance</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <h1>Prototype Application Gouvernance</h1>
+        <nav class="navbar">
+          <a href="#home">Home</a>
+          <a href="#technique">Technique</a>
+          <div class="dropdown">
+            <button class="dropbtn">
+              Etage
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">RDC etage</a>
+              <a href="#">1 etage</a>
+              <a href="#">2 etage</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <main class="main">
+        <div id="tableauNumeroapp"></div>
+      </main>
+
+      <footer classe="footer">
+        <button id="btn">import data</button>
+        <button id="btn-post">send data</button>
+      </footer>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

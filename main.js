@@ -6,7 +6,8 @@ const GetData = () => {
       const divTableauApp = document.getElementById("tableauNumeroapp");
       let table = document.createElement("table");
       let headerrow = document.createElement("tr");
-
+      let thead = document.createElement("thead");
+      let tBody = document.createElement("tbody");
       let headers = Object.keys(responses[0]); // get the key of only one object
       delete headers[6]; // delete the colum of baground colo
       let bagroundColorColum = [];
@@ -18,8 +19,8 @@ const GetData = () => {
         header.appendChild(textNodeHeader);
         headerrow.appendChild(header);
       });
-
-      table.appendChild(headerrow);
+      thead.appendChild(headerrow);
+      table.appendChild(thead);
       // do a new loop to get deeper in the array and get the text of the key's
       responses.forEach((response) => {
         // création d'un row puit metre l'id en fonction du numéro de l'appartement
@@ -101,9 +102,9 @@ const GetData = () => {
           let noTextArea = document.createElement("textarea");
           row.lastChild.appendChild(noTextArea);
         }
-        table.appendChild(row);
+        tBody.appendChild(row);
       });
-
+      table.appendChild(tBody);
       divTableauApp.appendChild(table);
     })
   );
