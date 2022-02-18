@@ -1,8 +1,32 @@
 // ici nome toute les variables utiles (pour le scopes sinon des pb )
 let tBody = document.createElement("tbody");
 let table = document.getElementById("tableauNumeroapp");
+
+{
+  /* <button class='btn btn-primary' type='button' disabled>
+  <span
+    class='spinner-border spinner-border-sm'
+    role='status'
+    aria-hidden='true'></span>
+  <span class='sr-only'>Loading...</span>
+</button>; */
+}
+
+// création du bouton loading
+// let btn = document.createElement("button");
+// btn.classList = "btn btn-primary";
+// let spanBtn1 = document.createElement("span");
+// spanBtn1.setAttribute("aria-hidden", true);
+// spanBtn1.classList = "spinner-border spinner-border-sm";
+// let spanBtn2 = document.createElement("span");
+// spanBtn2.classList = "sr-only";
+// btn.appendChild(spanBtn1);
+// btn.appendChild(spanBtn2);
+// tdBtn.appendChild(btn);
 let responseExt;
 // Create dropt down list
+
+// funtion Create a btn on oad finale didn't need it
 const DropDownListStatus = () => {
   let listStatut = [
     "occupé",
@@ -29,7 +53,7 @@ const DropDownListStatus = () => {
 
 const getDataAppart = () => {
   const url =
-    "https://script.google.com/macros/s/AKfycbxoguMqlooE-Sgucqc3f9CDfgseHlhtPBLhz4XeYGO-uAVN9Leentfo0MfMK4Bsb71Kgw/exec";
+    "https://script.google.com/macros/s/AKfycbyjAGhVaXeo9jH1lTFSRd54xjGpJSVAMRLGZhu2hbhoVV3eX4mBrf9A7Fn7eFwjW0B-WQ/exec";
   fetch(url)
     .then((reponses) => {
       return reponses.json();
@@ -146,52 +170,72 @@ const getDataAppart = () => {
             cell.classList = "commentaire";
 
             inputComent.value = infoappartement[key];
+
             cell.appendChild(inputComent);
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
           }
-          tBody.appendChild(trbody);
+          //// ici comment btn
+
+          // createbtn();
         }
+
+        tBody.appendChild(trbody);
+
         table.appendChild(tBody);
       });
     });
 };
 
-const asyncSendDATA = async function SenData(valueToSend) {
+// const asyncSendDATA = async
+function SenData(valueToSend) {
+  let spiner = document.getElementById("spinerHeader");
+  spiner.classList = "spinner-border";
   const url =
-    "https://script.google.com/macros/s/AKfycbxoguMqlooE-Sgucqc3f9CDfgseHlhtPBLhz4XeYGO-uAVN9Leentfo0MfMK4Bsb71Kgw/exec";
-  let reponsefetch = await fetch(url, {
+    "https://script.google.com/macros/s/AKfycbz98qslEO9THfiFyd7k2Nx5ZcGwcxtOHfvacsWBePjT-RbiIzNM7e0x6jAzqWp6LuGkBw/exec";
+  // let reponsefetch = await
+  fetch(url, {
     method: "POST",
+
     mode: "no-cors",
-    cache: "no-cache",
+
+    // cache: "no-cache",
     // credentials: "include", // include, *same-origin, omit
 
-    headers: {
-      "Content-Type": "application/json", // before ;charset=utf-8  text/plain
-    },
+    // headers: {
+    //   "Content-Type": "application/json", // before ;charset=utf-8  text/plain
+    // },
 
     //redirect: "follow",
     body: JSON.stringify(valueToSend),
   })
-    .then((reponsefetch) => {
-      return reponsefetch;
+    // .then((reponsefetch) => {
+    //   reponsefetch = reponsefetch.json();
+    .catch((erreur) => {
+      console.log(erreur);
     })
     .then(
-      () => {
-        console.log(reponses);
+      (response) => {
+        if (response.status == 0) {
+          spiner.classList = "spinner-border d-none";
+        }
+
       }
+
+      // })
+
       // get the response in a array to be able to read
-      // let data = [reponsefetch];
+      //
 
       // // if response is okay reload page to set the color
       // if (data[0].status === 0) {
       //   // location.reload();
       //   // here to check if all is good in the response
       //   console.log([reponsefetch]);
-      // }
+      //
     );
-};
-
+}
+// get the element to send to the google sheet
 async function getChangeStatus(event) {
   let target = event.target;
 
@@ -223,9 +267,10 @@ async function getChangeStatus(event) {
     status: statut,
     commentaire: commentairetextareavalue,
   };
-  return asyncSendDATA(valueToSend);
+  return SenData(valueToSend);
 }
 
+// funtion to change the colot of the column statut changed
 const changeColorStatut = (e) => {
   let tdStatut = table.getElementsByClassName("status")[0];
   console.log(tdStatut);
@@ -260,7 +305,25 @@ const changeColorStatut = (e) => {
   }
 };
 // console.log(eventTarget.classList);
+const createbtn = () => {
+  let tdBtn = document.createElement("td");
+  let btn = document.createElement("button");
+  btn.classList = "btn btn-primary";
+  let spanBtn1 = document.createElement("span");
+  spanBtn1.setAttribute("aria-hidden", false);
+  // il faudrat ouer avec la classe sc-only je pense mais pas sur a regarder vitdeo pour plus
+  spanBtn1.classList = "spinner-border spinner-border-sm ";
+  let spanBtn2 = document.createElement("span");
 
+  spanBtn2.classList = "sr-only";
+  btn.appendChild(spanBtn1);
+  btn.appendChild(spanBtn2);
+  tdBtn.appendChild(btn);
+  // /// ici termine btn
+
+  trbody.appendChild(createbtn());
+  return tdBtn;
+};
 let colStatut = document.getElementsByClassName("status");
 window.addEventListener("load", getDataAppart());
 table.addEventListener("change", getChangeStatus);

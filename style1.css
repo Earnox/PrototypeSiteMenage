@@ -27,8 +27,12 @@ header > div > ul > li {
   align-items: center;
 }
 
-/* Ici comence le css pour la table  */
-
+/* Ici comence le css pour la table main {
+  /* width: 70%; */
+/* } */
+#tableauNumeroapp {
+  border-style: 10px solid black;
+}
 
 thead {
   font-size: 1.5em;
