@@ -64,6 +64,8 @@ const getDataAppart = () => {
     })
     .then((reponses) => {
       let headers = Object.keys(reponses[0]).slice();
+      // test delete typo
+      let typo = delete headers[2];
       let baground = delete headers[7];
       return headers;
     })
@@ -72,10 +74,19 @@ const getDataAppart = () => {
       let trHeader = document.createElement("tr");
       headers.forEach((header) => {
         let th = document.createElement("th");
-        th.innerkey = header;
-        th.innerText = header;
-        th.setAttribute("scope", "col");
-        trHeader.appendChild(th);
+        if (header === "numeroApp") {
+          th.innerText = "#";
+          th.setAttribute("scope", "col");
+          trHeader.appendChild(th);
+        } else {
+          th.innerkey = header;
+          th.innerkey = header;
+          th.innerText = header;
+          th.classList = header;
+          // th.classList = th.classList + "col-lg";
+          th.setAttribute("scope", "col");
+          trHeader.appendChild(th);
+        }
         return th;
       });
 
@@ -89,7 +100,7 @@ const getDataAppart = () => {
         for (const key in infoappartement) {
           if (key == "numeroApp") {
             let cell = document.createElement("td");
-            cell.classList = "t" + infoappartement.typologie;
+            cell.classList = "t" + infoappartement.typologie + " numeroApp";
             cell.innerHTML = infoappartement[key];
             cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
@@ -126,46 +137,50 @@ const getDataAppart = () => {
             //  }
           }
           // numeroApp: 221, status: "prêt BCS", typologie: "2p4", arrive: "oui", depart: "oui", ck: "", commentaire: ""
-          else if (key === "typologie") {
+
+          ///// comentaire typologie pour test
+          // else if (key === "typologie") {
+          //   let cell = document.createElement("td");
+          //   cell.classList = "t" + infoappartement.typologie;
+          //   cell.innerHTML = infoappartement[key];
+          //   // cell.setAttribute("scope", "row");
+          //   trbody.appendChild(cell);
+          // }
+          else if (key === "name") {
             let cell = document.createElement("td");
-            cell.classList = "t" + infoappartement.typologie;
-            cell.innerHTML = infoappartement[key];
-            // cell.setAttribute("scope", "row");
-            trbody.appendChild(cell);
-          } else if (key === "name") {
-            let cell = document.createElement("td");
-            cell.classList = "name";
+            cell.classList = "name align-middle";
             cell.innerHTML = infoappartement[key];
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
           } else if (key === "arrive") {
             let cell = document.createElement("td");
-            cell.classList = "arrive";
+            cell.classList = "arrive align-middle";
             cell.innerHTML = infoappartement[key];
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
           } else if (key === "depart") {
             let cell = document.createElement("td");
-            cell.classList = "depart";
+            cell.classList = "depart align-middle";
             cell.innerHTML = infoappartement[key];
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
           } else if (key === "depart") {
             let cell = document.createElement("td");
-            cell.classList = "depart";
+            cell.classList = "depart align-middle";
             cell.innerHTML = infoappartement[key];
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
           } else if (key === "ck") {
             let cell = document.createElement("td");
-            cell.classList = "ck";
+            cell.classList = "ck align-middle";
             cell.innerHTML = infoappartement[key];
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
           } else if (key === "commentaire") {
             let cell = document.createElement("td");
             let inputComent = document.createElement("input");
-            inputComent.classList = " form-control form-control-lg";
+            inputComent.classList =
+              " form-control form-control-lg align-middle";
             inputComent.type = "text";
             cell.classList = "commentaire";
 
@@ -219,7 +234,6 @@ function SenData(valueToSend) {
         if (response.status == 0) {
           spiner.classList = "spinner-border d-none";
         }
-
       }
 
       // })

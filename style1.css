@@ -31,12 +31,19 @@ header > div > ul > li {
   /* width: 70%; */
 /* } */
 #tableauNumeroapp {
-  border-style: 10px solid black;
+  text-align: center;
+  align-content: center;
 }
 
 thead {
   font-size: 1.5em;
   background-color: lavender;
+}
+.numeroApp {
+  font-size: xx-large;
+}
+.status > select {
+  text-align: center;
 }
 .t2p4 {
   background-color: #f1d0ec;
@@ -70,6 +77,6 @@ thead {
 .libre-sale {
   background-color: lightpink;
 }
-.status {
-  vertical-align: middle;
+thead > tr > .status {
+  width: 15%;
 }
