@@ -41,6 +41,7 @@ thead {
 }
 .numeroApp {
   font-size: xx-large;
+  width: 4%;
 }
 .status > select {
   text-align: center;
