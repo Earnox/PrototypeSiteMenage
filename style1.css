@@ -30,15 +30,19 @@ header > div > ul > li {
 /* Ici comence le css pour la table main {
   /* width: 70%; */
 /* } */
-#tableauNumeroapp {
+
+main > #tableauNumeroapp {
   text-align: center;
   align-content: center;
+  /* width: 120%; */
+  border: 3px solid black;
 }
 
 thead {
   font-size: 1.5em;
   background-color: lavender;
 }
+
 .numeroApp {
   font-size: xx-large;
   width: 4%;
@@ -78,6 +82,14 @@ thead {
 .libre-sale {
   background-color: lightpink;
 }
+/* .commentaire {
+  width: 5%;
+} */
 thead > tr > .status {
   width: 15%;
+}
+tr > .arrive,
+.depart,
+.ck {
+  font-weight: bold;
 }

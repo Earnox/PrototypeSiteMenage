@@ -160,17 +160,19 @@ const getDataAppart = () => {
             trbody.appendChild(cell);
           } else if (key === "depart") {
             let cell = document.createElement("td");
-            cell.classList = "depart align-middle";
+            cell.classList = "depart align-middle ";
             cell.innerHTML = infoappartement[key];
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
-          } else if (key === "depart") {
-            let cell = document.createElement("td");
-            cell.classList = "depart align-middle";
-            cell.innerHTML = infoappartement[key];
-            // cell.setAttribute("scope", "row");
-            trbody.appendChild(cell);
-          } else if (key === "ck") {
+          }
+          // else if (key === "depart") {
+          //   let cell = document.createElement("td");
+          //   cell.classList = "depart align-middle";
+          //   cell.innerHTML = infoappartement[key];
+          //   // cell.setAttribute("scope", "row");
+          //   trbody.appendChild(cell);
+          // }
+          else if (key === "ck") {
             let cell = document.createElement("td");
             cell.classList = "ck align-middle";
             cell.innerHTML = infoappartement[key];
