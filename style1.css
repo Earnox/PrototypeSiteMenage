@@ -33,7 +33,7 @@ header > div > ul > li {
 
 main > #tableauNumeroapp {
   text-align: center;
-  align-content: center;
+  /* align-content: center; */
   /* width: 120%; */
   border: 3px solid black;
 }
@@ -44,12 +44,16 @@ thead {
 }
 
 .numeroApp {
-  font-size: xx-large;
-  width: 4%;
+  font-size: large;
+  font-size: 1.5em;
+
+  /* width: 70%; */
+  /* border-radius: 15%; */
 }
 .status > select {
   text-align: center;
 }
+
 .t2p4 {
   background-color: #f1d0ec;
 }
@@ -85,9 +89,9 @@ thead {
 /* .commentaire {
   width: 5%;
 } */
-thead > tr > .status {
-  width: 15%;
-}
+/* thead > tr > .status {
+  /* width: 15%; */
+/* } */
 tr > .arrive,
 .depart,
 .ck {

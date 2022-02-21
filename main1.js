@@ -65,7 +65,7 @@ const getDataAppart = () => {
     .then((reponses) => {
       let headers = Object.keys(reponses[0]).slice();
       // test delete typo
-      let typo = delete headers[2];
+      // let typo = delete headers[2];
       let baground = delete headers[7];
       return headers;
     })
@@ -100,8 +100,11 @@ const getDataAppart = () => {
         for (const key in infoappartement) {
           if (key == "numeroApp") {
             let cell = document.createElement("td");
-            cell.classList = "t" + infoappartement.typologie + " numeroApp";
+
+            cell.classList =
+              "t" + infoappartement.typologie + " numeroApp align-middle";
             cell.innerHTML = infoappartement[key];
+
             cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
           }
@@ -112,7 +115,7 @@ const getDataAppart = () => {
 
             //if (infoappartement[key] === "occupé") {
             if (infoappartement[key] === "occupé") {
-              listStatut.classList = "occuper";
+              listStatut.classList = "occuper ";
               listStatut.options[0].setAttribute("selected", true);
             } else if (infoappartement[key] == "app en chauffe") {
               listStatut.classList = "app-en-chauffe";
@@ -139,14 +142,14 @@ const getDataAppart = () => {
           // numeroApp: 221, status: "prêt BCS", typologie: "2p4", arrive: "oui", depart: "oui", ck: "", commentaire: ""
 
           ///// comentaire typologie pour test
-          // else if (key === "typologie") {
-          //   let cell = document.createElement("td");
-          //   cell.classList = "t" + infoappartement.typologie;
-          //   cell.innerHTML = infoappartement[key];
-          //   // cell.setAttribute("scope", "row");
-          //   trbody.appendChild(cell);
-          // }
-          else if (key === "name") {
+          else if (key === "typologie") {
+            let cell = document.createElement("td");
+            cell.classList =
+              " align-middle typologie ty" + infoappartement.typologie;
+            cell.innerHTML = infoappartement[key];
+            // cell.setAttribute("scope", "row");
+            trbody.appendChild(cell);
+          } else if (key === "name") {
             let cell = document.createElement("td");
             cell.classList = "name align-middle";
             cell.innerHTML = infoappartement[key];
