@@ -133,7 +133,7 @@ const getDataAppart = () => {
             }
             listStatut.classList =
               "form-control form-control-lg " + listStatut.classList;
-            cell.classList = "status d-flex align-items-center";
+            cell.classList = "status align-items-center";
             cell.appendChild(listStatut);
 
             // console.log(DropDownListStatus());
@@ -300,10 +300,8 @@ const changeColorStatut = (e) => {
   // console.log(tdStatut);
   let eventTarget = e.target;
   let eventTargetValue = eventTarget.value;
-  console.log(eventTarget.classList.value);
 
   if (eventTargetValue === "occupé") {
-    console.log("déja ici");
     // console.log(eventTargetValue);
 
     // console.log("event class : " + eventTarget.classList);

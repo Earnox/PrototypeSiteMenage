@@ -4,9 +4,13 @@ body {
   padding: 0%;
   width: 100%;
   overflow-x: hidden;
+  position: relative;
 }
 header {
   width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 h1 {
   display: block;
@@ -35,17 +39,19 @@ main > #tableauNumeroapp {
   text-align: center;
   /* align-content: center; */
   /* width: 120%; */
+
   border: 3px solid black;
 }
 
 thead {
   font-size: 1.5em;
   background-color: lavender;
+  border: 3px solid black;
 }
 
 .numeroApp {
-  font-size: large;
-  font-size: 1.5em;
+  font-weight: bold;
+  font-size: 1.5rem;
 
   /* width: 70%; */
   /* border-radius: 15%; */
@@ -92,8 +98,21 @@ thead {
 /* thead > tr > .status {
   /* width: 15%; */
 /* } */
-tr > .arrive,
+tr > .status,
+.arrive,
 .depart,
-.ck {
+.ck,
+.typologie {
   font-weight: bold;
+  font-size: 1.5rem;
+  width: 10%;
 }
+tr > .name {
+  width: 15%;
+}
+.status {
+  width: 20%;
+}
+/* header {
+
+} */
