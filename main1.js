@@ -2,15 +2,15 @@
 let tBody = document.createElement("tbody");
 let table = document.getElementById("tableauNumeroapp");
 
-{
-  /* <button class='btn btn-primary' type='button' disabled>
-  <span
-    class='spinner-border spinner-border-sm'
-    role='status'
-    aria-hidden='true'></span>
-  <span class='sr-only'>Loading...</span>
-</button>; */
-}
+// {
+//   /* <button class='btn btn-primary' type='button' disabled>
+//   <span
+//     class='spinner-border spinner-border-sm'
+//     role='status'
+//     aria-hidden='true'></span>
+//   <span class='sr-only'>Loading...</span>
+// </button>; */
+// }
 
 // création du bouton loading
 // let btn = document.createElement("button");
@@ -53,7 +53,8 @@ const DropDownListStatus = () => {
 
 const getDataAppart = () => {
   const url =
-    "https://script.google.com/macros/s/AKfycbyjAGhVaXeo9jH1lTFSRd54xjGpJSVAMRLGZhu2hbhoVV3eX4mBrf9A7Fn7eFwjW0B-WQ/exec";
+    "https://script.google.com/macros/s/AKfycby0Wn8zAfWuV6452DEE60lXDmm24QYb78WPViknHcAvmNiTSvq5x1AwxzqPAeP6xMbj/exec";
+
   fetch(url)
     .then((reponses) => {
       return reponses.json();
@@ -212,19 +213,19 @@ function SenData(valueToSend) {
   let spiner = document.getElementById("spinerHeader");
   spiner.classList = "spinner-border";
   const url =
-    "https://script.google.com/macros/s/AKfycbz98qslEO9THfiFyd7k2Nx5ZcGwcxtOHfvacsWBePjT-RbiIzNM7e0x6jAzqWp6LuGkBw/exec";
+    "https://script.google.com/macros/s/AKfycby0Wn8zAfWuV6452DEE60lXDmm24QYb78WPViknHcAvmNiTSvq5x1AwxzqPAeP6xMbj/exec";
   // let reponsefetch = await
   fetch(url, {
     method: "POST",
 
     mode: "no-cors",
 
-    // cache: "no-cache",
-    // credentials: "include", // include, *same-origin, omit
+    cache: "no-cache",
+    credentials: "same-origin", // include, *same-origin, omit
 
-    // headers: {
-    //   "Content-Type": "application/json", // before ;charset=utf-8  text/plain
-    // },
+    headers: {
+      "Content-Type": "application/json", // before ;charset=utf-8  text/plain
+    },
 
     //redirect: "follow",
     body: JSON.stringify(valueToSend),
