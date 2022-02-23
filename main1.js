@@ -101,9 +101,13 @@ const getDataAppart = () => {
         for (const key in infoappartement) {
           if (key == "numeroApp") {
             let cell = document.createElement("td");
-
             cell.classList =
               "t" + infoappartement.typologie + " numeroApp align-middle";
+            if (infoappartement[key] === 18) {
+              cell.id = "premier";
+            } else if (infoappartement[key] === 124) {
+              cell.id = "deuxieme";
+            }
             cell.innerHTML = infoappartement[key];
 
             cell.setAttribute("scope", "row");
