@@ -20,6 +20,7 @@ footer {
   /* couleur Odalys header */
   background-color: #438eb9;
   color: aliceblue;
+  font-size: 1.5rem;
 }
 
 header > div > ul > li > a {
@@ -113,6 +114,6 @@ tr > .name {
 .status {
   width: 20%;
 }
-/* header {
-
-} */
+footer > div > ul > li > a {
+  color: aliceblue;
+}
