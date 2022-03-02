@@ -188,17 +188,25 @@ const getDataAppart = () => {
             trbody.appendChild(cell);
           } else if (key === "commentaire") {
             let cell = document.createElement("td");
-            let inputComent = document.createElement("input");
-            inputComent.classList =
-              " form-control form-control-lg align-middle";
-            inputComent.type = "text";
-            cell.classList = "commentaire";
+            // let inputComent = document.createElement("input");
+            // inputComent.classList =
+            //   " form-control form-control-lg align-middle";
+            // inputComent.type = "text";
+            cell.classList = "commentaire align-middle";
+            cell.innerHTML = infoappartement[key];
 
-            inputComent.value = infoappartement[key];
-
-            cell.appendChild(inputComent);
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
+            let btn = document.createElement("button");
+            btn.classList = "btn btn-primary Btn-test-Modal edit";
+            btn.innerText = "Edit";
+            btn.setAttribute("type", "button");
+            btn.setAttribute("data-toggle", "modal");
+            btn.setAttribute("data-target", "#exampleModal");
+            let cellBtn = document.createElement("td");
+            cellBtn.classList = "align-middle";
+            cellBtn.appendChild(btn);
+            trbody.appendChild(cellBtn);
           }
           //// ici comment btn
 
@@ -208,6 +216,11 @@ const getDataAppart = () => {
         tBody.appendChild(trbody);
 
         table.appendChild(tBody);
+      });
+      document.querySelectorAll(".edit").forEach((item) => {
+        item.addEventListener("click", (event) => {
+          setModal(event);
+        });
       });
     });
 };
@@ -243,6 +256,8 @@ function SenData(valueToSend) {
       (response) => {
         if (response.status == 0) {
           spiner.classList = "spinner-border d-none";
+
+          location.reload();
         }
       }
 
@@ -253,11 +268,12 @@ function SenData(valueToSend) {
 
       // // if response is okay reload page to set the color
       // if (data[0].status === 0) {
-      //   // location.reload();
+      //   //
       //   // here to check if all is good in the response
       //   console.log([reponsefetch]);
       //
-    );
+    )
+    .then();
 }
 // get the element to send to the google sheet
 async function getChangeStatus(event) {
@@ -327,27 +343,100 @@ const changeColorStatut = (e) => {
   }
 };
 // console.log(eventTarget.classList);
-const createbtn = () => {
-  let tdBtn = document.createElement("td");
-  let btn = document.createElement("button");
-  btn.classList = "btn btn-primary";
-  let spanBtn1 = document.createElement("span");
-  spanBtn1.setAttribute("aria-hidden", false);
-  // il faudrat ouer avec la classe sc-only je pense mais pas sur a regarder vitdeo pour plus
-  spanBtn1.classList = "spinner-border spinner-border-sm ";
-  let spanBtn2 = document.createElement("span");
+// const createbtn = () => {
+//   let tdBtn = document.createElement("td");
+//   let btn = document.createElement("button");
+//   btn.classList = "btn btn-primary";
+//   let spanBtn1 = document.createElement("span");
+//   spanBtn1.setAttribute("aria-hidden", false);
+//   // il faudrat ouer avec la classe sc-only je pense mais pas sur a regarder vitdeo pour plus
+//   spanBtn1.classList = "spinner-border spinner-border-sm ";
+//   let spanBtn2 = document.createElement("span");
 
-  spanBtn2.classList = "sr-only";
-  btn.appendChild(spanBtn1);
-  btn.appendChild(spanBtn2);
-  tdBtn.appendChild(btn);
-  // /// ici termine btn
+//   spanBtn2.classList = "sr-only";
+//   btn.appendChild(spanBtn1);
+//   btn.appendChild(spanBtn2);
+//   tdBtn.appendChild(btn);
+//   // /// ici termine btn
 
-  trbody.appendChild(createbtn());
-  return tdBtn;
-};
+//   trbody.appendChild(createbtn());
+//   return tdBtn;
+// };
+
+function setModal(event) {
+  let headerModal = document.getElementById("headermodal");
+  let modalBody = document.getElementById("modalBody");
+  let tdStatut = document.getElementById("modal-td-status");
+  let tdtypo = document.getElementById("modal-td-typo");
+  let tdname = document.getElementById("modal-td-name");
+  let tdarrive = document.getElementById("modal-td-arrive");
+  let tddepart = document.getElementById("modal-td-depart");
+  let tdck = document.getElementById("modal-td-ck");
+  let textAreaCommentaire = document.getElementById("modal-commentaire-text");
+  // modifier le parent
+  let target = event.target;
+  let valueEvent = event.target.value;
+  let parentTarget = target.parentElement.parentElement;
+
+  let appartement = parentTarget.firstChild.innerText;
+  let status = parentTarget.firstChild.nextSibling.firstChild.value;
+  console.log(appartement);
+  console.log(status);
+  // get las col for the commente
+
+  // get the value of the cell
+  // let commentairetextarea = commentaireTD.lastChild;
+  // get again the last chile of the td first is text ^^
+
+  // get first child of the row event
+  // let appartementTD = rowEvent.firstChild;
+  // // get the next td to get the statut
+  // let colStatut = appartementTD.nextSibling;
+  // // get the value of the cel statue
+  // let statut = colStatut.firstChild.value;
+
+  headerModal.innerText = appartement;
+  tdStatut.innerText = status;
+  tdtypo.innerText = parentTarget.firstChild.nextSibling.nextSibling.innerText;
+  tdname.innerText =
+    parentTarget.firstChild.nextSibling.nextSibling.nextSibling.innerText;
+  tdarrive.innerText =
+    parentTarget.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.innerText;
+  tddepart.innerText =
+    parentTarget.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerText;
+  tdck.innerText =
+    parentTarget.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerText;
+
+  textAreaCommentaire.value =
+    parentTarget.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerText;
+  console.log(tdStatut);
+  $("#myModal").modal("handleUpdate");
+  $("#myModal").modal("show");
+}
+
+function SendValueModal() {
+  let headerModal = document.getElementById("headermodal");
+  let tdStatut = document.getElementById("modal-td-status");
+  let textAreaCommentaire = document.getElementById("modal-commentaire-text");
+  let appartement = headerModal.innerText;
+  let statut = tdStatut.innerText;
+  let commentairetextareavalue = textAreaCommentaire.value;
+
+  const valueToSend = {
+    id: appartement,
+    status: statut,
+    commentaire: commentairetextareavalue,
+  };
+  return SenData(valueToSend);
+}
+
+let btnModal = document.getElementsByClassName("Btn-test-Modal");
 let colStatut = document.getElementsByClassName("status");
+let tr = document.getElementsByClassName("tr");
+let modalBtnSave = document.getElementsByClassName("btn-modal-save");
+
 window.addEventListener("load", getDataAppart());
 table.addEventListener("change", getChangeStatus);
 table.addEventListener("change", changeColorStatut);
 table.addEventListener("change", getChangeStatus);
+// modalBtnSave.addEventListener("click", SendValueModal());

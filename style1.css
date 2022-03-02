@@ -41,13 +41,13 @@ main > #tableauNumeroapp {
   /* align-content: center; */
   /* width: 120%; */
 
-  border: 3px solid black;
+  border: 3px solid #dddddd;
 }
 
 thead {
   font-size: 1.5em;
-  background-color: lavender;
-  border: 3px solid black;
+  background-color: #dddddd;
+  border: 3px solid #dddddd;
 }
 
 .numeroApp {
@@ -93,6 +93,10 @@ thead {
 .libre-sale {
   background-color: lightpink;
 }
+.modal-title {
+  width: 100%;
+  text-align: center;
+}
 /* .commentaire {
   width: 5%;
 } */
@@ -114,6 +118,13 @@ tr > .name {
 .status {
   width: 20%;
 }
+#headermodal {
+  font-size: 2em;
+  font-weight: bolder;
+}
 footer > div > ul > li > a {
   color: aliceblue;
 }
+/* .btnFaux {
+  display: none;
+} */

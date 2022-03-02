@@ -36,10 +36,13 @@
             <div class="spinner-border d-none" role="status" id="spinerHeader">
               <span class="sr-only">Loading...</span>
             </div>
-            <!-- <a class="nav-link" href="#"> </a>
+          </li>
+        </ul>
+
+        <!-- <a class="nav-link" href="#"> </a>
           </li>
           <li class="nav-item"></li>
-        </ul> -->
+          -->
       </div>
     </header>
     <main class="mx-5 mt-2 container-fluide table-responsive-xl">
@@ -47,6 +50,105 @@
         class="table table-borderless table-hover table-sm justify-content-center"
         id="tableauNumeroapp"
       ></table>
+      <!-- Button trigger modal -->
+      <!-- <button type="button" id="" class="btn btn-primary Btn-test-Modal" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+      <!--    -->
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="headermodal">Modal title</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+              <table
+                class="table table-borderless table-hover table-sm justify-content-center"
+                id="modal-table"
+              >
+                <!-- <thead>
+       <tr>
+          <td id="modal-th-status">status</th>
+          <td id="modal-th-typo">typologie</th>
+          <td id="modal-th-name">name</th>
+          <td id="modal-th-arrive">arrive</th>
+          <td id="modal-th-depart">depart</th>
+          <td id="modal-th-ck">CK</th>
+          <td id="modal-th-commentaire">commentaire</th>
+      </tr>
+      </thead> -->
+                <tbody>
+                  <tr>
+                    <th id="modal-th-status">status</th>
+                    <td id="modal-td-status">tdd</td>
+                  </tr>
+
+                  <tr>
+                    <th id="modal-th-typo">typologie</th>
+                    <td id="modal-td-typo"></td>
+                  </tr>
+                  <tr>
+                    <th id="modal-th-name">name</th>
+                    <td id="modal-td-name"></td>
+                  </tr>
+                  <th id="modal-th-arrive">arrive</th>
+                  <td id="modal-td-arrive"></td>
+                  <tr>
+                    <th id="modal-th-depart">depart</th>
+                    <td id="modal-td-depart"></td>
+                  </tr>
+                  <tr>
+                    <th id="modal-th-ck">CK</th>
+                    <td id="modal-td-ck"></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div id="modal-th-commentaire">commentaire</div>
+
+              <textarea
+                name="modal-commentaire-text"
+                id="modal-commentaire-text"
+                cols="40"
+                rows="3"
+              >
+              </textarea>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary btn-modal-save"
+                onclick="SendValueModal()"
+              >
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="container-fluide px-0">
       <div class="row">
