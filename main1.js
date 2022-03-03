@@ -198,7 +198,7 @@ const getDataAppart = () => {
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
             let btn = document.createElement("button");
-            btn.classList = "btn btn-primary Btn-test-Modal edit";
+            btn.classList = "btn btn-primary btn-sm btn-test-Modal edit";
             btn.innerText = "Edit";
             btn.setAttribute("type", "button");
             btn.setAttribute("data-toggle", "modal");
