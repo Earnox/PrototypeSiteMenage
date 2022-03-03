@@ -256,8 +256,14 @@ function SenData(valueToSend) {
       (response) => {
         if (response.status == 0) {
           spiner.classList = "spinner-border d-none";
+          // if()
 
-          location.reload();
+          if (
+            document.getElementById("exampleModal").classList.contains("show")
+          ) {
+            location.reload();
+            // $("#exampleModal").modal("hide");
+          }
         }
       }
 
@@ -380,8 +386,7 @@ function setModal(event) {
 
   let appartement = parentTarget.firstChild.innerText;
   let status = parentTarget.firstChild.nextSibling.firstChild.value;
-  console.log(appartement);
-  console.log(status);
+
   // get las col for the commente
 
   // get the value of the cell
@@ -409,7 +414,7 @@ function setModal(event) {
 
   textAreaCommentaire.value =
     parentTarget.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerText;
-  console.log(tdStatut);
+
   $("#myModal").modal("handleUpdate");
   $("#myModal").modal("show");
 }
@@ -427,6 +432,7 @@ function SendValueModal() {
     status: statut,
     commentaire: commentairetextareavalue,
   };
+
   return SenData(valueToSend);
 }
 
