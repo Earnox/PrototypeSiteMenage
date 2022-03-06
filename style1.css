@@ -123,16 +123,16 @@ tr > .name {
 }
 td.arrive {
   color: green;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 td.depart {
   color: darkmagenta;
 
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 td.ck {
   color: blue;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 /* Modal  */
 
