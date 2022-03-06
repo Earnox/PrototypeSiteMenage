@@ -103,11 +103,7 @@ thead {
 /* thead > tr > .status {
   /* width: 15%; */
 /* } */
-tr > .status,
-.arrive,
-.depart,
-.ck,
-.typologie {
+tr .status {
   font-weight: bold;
   font-size: 1.5rem;
   width: 10%;
@@ -135,10 +131,17 @@ td.ck {
   color: blue;
   font-size: 1.5rem;
 }
+/* Modal  */
 
+#modalBody {
+  text-align: center;
+}
+
+/* end of modal */
 footer > div > ul > li > a {
   color: aliceblue;
 }
+
 /* .btnFaux {
   display: none;
 } */
