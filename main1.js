@@ -165,6 +165,8 @@ const getDataAppart = () => {
             if (infoappartement[key] === "oui") {
               // add incon of boostrap
               cell.classList = "arrive align-middle bi-box-arrow-in-right";
+            } else {
+              cell.classList = "arrive align-middle ";
             }
 
             // cell.setAttribute("scope", "row");
@@ -173,6 +175,8 @@ const getDataAppart = () => {
             let cell = document.createElement("td");
             if (infoappartement[key] === "oui") {
               cell.classList = "depart align-middle bi bi-box-arrow-right";
+            } else {
+              cell.classList = "depart align-middle ";
             }
             //
             // cell.innerHTML = ;
@@ -190,7 +194,10 @@ const getDataAppart = () => {
             let cell = document.createElement("td");
             if (infoappartement[key] === "oui") {
               cell.classList = "ck align-middle bi bi-key-fill";
+            } else {
+              cell.classList = "ck align-middle ";
             }
+            //
             // cell.innerHTML =
 
             // cell.setAttribute("scope", "row");
@@ -385,6 +392,7 @@ function setModal(event) {
   let headerModal = document.getElementById("headermodal");
   let modalBody = document.getElementById("modalBody");
   let tdStatut = document.getElementById("modal-td-status");
+  tdStatut.classList = "align-middle";
   let tdtypo = document.getElementById("modal-td-typo");
   let tdname = document.getElementById("modal-td-name");
   let tdarrive = document.getElementById("modal-td-arrive");
@@ -398,34 +406,30 @@ function setModal(event) {
 
   let appartement = parentTarget.firstChild.innerText;
   let status = parentTarget.firstChild.nextSibling.firstChild.value;
-
-  // get las col for the commente
-
-  // get the value of the cell
-  // let commentairetextarea = commentaireTD.lastChild;
-  // get again the last chile of the td first is text ^^
-
-  // get first child of the row event
-  // let appartementTD = rowEvent.firstChild;
-  // // get the next td to get the statut
-  // let colStatut = appartementTD.nextSibling;
-  // // get the value of the cel statue
-  // let statut = colStatut.firstChild.value;
+  let status2 = parentTarget.querySelector(".depart").classList;
 
   headerModal.innerText = appartement;
+
   tdStatut.innerText = status;
-  tdtypo.innerText = parentTarget.firstChild.nextSibling.nextSibling.innerText;
-  tdname.innerText =
-    parentTarget.firstChild.nextSibling.nextSibling.nextSibling.innerText;
-  tdarrive.innerText =
-    parentTarget.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.innerText;
-  tddepart.innerText =
-    parentTarget.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerText;
-  tdck.innerText =
-    parentTarget.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerText;
+  // typologie
+  tdtypo.innerText = parentTarget.querySelector(".typologie").innerText;
+  //name
+  tdname.innerText = parentTarget.querySelector(".name").innerText;
+
+  // arrive
+  // tdarrive.innerText = parentTarget.querySelector(".arrive").innerText;
+  tdarrive.classList = parentTarget.querySelector(".arrive").classList;
+  //depart
+  // tddepart.innerText = parentTarget.querySelector(".depart").innerText;
+  tddepart.classList = parentTarget.querySelector(".depart").classList;
+  console.log(tddepart);
+  //ck
+  // tdck.innerText = parentTarget.querySelector(".ck").innerText;
+  tdck.classList = parentTarget.querySelector(".ck").classList;
+  //commentaire
 
   textAreaCommentaire.value =
-    parentTarget.firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerText;
+    parentTarget.querySelector(".commentaire").innerText;
 
   $("#myModal").modal("handleUpdate");
   $("#myModal").modal("show");
