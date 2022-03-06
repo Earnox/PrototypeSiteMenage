@@ -90,7 +90,7 @@ const getDataAppart = () => {
         }
         return th;
       });
-
+      thead.classList = "thead-light";
       thead.appendChild(trHeader);
       table.appendChild(thead);
       return headers;
