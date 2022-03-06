@@ -162,14 +162,20 @@ const getDataAppart = () => {
             trbody.appendChild(cell);
           } else if (key === "arrive") {
             let cell = document.createElement("td");
-            cell.classList = "arrive align-middle";
-            cell.innerHTML = infoappartement[key];
+            if (infoappartement[key] === "oui") {
+              // add incon of boostrap
+              cell.classList = "arrive align-middle bi-box-arrow-in-right";
+            }
+
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
           } else if (key === "depart") {
             let cell = document.createElement("td");
-            cell.classList = "depart align-middle ";
-            cell.innerHTML = infoappartement[key];
+            if (infoappartement[key] === "oui") {
+              cell.classList = "depart align-middle bi bi-box-arrow-right";
+            }
+            //
+            // cell.innerHTML = ;
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
           }
@@ -182,8 +188,11 @@ const getDataAppart = () => {
           // }
           else if (key === "ck") {
             let cell = document.createElement("td");
-            cell.classList = "ck align-middle";
-            cell.innerHTML = infoappartement[key];
+            if (infoappartement[key] === "oui") {
+              cell.classList = "ck align-middle bi bi-key-fill";
+            }
+            // cell.innerHTML =
+
             // cell.setAttribute("scope", "row");
             trbody.appendChild(cell);
           } else if (key === "commentaire") {
@@ -293,10 +302,9 @@ async function getChangeStatus(event) {
   // get first col for id
   let appartement = rowEvent.firstChild.innerText;
   // get las col for the commente
+  console.log();
+  let commentaireTD = rowEvent.querySelector(".commentaire");
 
-  let commentaireTD =
-    rowEvent.firstChild.nextSibling.nextSibling.nextSibling.nextSibling
-      .nextSibling.nextSibling.nextSibling;
   // get the value of the cell
   // let commentairetextarea = commentaireTD.lastChild;
   // get again the last chile of the td first is text ^^

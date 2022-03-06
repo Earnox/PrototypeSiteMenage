@@ -122,6 +122,20 @@ tr > .name {
   font-size: 2em;
   font-weight: bolder;
 }
+td.arrive {
+  color: green;
+  font-size: 2rem;
+}
+td.depart {
+  color: darkmagenta;
+
+  font-size: 2rem;
+}
+td.ck {
+  color: blue;
+  font-size: 2rem;
+}
+
 footer > div > ul > li > a {
   color: aliceblue;
 }
