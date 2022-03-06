@@ -111,6 +111,9 @@ tr .status {
 tr > .name {
   width: 15%;
 }
+.name {
+  font-weight: bolder;
+}
 .status {
   width: 20%;
 }
