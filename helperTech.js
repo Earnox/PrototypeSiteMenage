@@ -291,6 +291,7 @@ const sendNewInteventionTech = () => {
   let statut = bodyModalnvIntentionTech.querySelector("#statutNvModalIntTech");
 
   const valueToSend = {
+    requet: "newInter",
     id: id.value,
     date: date.value,
     post: post.value,
@@ -302,8 +303,72 @@ const sendNewInteventionTech = () => {
     remarque: remarque.value,
     statut: statut.value,
   };
-  return console.table(valueToSend);
+  return SenDataNewIntention(valueToSend);
 };
+
+function SenDataNewIntention(valueToSend) {
+  // let spiner = document.getElementById("spinerHeader");
+  // spiner.classList = "spinner-border";
+  const url =
+    "https://script.google.com/macros/s/AKfycbxl_tge5WmTmIVQmIYcUNM17kysKEuLc1lLTWz1LGfBZzL2wT_niz4zDbsOBnLD_koN/exec";
+
+  // let reponsefetch = await
+  fetch(url, {
+    method: "POST",
+
+    mode: "no-cors",
+
+    cache: "no-cache",
+    credentials: "same-origin", // include, *same-origin, omit
+
+    headers: {
+      "Content-Type": "application/json", // before ;charset=utf-8  text/plain
+    },
+
+    //redirect: "follow",
+    body: JSON.stringify(valueToSend),
+  })
+    // .then((reponsefetch) => {
+    //   reponsefetch = reponsefetch.json();
+    .catch((erreur) => {
+      console.log(erreur);
+    })
+    .then((response) => {
+      console.log(response.ok);
+      return response;
+    })
+    .then(
+      (response) => {
+        console.log(response);
+        if (!response.ok) {
+          // spiner.classList = "spinner-border d-none";
+          // if()
+          console.log("gg");
+
+          // if (
+          //   document.getElementById("exampleModal").classList.contains("show")
+          // ) {
+          //   location.reload();
+          //   // $("#exampleModal").modal("hide");
+          // }
+        }
+      }
+
+      // })
+
+      // get the response in a array to be able to read
+      //
+
+      // // if response is okay reload page to set the color
+      // if (data[0].status === 0) {
+      //   //
+      //   // here to check if all is good in the response
+      //   console.log([reponsefetch]);
+      //
+    )
+    .then();
+}
+
 let btnModal = document.getElementsByClassName("Btn-test-Modal");
 let modalBtnSave = document.getElementsByClassName("btn-modal-save");
 let btnTest = document.querySelector("#btnTest");

@@ -24,7 +24,7 @@
   <body>
     <header class="container-fluide px-0">
       <div class="row">
-        <h1 class="col-lg-8 col-12">Intervention Tech</h1>
+        <h1 class="col-lg-8 col-12">Intervention Tech En cour de dév</h1>
 
         <ul
           class="nav justify-content-lg-end justify-content-center col-lg-4 col-12"
@@ -33,14 +33,15 @@
             <a class="nav-link" href="index.html">Gouvernance</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#premier">1 étage </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#deuxieme">2 étage</a>
+            <button id="btnTest">+</button>
           </li>
 
           <li class="nav-item">
-            <div class="spinner-border d-none" role="status" id="spinerHeader">
+            <div
+              class="spinner-border d-none"
+              role="status"
+              id="spinerHeadertech"
+            >
               <span class="sr-only">Loading...</span>
             </div>
           </li>
@@ -59,7 +60,7 @@
         id="tableauIterventionTech"
       ></table>
 
-      <!-- Modal -->
+      <!-- Modal pour edit -->
       <div
         class="modal fade"
         id="modalTech"
@@ -360,7 +361,6 @@
           </li>
         </ul>
       </div>
-      <button id="btnTest"></button>
     </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

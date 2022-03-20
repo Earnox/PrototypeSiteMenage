@@ -148,3 +148,10 @@ footer > div > ul > li > a {
 /* .btnFaux {
   display: none;
 } */
+
+/* here Start the css intervention Tech  */
+#btnTest {
+  height: 50px;
+  width: 50px;
+  background-color: #f1d0ec;
+}
