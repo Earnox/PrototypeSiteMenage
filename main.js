@@ -150,12 +150,12 @@ async function getChangeStatus(event) {
   let appartement = rowEvent.firstChild.innerText;
   // get las col for the commente
   let commentaireTD = rowEvent.lastChild;
-  console.log(commentaireTD);
+
   // get the value of the cell
   let commentairetextarea = commentaireTD.lastChild;
   // get again the last chile of the td first is text ^^
   let commentairetextareavalue = commentairetextarea.value;
-  console.log(commentairetextareavalue);
+
   // get first child of the row event
   let appartementTD = rowEvent.firstChild;
   // get the next td to get the statut

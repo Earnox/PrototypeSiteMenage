@@ -310,14 +310,13 @@ async function getChangeStatus(event) {
   // get first col for id
   let appartement = rowEvent.firstChild.innerText;
   // get las col for the commente
-  console.log();
+
   let commentaireTD = rowEvent.querySelector(".commentaire");
 
   // get the value of the cell
   // let commentairetextarea = commentaireTD.lastChild;
   // get again the last chile of the td first is text ^^
   let commentairetextareavalue = commentaireTD.innerText;
-  console.log(commentairetextareavalue);
 
   // get first child of the row event
   let appartementTD = rowEvent.firstChild;
