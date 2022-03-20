@@ -249,7 +249,7 @@ const GetDataTech = () => {
         });
         document.querySelectorAll(".edit").forEach((item) => {
           item.addEventListener("click", (event) => {
-            setModal(event);
+            setEditModal(event);
           });
         });
       });
@@ -266,9 +266,16 @@ const GetDataTech = () => {
 //   remarque: "Arrivée du jour",
 //     statut: "résolu", … }
 
-function newInterventionModal() {
+function setNewModal() {
   $("#modalNouvelleIntTech").modal("handleUpdate");
   $("#modalNouvelleIntTech").modal("show");
+}
+function setEditModal(event) {
+  let modalEdit = document.querySelector("#modalEditIntTech");
+  let modalEditBody = document.querySelector("#bodyEditModalIntTech");
+
+  $("#modalEditIntTech").modal("handleUpdate");
+  $("#modalEditIntTech").modal("show");
 }
 const sendNewInteventionTech = () => {
   let bodyModalnvIntentionTech = document.querySelector("#bodyNvModalIntTech");
@@ -348,7 +355,7 @@ function SenDataNewIntention(valueToSend) {
           // if (
           //   document.getElementById("exampleModal").classList.contains("show")
           // ) {
-          //   location.reload();
+          location.reload();
           //   // $("#exampleModal").modal("hide");
           // }
         }
@@ -372,5 +379,7 @@ function SenDataNewIntention(valueToSend) {
 let btnModal = document.getElementsByClassName("Btn-test-Modal");
 let modalBtnSave = document.getElementsByClassName("btn-modal-save");
 let btnTest = document.querySelector("#btnTest");
+let btnEditTable = document.querySelectorAll(".btn-test-Modal");
 window.addEventListener("load", GetDataTech);
-btnTest.addEventListener("click", newInterventionModal);
+btnTest.addEventListener("click", setNewModal);
+// btnEditTable.addEventListener("click", setEditModal);

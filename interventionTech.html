@@ -61,9 +61,10 @@
       ></table>
 
       <!-- Modal pour edit -->
+
       <div
         class="modal fade"
-        id="modalTech"
+        id="modalEditIntTech"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
@@ -72,8 +73,8 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="headermodal">
-                Nouvelle Intervention tech
+              <h5 class="modal-title" id="headerEditModalIntTech">
+                Edit Intervention tech
               </h5>
               <button
                 type="button"
@@ -84,73 +85,133 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" id="modalBody">
-              <table
-                class="table table-borderless table-hover justify-content-start"
-                id="modal-table"
-              >
-                <!-- table-sm justify-content-center -->
-                <thead></thead>
-                <tbody class="">
-                  <tr class="">
-                    <th id="modal-th-id">Id</th>
-                    <td id="modal-td-id">tdd</td>
-                  </tr>
+            <div class="modal-body" id="bodyEditModalIntTech">
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="idEditModalIntTech">ID</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="idEditModalIntTech"
+                      placeholder="id"
+                      readonly
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="dateEditModalIntTech">Date</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="dateNvModalIntTech"
+                      placeholder="date"
+                    />
+                  </div>
+                </div>
 
-                  <tr class="">
-                    <th id="modal-th-date">Date</th>
-                    <td id="modal-td-date"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-post">Post</th>
-                    <td id="modal-td-post"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-appartement">Lieu</th>
-                    <td id="modal-td-appartement"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-natureInervention">
-                      Nature d'inervention
-                    </th>
-                    <td id="modal-td-natureInervention"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-risque">Risque</th>
-                    <td id="modal-td-risque"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-information">Information</th>
-                    <td id="modal-td-information"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-dateIntevention">Date Intevention</th>
-                    <td id="modal-td-dateIntevention"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-remarque">Remarque</th>
-                    <td id="modal-td-remarque"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-statut">Statut</th>
-                    <td id="modal-td-statut"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-photo">Photo</th>
-                    <td id="modal-td-photo"></td>
-                  </tr>
-                </tbody>
-              </table>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="postEditModalIntTech">Poste</label>
+                    <!-- les options Direction,Reception,Gouvernante,Technique -->
+                    <select id="postEditModalIntTech" class="form-control">
+                      <option value="Reception" selected>réception</option>
+                      <option value="Direction">Direction</option>
+                      <option value="Gouvernante">Gouvernante</option>
+                      <option value="Technique">Technique</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="lieuEditModalIntTech">lieu </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lieuEditModalIntTech"
+                      placeholder="Apartment, studio, or floor"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="natureEditInteventionNvModalIntTech"
+                      >Nature d'inervention
+                    </label>
+                    <textarea
+                      class="form-control"
+                      id="natureEditInteventionNvModalIntTech"
+                      rows="1"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="risqueEditModalIntTech">Risque</label>
 
-              <div id="modal-th-commentaire">Commentaire</div>
+                    <!-- les options Aucun, Animaux, Enfant  -->
+                    <select id="risqueEditModalIntTech" class="form-control">
+                      <option value="" selected></option>
+                      <option value="Animaux">Animaux</option>
+                      <option value="Enfant">Enfant</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="infoEditModalIntTech">Info</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="infoEditModalIntTech"
+                      placeholder="Apartment, studio, or floor"
+                      readonly
+                    />
+                  </div>
 
-              <textarea
-                name="modal-commentaire-text"
-                id="modal-commentaire-text"
-                cols="40"
-                rows="3"
-              >
-              </textarea>
+                  <div class="form-group col-md-4">
+                    <label for="dateRealiserEditModalIntTech"
+                      >Date Réaliser
+                    </label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="dateRealiserEditModalIntTech"
+                      placeholder="date"
+                      readonly
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="remarqueInteventionEditModalIntTech"
+                      >Remarque</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="remarqueInteventionEditModalIntTech"
+                      rows="1"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="statutEditModalIntTech">Statut</label>
+                    <!-- les options Action prioritaire,Arrivée du jour,,résolu,En Attente,En Commande,départ du client,VTA,bloqué tech -->
+                    <select id="statutEditModalIntTech" class="form-control">
+                      <option value="demande inter" selected>
+                        demande intervention
+                      </option>
+                      <option value="Arrivée du jour">Arrivée du jour</option>
+
+                      <option value="bloqué tech">bloqué tech</option>
+                      <option value="VTA">VTA</option>
+                      <option value="départ du client">départ du client</option>
+                      <option value="En Commande">En Commande</option>
+                      <option value="En Attente">En Attente</option>
+                      <option value="résolu">résolu</option>
+                      <option value="Action prioritaire">
+                        Action prioritaire
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </form>
             </div>
             <div class="modal-footer">
               <button
@@ -163,7 +224,7 @@
               <button
                 type="button"
                 class="btn btn-primary btn-modal-save"
-                onclick="SendValueModal()"
+                onclick="sendNewInteventionTech()"
               >
                 Save changes
               </button>
@@ -172,6 +233,7 @@
         </div>
       </div>
 
+      <!-- End of edit modal  -->
       <!-- New modal for new intervention  -->
       <div
         class="modal fade"
@@ -306,7 +368,7 @@
                     <!-- les options Action prioritaire,Arrivée du jour,demande 
                     inter,résolu,En Attente,En Commande,départ du client,VTA,bloqué tech -->
                     <select id="statutNvModalIntTech" class="form-control">
-                      <option value="demande intervention" selected>
+                      <option value="demande inter" selected>
                         demande intervention
                       </option>
                       <option value="Arrivée du jour">Arrivée du jour</option>
