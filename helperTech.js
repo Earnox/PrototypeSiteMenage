@@ -169,6 +169,7 @@ const GetDataTech = () => {
             } else if (key === "dateIntevention") {
               let cell = document.createElement("td");
               if (infoIntervention[key] === "") {
+                cell.classList = "dateIntevention";
                 cell.style.display = "none";
                 trbody.appendChild(cell);
               } else if (infoIntervention[key] != "") {
@@ -274,6 +275,49 @@ function setEditModal(event) {
   let modalEdit = document.querySelector("#modalEditIntTech");
   let modalEditBody = document.querySelector("#bodyEditModalIntTech");
 
+  let idModal = modalEditBody.querySelector("#idEditModalIntTech");
+  let dateModal = modalEditBody.querySelector("#dateEditModalIntTech");
+  let postModal = modalEditBody.querySelector("#postEditModalIntTech");
+  let lieuModal = modalEditBody.querySelector("#lieuEditModalIntTech");
+
+  let natureInteventionModal = modalEditBody.querySelector(
+    "#natureEditInteventionNvModalIntTech"
+  );
+  let risqueModal = modalEditBody.querySelector("#risqueEditModalIntTech");
+  let infoModal = modalEditBody.querySelector("#infoEditModalIntTech");
+  let dateRalisation = modalEditBody.querySelector(
+    "#dateRealiserEditModalIntTech"
+  );
+  let remarqueModal = modalEditBody.querySelector(
+    "#remarqueInteventionEditModalIntTech"
+  );
+  let statutModal = modalEditBody.querySelector("#statutEditModalIntTech");
+
+  let target = event.target;
+  let rowevent = target.parentElement.parentElement;
+
+  let id = rowevent.querySelector(".id");
+  let date = rowevent.querySelector(".date");
+  let post = rowevent.querySelector(".post");
+  let appartement = rowevent.querySelector(".appartement");
+  let natureInervention = rowevent.querySelector(".natureInervention");
+  let risque = rowevent.querySelector(".risque");
+  let information = rowevent.querySelector(".information");
+  let dateIntevention = rowevent.querySelector(".dateIntevention");
+  let remarque = rowevent.querySelector(".remarque");
+  let status = rowevent.querySelector(".status ");
+  // let photo = rowevent.querySelector(".photo ");
+  console.log(status.firstChild.value);
+  idModal.value = id.innerHTML;
+  dateModal.value = date.innerHTML;
+  postModal.value = post.innerHTML;
+  lieuModal.value = appartement.innerHTML;
+  natureInteventionModal.value = natureInervention.innerHTML;
+  risqueModal.value = risque.innerHTML;
+  infoModal.value = information.innerHTML;
+  dateRalisation.value = dateIntevention.innerHTML;
+  remarqueModal.value = remarque.innerHTML;
+  statutModal.value = status.firstChild.value;
   $("#modalEditIntTech").modal("handleUpdate");
   $("#modalEditIntTech").modal("show");
 }
