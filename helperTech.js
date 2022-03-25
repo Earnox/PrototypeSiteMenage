@@ -39,6 +39,7 @@ const DropDownListStatus = () => {
 
 function createDate(date) {
   var date = new Date(date);
+  //2022-03-10
   const months = [
     "JAN",
     "FEV",
@@ -55,8 +56,9 @@ function createDate(date) {
   ];
 
   const formatDate = (date) => {
-    let formatted_date = date.getDate() + "-" + months[date.getMonth()];
-    // + "-" + date.getFullYear();
+    let formatted_date =
+      date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
+    // + "-" + ;
     return formatted_date;
   };
   return formatDate(date);
@@ -64,7 +66,7 @@ function createDate(date) {
 
 const GetDataTech = () => {
   const url =
-    "https://script.google.com/macros/s/AKfycbzBIkWiWkyohhx5ErmZQfFFaiw0L9ECyr2gDjeBga-rZKqLlHPpOcYwRhRsOJLYiZ26/exec";
+    "https://script.google.com/macros/s/AKfycbwuq9zahDbJOetGNYNaJxc7dX9YzrLWhBsNZoqEarDb2GOpa7hzGSQOBFWNLrFO6jpx/exec";
   fetch(url).then((reponses) => {
     reponses
       .json()
@@ -77,7 +79,6 @@ const GetDataTech = () => {
         // ne pas montre certain element pour les stocker ou les rajouter au bessoin
         header.forEach((element) => {
           if (element == "id") {
-            console.log("test");
             let th = document.createElement("th");
             th.innerText = element;
             th.style.display = "none";
@@ -236,7 +237,6 @@ const GetDataTech = () => {
               cellBtn.classList = "align-middle";
               cellBtn.appendChild(btn);
               trbody.appendChild(cellBtn);
-              //  }
             } else if (key === "photo") {
               let cell = document.createElement("td");
               cell.innerHTML = infoIntervention[key];
@@ -257,17 +257,16 @@ const GetDataTech = () => {
   });
 };
 
-// { id: 1, date: "2022-03-05T08:00:00.000Z",
-// post: "Gouvernante",
-//   appartement: "116",
-//   natureInervention: "Ampoule hs lape droite au dessus du canapé",
-//   risque: "",
-//   information: "",
-//   dateIntevention: "2022-03-05T08:00:00.000Z",
-//   remarque: "Arrivée du jour",
-//     statut: "résolu", … }
-
 function setNewModal() {
+  document.getElementById("formNew").reset();
+  let id = () => {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  };
+  let idmodalNew = document.getElementById("idNvModalIntTech");
+
+  idmodalNew.value = id();
   $("#modalNouvelleIntTech").modal("handleUpdate");
   $("#modalNouvelleIntTech").modal("show");
 }
@@ -306,8 +305,9 @@ function setEditModal(event) {
   let dateIntevention = rowevent.querySelector(".dateIntevention");
   let remarque = rowevent.querySelector(".remarque");
   let status = rowevent.querySelector(".status ");
+
   // let photo = rowevent.querySelector(".photo ");
-  console.log(status.firstChild.value);
+
   idModal.value = id.innerHTML;
   dateModal.value = date.innerHTML;
   postModal.value = post.innerHTML;
@@ -356,12 +356,49 @@ const sendNewInteventionTech = () => {
   };
   return SenDataNewIntention(valueToSend);
 };
+const sendEditInteventioTech = () => {
+  let modalEdit = document.querySelector("#modalEditIntTech");
+  let modalEditBody = document.querySelector("#bodyEditModalIntTech");
 
+  let idModal = modalEditBody.querySelector("#idEditModalIntTech");
+  let dateModal = modalEditBody.querySelector("#dateEditModalIntTech");
+  let postModal = modalEditBody.querySelector("#postEditModalIntTech");
+  let lieuModal = modalEditBody.querySelector("#lieuEditModalIntTech");
+
+  let natureInteventionModal = modalEditBody.querySelector(
+    "#natureEditInteventionNvModalIntTech"
+  );
+  let risqueModal = modalEditBody.querySelector("#risqueEditModalIntTech");
+  let infoModal = modalEditBody.querySelector("#infoEditModalIntTech");
+  let dateRalisation = modalEditBody.querySelector(
+    "#dateRealiserEditModalIntTech"
+  );
+  let remarqueModal = modalEditBody.querySelector(
+    "#remarqueInteventionEditModalIntTech"
+  );
+  let statutModal = modalEditBody.querySelector("#statutEditModalIntTech");
+
+  const valueToSend = {
+    requet: "editIntevention",
+    id: idModal.value,
+    date: dateModal.value,
+    post: postModal.value,
+    lieu: lieuModal.value,
+    natureIntevention: natureInteventionModal.value,
+    risque: risqueModal.value,
+    info: infoModal.value,
+    dateRalisation: dateRalisation.value,
+    remarque: remarqueModal.value,
+    statut: statutModal.value,
+  };
+  console.log(valueToSend);
+  return SenDataNewIntention(valueToSend);
+};
 function SenDataNewIntention(valueToSend) {
   // let spiner = document.getElementById("spinerHeader");
   // spiner.classList = "spinner-border";
   const url =
-    "https://script.google.com/macros/s/AKfycbxl_tge5WmTmIVQmIYcUNM17kysKEuLc1lLTWz1LGfBZzL2wT_niz4zDbsOBnLD_koN/exec";
+    "https://script.google.com/macros/s/AKfycbwuq9zahDbJOetGNYNaJxc7dX9YzrLWhBsNZoqEarDb2GOpa7hzGSQOBFWNLrFO6jpx/exec";
 
   // let reponsefetch = await
   fetch(url, {
@@ -427,3 +464,4 @@ let btnEditTable = document.querySelectorAll(".btn-test-Modal");
 window.addEventListener("load", GetDataTech);
 btnTest.addEventListener("click", setNewModal);
 // btnEditTable.addEventListener("click", setEditModal);
+// col eta SELECT(Import rangew[information], ([Appartement] = [_THISROW].[Appartement])) pour ajout si bug

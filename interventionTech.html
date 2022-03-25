@@ -101,10 +101,10 @@
                   <div class="form-group col-md-6">
                     <label for="dateEditModalIntTech">Date</label>
                     <input
-                      type="date"
+                      type="text"
                       class="form-control"
                       id="dateEditModalIntTech"
-                      placeholder="date"
+                      placeholder="Date"
                     />
                   </div>
                 </div>
@@ -224,7 +224,7 @@
               <button
                 type="button"
                 class="btn btn-primary btn-modal-save"
-                onclick="sendNewInteventionTech()"
+                onclick="sendEditInteventioTech()"
               >
                 Save changes
               </button>
@@ -259,12 +259,12 @@
               </button>
             </div>
             <div class="modal-body" id="bodyNvModalIntTech">
-              <form>
+              <form id="formNew">
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="idNvModalIntTech">ID</label>
                     <input
-                      type="number"
+                      type="text"
                       class="form-control"
                       id="idNvModalIntTech"
                       placeholder="id"
