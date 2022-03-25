@@ -40,20 +40,6 @@ const DropDownListStatus = () => {
 function createDate(date) {
   var date = new Date(date);
   //2022-03-10
-  const months = [
-    "JAN",
-    "FEV",
-    "MAR",
-    "AVR",
-    "MAI",
-    "JUN",
-    "JUL",
-    "AOUT",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DEC",
-  ];
 
   const formatDate = (date) => {
     let formatted_date =
@@ -66,7 +52,7 @@ function createDate(date) {
 
 const GetDataTech = () => {
   const url =
-    "https://script.google.com/macros/s/AKfycbwuq9zahDbJOetGNYNaJxc7dX9YzrLWhBsNZoqEarDb2GOpa7hzGSQOBFWNLrFO6jpx/exec";
+    "https://script.google.com/macros/s/AKfycbzNtaNcX8zovKIEx0mZetSageepeBjYRzeqOvXWozThYJwXA4R2hFm6N1fEdgTJuOW6/exec";
   fetch(url).then((reponses) => {
     reponses
       .json()
@@ -398,7 +384,7 @@ function SenDataNewIntention(valueToSend) {
   // let spiner = document.getElementById("spinerHeader");
   // spiner.classList = "spinner-border";
   const url =
-    "https://script.google.com/macros/s/AKfycbwuq9zahDbJOetGNYNaJxc7dX9YzrLWhBsNZoqEarDb2GOpa7hzGSQOBFWNLrFO6jpx/exec";
+    "https://script.google.com/macros/s/AKfycbzNtaNcX8zovKIEx0mZetSageepeBjYRzeqOvXWozThYJwXA4R2hFm6N1fEdgTJuOW6/exec";
 
   // let reponsefetch = await
   fetch(url, {
