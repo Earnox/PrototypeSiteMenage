@@ -175,43 +175,46 @@ const GetDataTech = () => {
             }
 
             if (key == "statut") {
-              let listStatut = DropDownListStatus();
+              // let listStatut = DropDownListStatus();
               let cell = document.createElement("td");
+              cell.innerHTML = infoIntervention[key];
+
               // liste des statu possible
               // Action prioritaire,Arrivée du jour,demande inter,résolu,En Attente,En Commande,départ du client,
               //VTA, bloqué tech
               if (infoIntervention[key] === "Action prioritaire") {
-                listStatut.classList = "action-prioritaire ";
-                listStatut.options[0].setAttribute("selected", true);
+                cell.classList = "action-prioritaire ";
+                // listStatut.options[0].setAttribute("selected", true);
               } else if (infoIntervention[key] == "Arrivée du jour") {
-                listStatut.classList = "arrivee-du-jour";
-                listStatut.options[1].setAttribute("selected", true);
+                cell.classList = "arrivee-du-jour";
+                // listStatut.options[1].setAttribute("selected", true);
               } else if (infoIntervention[key] == "demande inter") {
-                listStatut.classList = "demande-inter";
-                listStatut.options[2].setAttribute("selected", true);
+                cell.classList = "demande-inter";
+                // listStatut.options[2].setAttribute("selected", true);
               } else if (infoIntervention[key] == "résolu") {
-                listStatut.classList = "resolu";
-                listStatut.options[3].setAttribute("selected", true);
+                cell.classList = "resolu";
+                // listStatut.options[3].setAttribute("selected", true);
               } else if (infoIntervention[key] == "En Attente") {
-                listStatut.classList = "en-Attente";
-                listStatut.options[4].setAttribute("selected", true);
+                cell.classList = "en-Attente";
+                // listStatut.options[4].setAttribute("selected", true);
               } else if (infoIntervention[key] == "En Commande") {
-                listStatut.classList = "en-Commande";
-                listStatut.options[5].setAttribute("selected", true);
+                cell.classList = "en-Commande";
+                // listStatut.options[5].setAttribute("selected", true);
               } else if (infoIntervention[key] == "départ du client") {
-                listStatut.classList = "depart-du-client";
-                listStatut.options[6].setAttribute("selected", true);
+                cell.classList = "depart-du-client";
+                // listStatut.options[6].setAttribute("selected", true);
               } else if (infoIntervention[key] == "VTA") {
-                listStatut.classList = "vta";
-                listStatut.options[7].setAttribute("selected", true);
+                cell.classList = "vta";
+                // listStatut.options[7].setAttribute("selected", true);
               } else if (infoIntervention[key] == "bloqué tech") {
-                listStatut.classList = "bloque-tech";
-                listStatut.options[8].setAttribute("selected", true);
+                cell.classList = "bloque-tech";
+                // listStatut.options[8].setAttribute("selected", true);
               }
-              listStatut.classList =
-                "form-control form-control-lg " + listStatut.classList;
-              cell.classList = "status align-items-center";
-              cell.appendChild(listStatut);
+              // listStatut.classList =
+              //   "form-control form-control-lg " + listStatut.classList;
+              // cell.classList = "status align-items-center";
+              // cell.appendChild(listStatut);
+              cell.classList += " status";
               trbody.appendChild(cell);
               let btn = document.createElement("button");
               btn.classList =
@@ -303,7 +306,7 @@ function setEditModal(event) {
   infoModal.value = information.innerHTML;
   dateRalisation.value = dateIntevention.innerHTML;
   remarqueModal.value = remarque.innerHTML;
-  statutModal.value = status.firstChild.value;
+  statutModal.value = status.innerHTML;
   $("#modalEditIntTech").modal("handleUpdate");
   $("#modalEditIntTech").modal("show");
 }
