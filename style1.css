@@ -153,5 +153,48 @@ footer > div > ul > li > a {
 #btnTest {
   height: 50px;
   width: 50px;
-  background-color: #f1d0ec;
+  background-color: #1600dd;
+  color: aliceblue;
+  border-radius: 50%;
 }
+.action-prioritaire {
+  background-color: red;
+}
+.arrivee-du-jour {
+  background-color: lightyellow;
+}
+.demande-inter {
+  background-color: lightsalmon;
+}
+.resolu {
+  background-color: lightseagreen;
+}
+.en-Attente {
+  background-color: lightcoral;
+}
+.en-Commande {
+  background-color: #ffe599;
+}
+.depart-du-client {
+  background-color: rgb(190, 84, 190);
+}
+.vta {
+  background-color: lightskyblue;
+}
+.bloque-tech {
+  background-color: #1600dd;
+}
+/* 
+      " ";
+             
+  
+ "";
+ "";
+
+ "en-Attente";
+ "en-Commande";
+ "depart-du-client";
+ "vta";
+ "";
+              
+*/
