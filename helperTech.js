@@ -311,6 +311,8 @@ function setEditModal(event) {
   $("#modalEditIntTech").modal("show");
 }
 const sendNewInteventionTech = () => {
+  document.getElementById("btnNewInterSave").disabled = true;
+
   let bodyModalnvIntentionTech = document.querySelector("#bodyNvModalIntTech");
   let id = bodyModalnvIntentionTech.querySelector("#idNvModalIntTech");
   let date = bodyModalnvIntentionTech.querySelector("#dateNvModalIntTech");
@@ -346,6 +348,7 @@ const sendNewInteventionTech = () => {
   return SenDataNewIntention(valueToSend);
 };
 const sendEditInteventioTech = () => {
+  document.getElementById("btnEditSave").disabled = true;
   let modalEdit = document.querySelector("#modalEditIntTech");
   let modalEditBody = document.querySelector("#bodyEditModalIntTech");
 
