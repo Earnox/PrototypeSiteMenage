@@ -299,7 +299,7 @@ function setEditModal(event) {
   let information = rowevent.querySelector(".information");
   let dateIntevention = rowevent.querySelector(".dateIntevention");
   let remarque = rowevent.querySelector(".remarque");
-  let status = rowevent.querySelector(".status ");
+  let status = rowevent.querySelector(".statut-Inter ");
 
   // let photo = rowevent.querySelector(".photo ");
 
