@@ -1,5 +1,7 @@
 let tBody = document.createElement("tbody");
 let table = document.getElementById("tableauIterventionTech");
+let editTd = document.createElement("th");
+editTd.classList = "tdheaderEdit";
 
 function setModal(event) {
   console.log("btn marche");
@@ -95,14 +97,18 @@ const GetDataTech = () => {
             return theadRow.append(th);
           } else {
             let th = document.createElement("th");
+
             th.append(element);
-            theadRow.append(th);
+
             return theadRow.append(th);
           }
         });
-
+        // editTd.innerText = "test";
+        theadRow.appendChild(editTd);
         theadInter.append(theadRow);
+
         tableauInter.append(theadInter);
+        theadInter.classList = "thead-light";
         return reponses;
       })
       //pareil que la premer boucle sauf  pour toute le tableau
@@ -214,7 +220,7 @@ const GetDataTech = () => {
               //   "form-control form-control-lg " + listStatut.classList;
               // cell.classList = "status align-items-center";
               // cell.appendChild(listStatut);
-              cell.classList += " status";
+              cell.classList += " statut-Inter";
               trbody.appendChild(cell);
               let btn = document.createElement("button");
               btn.classList =
@@ -223,7 +229,7 @@ const GetDataTech = () => {
               btn.setAttribute("data-toggle", "modal");
               btn.setAttribute("data-target", "#exampleModal");
               let cellBtn = document.createElement("td");
-              cellBtn.classList = "align-middle";
+              cellBtn.classList = "align-middle tdEdit";
               cellBtn.appendChild(btn);
               trbody.appendChild(cellBtn);
             } else if (key === "photo") {

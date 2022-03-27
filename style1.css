@@ -5,6 +5,7 @@ body {
   width: 100%;
   overflow-x: hidden;
   position: relative;
+  background-color: rgb(234, 249, 250);
 }
 header {
   width: 100%;
@@ -46,7 +47,7 @@ main > #tableauNumeroapp {
 
 thead {
   font-size: 1.5em;
-  background-color: #dddddd;
+  /* background-color: #dddddd; */
   /* border: 3px solid #dddddd; */
 }
 
@@ -97,12 +98,7 @@ thead {
   width: 100%;
   text-align: center;
 }
-/* .commentaire {
-  width: 5%;
-} */
-/* thead > tr > .status {
-  /* width: 15%; */
-/* } */
+
 tr .status {
   font-weight: bold;
   font-size: 1.5rem;
@@ -145,10 +141,6 @@ footer > div > ul > li > a {
   color: aliceblue;
 }
 
-/* .btnFaux {
-  display: none;
-} */
-
 /* here Start the css intervention Tech  */
 #btnTest {
   height: 50px;
@@ -156,12 +148,13 @@ footer > div > ul > li > a {
   background-color: #1600dd;
   color: aliceblue;
   border-radius: 50%;
+  font-weight: 900;
 }
 .action-prioritaire {
   background-color: red;
 }
 .arrivee-du-jour {
-  background-color: lightyellow;
+  background-color: rgb(191, 233, 166);
 }
 .demande-inter {
   background-color: lightsalmon;
@@ -170,7 +163,7 @@ footer > div > ul > li > a {
   background-color: lightseagreen;
 }
 .en-Attente {
-  background-color: lightcoral;
+  background-color: rgb(246, 176, 246);
 }
 .en-Commande {
   background-color: #ffe599;
@@ -184,17 +177,35 @@ footer > div > ul > li > a {
 .bloque-tech {
   background-color: #1600dd;
 }
-/* 
-      " ";
-             
-  
- "";
- "";
+.statut-Inter,
+.appartement {
+  font-weight: bold;
+}
+#tableauIterventionTech > tbody > tr > td {
+  vertical-align: middle;
+}
+#tableauIterventionTech {
+  width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-top: 1rem; */
 
- "en-Attente";
- "en-Commande";
- "depart-du-client";
- "vta";
- "";
-              
-*/
+  border-collapse: separate;
+  border-spacing: 0px 0.5rem;
+}
+
+tbody > tr > td {
+  background-color: #ffffff;
+}
+.date {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.tdEdit {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+/* td {
+  border: 1px solid black;
+  border-radius: 10px;
+} */
