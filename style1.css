@@ -217,6 +217,12 @@ tbody > tr > td {
   body {
     min-width: auto;
   }
+  #headTech {
+    font-size: smaller;
+  }
+  h1 {
+    font-size: medium;
+  }
   #tableauIterventionTech {
     width: 100%;
     margin: 0%;
