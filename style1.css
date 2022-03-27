@@ -235,16 +235,15 @@ tbody > tr > td {
     font-size: medium;
   }
   #tableauIterventionTech {
-    width: 100%;
     margin: 0%;
-    padding: 0%;
+
     /* margin-top: 1rem; */
 
     border-collapse: collapse;
     /* border-spacing: 0px 0.5rem; */
     font-size: 12px;
   }
-  main {
+  .mainTech {
     width: 100%;
     margin: 0%;
     padding: 0%;
