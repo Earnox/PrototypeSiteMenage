@@ -136,7 +136,8 @@ footer > div > ul > li > a {
 }
 @media (max-width: 576px) {
   header > div > ul > li > a {
-    font-size: smaller;
+    font-size: 12px;
+    font-weight: bold;
   }
   body {
     min-width: auto;
