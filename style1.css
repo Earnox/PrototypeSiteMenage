@@ -2,14 +2,18 @@ body {
   text-align: center;
   margin: 0%;
   padding: 0%;
-  width: 100%;
+  /* width: 100vh; */
   overflow-x: hidden;
   position: relative;
   background-color: rgb(234, 249, 250);
+  width: 100%;
+  min-width: 980px;
 }
 header {
   width: 100%;
   position: sticky;
+  /* overflow-x: hidden; */
+  /* position: relative; */
   top: 0;
   left: 0;
 }
@@ -185,7 +189,7 @@ footer > div > ul > li > a {
   vertical-align: middle;
 }
 #tableauIterventionTech {
-  width: 90rem;
+  /* width: 90rem; */
   margin-left: auto;
   margin-right: auto;
   /* margin-top: 1rem; */
@@ -209,3 +213,39 @@ tbody > tr > td {
   border: 1px solid black;
   border-radius: 10px;
 } */
+@media (max-width: 576px) {
+  body {
+    min-width: auto;
+  }
+  #tableauIterventionTech {
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    /* margin-top: 1rem; */
+
+    border-collapse: collapse;
+    /* border-spacing: 0px 0.5rem; */
+    font-size: 12px;
+  }
+  main {
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+  }
+  .post {
+    display: none;
+  }
+  .remarque {
+    display: none;
+  }
+  .date {
+    display: none;
+  }
+  /* .statut-Inter {
+    font-weight: 100;
+  } */
+  .appartementThead,
+  .appartement {
+    width: 20%;
+  }
+}

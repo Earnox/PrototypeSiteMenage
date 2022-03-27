@@ -71,6 +71,25 @@ const GetDataTech = () => {
             th.innerText = element;
             th.style.display = "none";
             return theadRow.append(th);
+          }
+          if (element == "post") {
+            let th = document.createElement("th");
+            th.innerText = element;
+            th.classList = "post";
+            return theadRow.append(th);
+          }
+          if (element == "date") {
+            let th = document.createElement("th");
+            th.innerText = element;
+            th.classList = "date";
+            return theadRow.append(th);
+          }
+          // appartement
+          if (element == "appartement") {
+            let th = document.createElement("th");
+            th.innerText = "#";
+            th.classList = "appartementThead";
+            return theadRow.append(th);
           } else if (element === "risque") {
             let th = document.createElement("th");
             th.style.display = "none";
@@ -86,6 +105,18 @@ const GetDataTech = () => {
           } else if (element === "dateIntevention") {
             let th = document.createElement("th");
             th.style.display = "none";
+            th.append(element);
+            theadRow.append(th);
+            return theadRow.append(th);
+          } else if (element === "remarque") {
+            let th = document.createElement("th");
+            th.classList = "post";
+            th.append(element);
+            theadRow.append(th);
+            return theadRow.append(th);
+          } else if (element === "statut") {
+            let th = document.createElement("th");
+            th.classList = "statut-Inter";
             th.append(element);
             theadRow.append(th);
             return theadRow.append(th);
