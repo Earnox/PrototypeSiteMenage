@@ -2,7 +2,7 @@ body {
   text-align: center;
   margin: 0%;
   padding: 0%;
-  /* width: 100vh; */
+
   overflow-x: hidden;
   position: relative;
   background-color: rgb(234, 249, 250);
@@ -12,8 +12,7 @@ body {
 header {
   width: 100%;
   position: sticky;
-  /* overflow-x: hidden; */
-  /* position: relative; */
+
   top: 0;
   left: 0;
 }
@@ -37,30 +36,21 @@ header > div > ul > li {
   align-items: center;
 }
 
-/* Ici comence le css pour la table main {
-  /* width: 70%; */
-/* } */
-
+/* Ici comence le css pour la table main */
+.mainMenage {
+  margin: 1rem;
+}
 main > #tableauNumeroapp {
   text-align: center;
-  /* align-content: center; */
-  /* width: 120%; */
-
-  /* border: 3px solid #dddddd; */
 }
 
 thead {
   font-size: 1.5em;
-  /* background-color: #dddddd; */
-  /* border: 3px solid #dddddd; */
 }
 
 .numeroApp {
   font-weight: bold;
   font-size: 1.5rem;
-
-  /* width: 70%; */
-  /* border-radius: 15%; */
 }
 .status > select {
   text-align: center;
@@ -143,6 +133,26 @@ td.ck {
 /* end of modal */
 footer > div > ul > li > a {
   color: aliceblue;
+}
+@media (max-width: 576px) {
+  header > div > ul > li > a {
+    font-size: smaller;
+  }
+  body {
+    min-width: auto;
+  }
+  .mainMenage {
+    margin: 0;
+  }
+  .typologie {
+    display: none;
+  }
+  .name {
+    display: none;
+  }
+  .commentaire {
+    display: none;
+  }
 }
 
 /* here Start the css intervention Tech  */

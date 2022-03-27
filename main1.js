@@ -1,32 +1,11 @@
 // ici nome toute les variables utiles (pour le scopes sinon des pb )
 let tBody = document.createElement("tbody");
 let table = document.getElementById("tableauNumeroapp");
-
-// {
-//   /* <button class='btn btn-primary' type='button' disabled>
-//   <span
-//     class='spinner-border spinner-border-sm'
-//     role='status'
-//     aria-hidden='true'></span>
-//   <span class='sr-only'>Loading...</span>
-// </button>; */
-// }
-
-// création du bouton loading
-// let btn = document.createElement("button");
-// btn.classList = "btn btn-primary";
-// let spanBtn1 = document.createElement("span");
-// spanBtn1.setAttribute("aria-hidden", true);
-// spanBtn1.classList = "spinner-border spinner-border-sm";
-// let spanBtn2 = document.createElement("span");
-// spanBtn2.classList = "sr-only";
-// btn.appendChild(spanBtn1);
-// btn.appendChild(spanBtn2);
-// tdBtn.appendChild(btn);
+let thEdit = document.createElement("th");
+thEdit.classList = "thEditMenage";
 let responseExt;
 // Create dropt down list
 
-// funtion Create a btn on oad finale didn't need it
 const DropDownListStatus = () => {
   let listStatut = [
     "occupé",
@@ -88,6 +67,7 @@ const getDataAppart = () => {
           th.setAttribute("scope", "col");
           trHeader.appendChild(th);
         }
+        trHeader.appendChild(thEdit);
         return th;
       });
       thead.classList = "thead-light";
