@@ -146,6 +146,9 @@ footer > div > ul > li > a {
 }
 
 /* here Start the css intervention Tech  */
+.mainTech {
+  margin: 1rem;
+}
 #btnTest {
   height: 50px;
   width: 50px;
@@ -189,10 +192,8 @@ footer > div > ul > li > a {
   vertical-align: middle;
 }
 #tableauIterventionTech {
-  /* width: 90rem; */
   margin-left: auto;
   margin-right: auto;
-  /* margin-top: 1rem; */
 
   border-collapse: separate;
   border-spacing: 0px 0.5rem;
