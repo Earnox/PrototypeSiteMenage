@@ -488,7 +488,7 @@ function SenDataNewIntention(valueToSend) {
 
 let btnModal = document.getElementsByClassName("Btn-test-Modal");
 let modalBtnSave = document.getElementsByClassName("btn-modal-save");
-let btnTest = document.querySelector("#btnTest");
+let btnTest = document.querySelector("#btnNewIntevention");
 let btnEditTable = document.querySelectorAll(".btn-test-Modal");
 window.addEventListener("load", GetDataTech);
 btnTest.addEventListener("click", setNewModal);

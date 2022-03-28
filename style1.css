@@ -160,13 +160,14 @@ footer > div > ul > li > a {
 .mainTech {
   margin: 1rem;
 }
-#btnTest {
-  height: 50px;
-  width: 50px;
-  background-color: #1600dd;
+#btnNewIntevention {
+  height: 2rem;
+  width: 2rem;
+  background-color: #217feb;
   color: aliceblue;
   border-radius: 50%;
-  font-weight: 900;
+
+  font-weight: bold;
 }
 .action-prioritaire {
   background-color: red;
