@@ -161,13 +161,24 @@ footer > div > ul > li > a {
   margin: 1rem;
 }
 #btnNewIntevention {
-  height: 2rem;
-  width: 2rem;
+  /* height: 2rem; */
+  /* width: 2rem;
   background-color: #217feb;
   color: aliceblue;
   border-radius: 50%;
 
-  font-weight: bold;
+  font-weight: bold; */
+  /* font-size: larger; */
+  color: #fff;
+  background: #108fe8;
+  border: 3px solid #fff;
+  border-radius: 100%;
+  box-shadow: 0 -2px 0 3px #0d72b8 inset, 0 5px 5px rgba(3, 25, 41, 0.17),
+    0 15px rgba(255, 255, 255, 0.25) inset;
+  cursor: pointer;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
 }
 .action-prioritaire {
   background-color: red;
@@ -236,6 +247,14 @@ tbody > tr > td {
   h1 {
     font-size: medium;
   }
+  #navUlInter {
+    padding: 1.5%;
+  }
+  #btnNewIntevention {
+    height: 40px;
+    width: 40px;
+  }
+
   #tableauIterventionTech {
     margin: 0%;
 
