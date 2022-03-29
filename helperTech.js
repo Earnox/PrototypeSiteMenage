@@ -371,6 +371,7 @@ const sendNewInteventionTech = () => {
     "#remarqueInteventionNvModalIntTech"
   );
   let statut = bodyModalnvIntentionTech.querySelector("#statutNvModalIntTech");
+  console.log(natureIntevention.value);
   if (date.value === "") {
     bodyModalnvIntentionTech
       .querySelector(".date-validation-modal")
@@ -386,19 +387,14 @@ const sendNewInteventionTech = () => {
     return;
   }
   if (natureIntevention.value === "") {
-    // if (
-    //   bodyModalnvIntentionTech.querySelector(".validation-modal-intervention")
-    //     .classList == "d-None-modal"
-    // ) {
     bodyModalnvIntentionTech
       .querySelector(".validation-modal-intervention")
       .classList.remove("d-None-modal");
     document.getElementById("btnNewInterSave").disabled = false;
-    // }
+
     return;
-  } else if (
-    (natureIntevention.value = !"" && date.value != "" && lieu.value != "")
-  ) {
+  }
+  if (natureIntevention.value != "" && date.value != "" && lieu.value != "") {
     const valueToSend = {
       requet: "newInter",
       id: id.value,
@@ -459,8 +455,9 @@ const sendEditInteventioTech = () => {
     document.getElementById("btnEditSave").disabled = false;
     return;
   } else if (
-    (natureInteventionModal.value =
-      !"" && dateModal.value != "" && lieuModal.value != "")
+    natureInteventionModal.value != "" &&
+    dateModal.value != "" &&
+    lieuModal.value != ""
   ) {
     const valueToSend = {
       requet: "editIntevention",
@@ -507,7 +504,6 @@ function SenDataNewIntention(valueToSend) {
       console.log(erreur);
     })
     .then((response) => {
-      console.log(response.ok);
       return response;
     })
     .then(
@@ -516,7 +512,6 @@ function SenDataNewIntention(valueToSend) {
         if (!response.ok) {
           // spiner.classList = "spinner-border d-none";
           // if()
-
           // if (
           //   document.getElementById("exampleModal").classList.contains("show")
           // ) {
