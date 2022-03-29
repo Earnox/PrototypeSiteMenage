@@ -295,4 +295,9 @@ tbody > tr > td {
   .appartement {
     width: 20%;
   }
+  .appartementThead,
+  .appartement {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
 }
