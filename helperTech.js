@@ -45,7 +45,7 @@ function createDate(date) {
 
   const formatDate = (date) => {
     let formatted_date =
-      date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
     // + "-" + ;
     return formatted_date;
   };
@@ -213,45 +213,48 @@ const GetDataTech = () => {
 
             if (key == "statut") {
               // let listStatut = DropDownListStatus();
+              let span = document.createElement("div");
               let cell = document.createElement("td");
-              cell.innerHTML = infoIntervention[key];
+              span.innerHTML = infoIntervention[key];
 
               // liste des statu possible
               // Action prioritaire,Arrivée du jour,demande inter,résolu,En Attente,En Commande,départ du client,
               //VTA, bloqué tech
               if (infoIntervention[key] === "Action prioritaire") {
-                cell.classList = "action-prioritaire ";
+                span.classList = "action-prioritaire ";
                 // listStatut.options[0].setAttribute("selected", true);
               } else if (infoIntervention[key] == "Arrivée du jour") {
-                cell.classList = "arrivee-du-jour";
+                span.classList = "arrivee-du-jour";
                 // listStatut.options[1].setAttribute("selected", true);
               } else if (infoIntervention[key] == "demande inter") {
-                cell.classList = "demande-inter";
+                span.classList = "demande-inter";
                 // listStatut.options[2].setAttribute("selected", true);
               } else if (infoIntervention[key] == "résolu") {
-                cell.classList = "resolu";
+                span.classList = "resolu";
                 // listStatut.options[3].setAttribute("selected", true);
               } else if (infoIntervention[key] == "En Attente") {
-                cell.classList = "en-Attente";
+                span.classList = "en-Attente";
                 // listStatut.options[4].setAttribute("selected", true);
               } else if (infoIntervention[key] == "En Commande") {
-                cell.classList = "en-Commande";
+                span.classList = "en-Commande";
                 // listStatut.options[5].setAttribute("selected", true);
               } else if (infoIntervention[key] == "départ du client") {
-                cell.classList = "depart-du-client";
+                span.classList = "depart-du-client";
                 // listStatut.options[6].setAttribute("selected", true);
               } else if (infoIntervention[key] == "VTA") {
-                cell.classList = "vta";
+                span.classList = "vta";
                 // listStatut.options[7].setAttribute("selected", true);
               } else if (infoIntervention[key] == "bloqué tech") {
-                cell.classList = "bloque-tech";
+                span.classList = "bloque-tech";
                 // listStatut.options[8].setAttribute("selected", true);
               }
               // listStatut.classList =
               //   "form-control form-control-lg " + listStatut.classList;
               // cell.classList = "status align-items-center";
               // cell.appendChild(listStatut);
-              cell.classList += " statut-Inter";
+
+              span.classList += " statut-InterSpan";
+              cell.appendChild(span);
               trbody.appendChild(cell);
               let btn = document.createElement("button");
               btn.classList =
@@ -330,7 +333,7 @@ function setEditModal(event) {
   let information = rowevent.querySelector(".information");
   let dateIntevention = rowevent.querySelector(".dateIntevention");
   let remarque = rowevent.querySelector(".remarque");
-  let status = rowevent.querySelector(".statut-Inter ");
+  let status = rowevent.querySelector(".statut-InterSpan");
 
   // let photo = rowevent.querySelector(".photo ");
 

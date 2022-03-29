@@ -28,8 +28,9 @@
         <h1 class="col-lg-8 col-12">Intervention Technique</h1>
 
         <ul
-          class="nav justify-content-lg-end justify-content-center col-lg-4 col-12 "
-       id="navUlInter" >
+          class="nav justify-content-lg-end justify-content-center col-lg-4 col-12"
+          id="navUlInter"
+        >
           <li class="nav-item">
             <a class="nav-link" href="index.html">Gouvernance</a>
           </li>
@@ -261,7 +262,7 @@
               </button>
             </div>
             <div class="modal-body" id="bodyNvModalIntTech">
-              <form id="formNew">
+              <form id="formNew" class="needs-validation" novalidate>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="idNvModalIntTech">ID</label>
@@ -280,6 +281,7 @@
                       class="form-control"
                       id="dateNvModalIntTech"
                       placeholder="date"
+                      required
                     />
                   </div>
                 </div>
@@ -302,6 +304,7 @@
                       class="form-control"
                       id="lieuNvModalIntTech"
                       placeholder="Apartment, studio, or floor"
+                      required
                     />
                   </div>
                 </div>
@@ -398,7 +401,7 @@
                 Close
               </button>
               <button
-                type="button"
+                type="submit"
                 class="btn btn-primary btn-modal-save"
                 id="btnNewInterSave"
                 onclick="sendNewInteventionTech()"

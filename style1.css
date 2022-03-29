@@ -180,6 +180,11 @@ footer > div > ul > li > a {
   height: 50px;
   width: 50px;
 }
+.tdheaderEdit {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
 .action-prioritaire {
   background-color: red;
 }
@@ -208,8 +213,12 @@ footer > div > ul > li > a {
   background-color: #1600dd;
 }
 .statut-Inter,
-.appartement {
+.appartement,
+.statut-InterSpan {
   font-weight: bold;
+}
+.statut-InterSpan {
+  border-radius: 25px;
 }
 #tableauIterventionTech > tbody > tr > td {
   vertical-align: middle;
@@ -226,12 +235,13 @@ tbody > tr > td {
   background-color: #ffffff;
 }
 .date {
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
+
 .tdEdit {
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 /* td {
   border: 1px solid black;
