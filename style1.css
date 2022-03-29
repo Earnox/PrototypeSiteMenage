@@ -161,14 +161,6 @@ footer > div > ul > li > a {
   margin: 1rem;
 }
 #btnNewIntevention {
-  /* height: 2rem; */
-  /* width: 2rem;
-  background-color: #217feb;
-  color: aliceblue;
-  border-radius: 50%;
-
-  font-weight: bold; */
-  /* font-size: larger; */
   color: #fff;
   background: #108fe8;
   border: 3px solid #fff;
@@ -180,6 +172,14 @@ footer > div > ul > li > a {
   height: 50px;
   width: 50px;
 }
+/* Here start Css New modal  */
+
+.d-None-modal {
+  display: none;
+}
+
+/* here end css New modal */
+
 .tdheaderEdit {
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;

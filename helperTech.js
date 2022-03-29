@@ -371,21 +371,49 @@ const sendNewInteventionTech = () => {
     "#remarqueInteventionNvModalIntTech"
   );
   let statut = bodyModalnvIntentionTech.querySelector("#statutNvModalIntTech");
-
-  const valueToSend = {
-    requet: "newInter",
-    id: id.value,
-    date: date.value,
-    post: post.value,
-    lieu: lieu.value,
-    natureIntevention: natureIntevention.value,
-    risque: risque.value,
-    info: info.value,
-    dateRalisation: dateRalisation.value,
-    remarque: remarque.value,
-    statut: statut.value,
-  };
-  return SenDataNewIntention(valueToSend);
+  if (date.value === "") {
+    bodyModalnvIntentionTech
+      .querySelector(".date-validation-modal")
+      .classList.remove("d-None-modal");
+    document.getElementById("btnNewInterSave").disabled = false;
+    return;
+  }
+  if (lieu.value === "") {
+    bodyModalnvIntentionTech
+      .querySelector(".validation-modal-lieu")
+      .classList.remove("d-None-modal");
+    document.getElementById("btnNewInterSave").disabled = false;
+    return;
+  }
+  if (natureIntevention.value === "") {
+    // if (
+    //   bodyModalnvIntentionTech.querySelector(".validation-modal-intervention")
+    //     .classList == "d-None-modal"
+    // ) {
+    bodyModalnvIntentionTech
+      .querySelector(".validation-modal-intervention")
+      .classList.remove("d-None-modal");
+    document.getElementById("btnNewInterSave").disabled = false;
+    // }
+    return;
+  } else if (
+    (natureIntevention.value = !"" && date.value != "" && lieu.value != "")
+  ) {
+    const valueToSend = {
+      requet: "newInter",
+      id: id.value,
+      date: date.value,
+      post: post.value,
+      lieu: lieu.value,
+      natureIntevention: natureIntevention.value,
+      risque: risque.value,
+      info: info.value,
+      dateRalisation: dateRalisation.value,
+      remarque: remarque.value,
+      statut: statut.value,
+    };
+    return SenDataNewIntention(valueToSend);
+  }
 };
 const sendEditInteventioTech = () => {
   document.getElementById("btnEditSave").disabled = true;
@@ -409,22 +437,47 @@ const sendEditInteventioTech = () => {
     "#remarqueInteventionEditModalIntTech"
   );
   let statutModal = modalEditBody.querySelector("#statutEditModalIntTech");
+  if (dateModal.value === "") {
+    modalEditBody
+      .querySelector(".date-validation-modal")
+      .classList.remove("d-None-modal");
+    document.getElementById("btnEditSave").disabled = false;
+    return;
+  }
+  if (lieuModal.value === "") {
+    modalEditBody
+      .querySelector(".validation-modal-lieu")
+      .classList.remove("d-None-modal");
+    document.getElementById("btnEditSave").disabled = false;
+    return;
+  }
+  if (natureInteventionModal.value === "") {
+    modalEditBody
+      .querySelector(".validation-modal-intervention")
+      .classList.remove("d-None-modal");
 
-  const valueToSend = {
-    requet: "editIntevention",
-    id: idModal.value,
-    date: dateModal.value,
-    post: postModal.value,
-    lieu: lieuModal.value,
-    natureIntevention: natureInteventionModal.value,
-    risque: risqueModal.value,
-    info: infoModal.value,
-    dateRalisation: dateRalisation.value,
-    remarque: remarqueModal.value,
-    statut: statutModal.value,
-  };
-  console.log(valueToSend);
-  return SenDataNewIntention(valueToSend);
+    document.getElementById("btnEditSave").disabled = false;
+    return;
+  } else if (
+    (natureInteventionModal.value =
+      !"" && dateModal.value != "" && lieuModal.value != "")
+  ) {
+    const valueToSend = {
+      requet: "editIntevention",
+      id: idModal.value,
+      date: dateModal.value,
+      post: postModal.value,
+      lieu: lieuModal.value,
+      natureIntevention: natureInteventionModal.value,
+      risque: risqueModal.value,
+      info: infoModal.value,
+      dateRalisation: dateRalisation.value,
+      remarque: remarqueModal.value,
+      statut: statutModal.value,
+    };
+
+    return SenDataNewIntention(valueToSend);
+  }
 };
 function SenDataNewIntention(valueToSend) {
   // let spiner = document.getElementById("spinerHeader");
@@ -463,7 +516,6 @@ function SenDataNewIntention(valueToSend) {
         if (!response.ok) {
           // spiner.classList = "spinner-border d-none";
           // if()
-          console.log("gg");
 
           // if (
           //   document.getElementById("exampleModal").classList.contains("show")
