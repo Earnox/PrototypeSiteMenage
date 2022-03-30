@@ -2,7 +2,18 @@ let tBody = document.createElement("tbody");
 let table = document.getElementById("tableauIterventionTech");
 let editTd = document.createElement("th");
 editTd.classList = "tdheaderEdit";
+const smallDevice = window.matchMedia("(min-width: 576px)");
 
+function handleDeviceChange(e) {
+  if (e.matches) {
+  } else {
+    let rowsInt = document.querySelectorAll(".trIntevention");
+
+    rowsInt.forEach((row) => {
+      row.addEventListener("click", setEditModalMobil);
+    });
+  }
+}
 function setModal(event) {
   console.log("btn marche");
   let headerModal = document.getElementById("headermodal");
@@ -274,14 +285,19 @@ const GetDataTech = () => {
               trbody.appendChild(cell);
             }
           }
+          trbody.classList = "trIntevention";
           tBody.appendChild(trbody);
           table.append(tBody);
         });
+
         document.querySelectorAll(".edit").forEach((item) => {
           item.addEventListener("click", (event) => {
             setEditModal(event);
           });
         });
+      })
+      .then((reponses) => {
+        handleDeviceChange(smallDevice);
       });
   });
 };
@@ -536,6 +552,57 @@ function SenDataNewIntention(valueToSend) {
     .then();
 }
 
+function setEditModalMobil(event) {
+  let modalEdit = document.querySelector("#modalEditIntTech");
+  let modalEditBody = document.querySelector("#bodyEditModalIntTech");
+
+  let idModal = modalEditBody.querySelector("#idEditModalIntTech");
+  let dateModal = modalEditBody.querySelector("#dateEditModalIntTech");
+  let postModal = modalEditBody.querySelector("#postEditModalIntTech");
+  let lieuModal = modalEditBody.querySelector("#lieuEditModalIntTech");
+
+  let natureInteventionModal = modalEditBody.querySelector(
+    "#natureEditInteventionNvModalIntTech"
+  );
+  let risqueModal = modalEditBody.querySelector("#risqueEditModalIntTech");
+  let infoModal = modalEditBody.querySelector("#infoEditModalIntTech");
+  let dateRalisation = modalEditBody.querySelector(
+    "#dateRealiserEditModalIntTech"
+  );
+  let remarqueModal = modalEditBody.querySelector(
+    "#remarqueInteventionEditModalIntTech"
+  );
+  let statutModal = modalEditBody.querySelector("#statutEditModalIntTech");
+
+  let target = event.target;
+  let rowevent = target.parentElement;
+  let id = rowevent.querySelector(".id");
+  let date = rowevent.querySelector(".date");
+  let post = rowevent.querySelector(".post");
+  let appartement = rowevent.querySelector(".appartement");
+  let natureInervention = rowevent.querySelector(".natureInervention");
+  let risque = rowevent.querySelector(".risque");
+  let information = rowevent.querySelector(".information");
+  let dateIntevention = rowevent.querySelector(".dateIntevention");
+  let remarque = rowevent.querySelector(".remarque");
+  let status = rowevent.querySelector(".statut-InterSpan");
+
+  // let photo = rowevent.querySelector(".photo ");
+
+  idModal.value = id.innerHTML;
+  dateModal.value = date.innerHTML;
+  postModal.value = post.innerHTML;
+  lieuModal.value = appartement.innerHTML;
+  natureInteventionModal.value = natureInervention.innerHTML;
+  risqueModal.value = risque.innerHTML;
+  infoModal.value = information.innerHTML;
+  dateRalisation.value = dateIntevention.innerHTML;
+  remarqueModal.value = remarque.innerHTML;
+  statutModal.value = status.innerHTML;
+  $("#modalEditIntTech").modal("handleUpdate");
+  $("#modalEditIntTech").modal("show");
+}
+
 let btnModal = document.getElementsByClassName("Btn-test-Modal");
 let modalBtnSave = document.getElementsByClassName("btn-modal-save");
 let btnTest = document.querySelector("#btnNewIntevention");
@@ -544,3 +611,7 @@ window.addEventListener("load", GetDataTech);
 btnTest.addEventListener("click", setNewModal);
 // btnEditTable.addEventListener("click", setEditModal);
 // col eta SELECT(Import rangew[information], ([Appartement] = [_THISROW].[Appartement])) pour ajout si bug
+
+// Run it initially
+// handleDeviceChange(smallDevice);
+smallDevice.addListener(handleDeviceChange);
