@@ -7,13 +7,7 @@ let responseExt;
 // Create dropt down list
 
 const DropDownListStatus = () => {
-  let listStatut = [
-    "occupé",
-    "app en chauffe",
-    "prêt",
-    "prêt BCS",
-    "libre/sale",
-  ];
+  let listStatut = ["occupé", "app en chauffe", "prêt", "BCS", "libre/sale"];
   let select = document.createElement("select");
 
   listStatut.forEach((statut) => {
@@ -108,8 +102,8 @@ const getDataAppart = () => {
             } else if (infoappartement[key] == "prêt") {
               listStatut.classList = "pret";
               listStatut.options[2].setAttribute("selected", true);
-            } else if (infoappartement[key] == "prêt BCS") {
-              listStatut.classList = "pret-bcs";
+            } else if (infoappartement[key] == "BCS") {
+              listStatut.classList = "bcs";
               listStatut.options[3].setAttribute("selected", true);
             } else if (infoappartement[key] == "libre/sale") {
               listStatut.classList = "libre-sale";
@@ -339,8 +333,8 @@ const changeColorStatut = (e) => {
   } else if (eventTargetValue == "prêt") {
     eventTarget.classList = "pret  form-control form-control-lg";
     //eventTarget.options[2].setAttribute("selected", true);
-  } else if (eventTargetValue == "prêt BCS") {
-    eventTarget.classList = "pret-bcs  form-control form-control-lg";
+  } else if (eventTargetValue == "BCS") {
+    eventTarget.classList = "bcs  form-control form-control-lg";
     //eventTarget.options[3].setAttribute("selected", true);
   } else if (eventTargetValue == "libre/sale") {
     eventTarget.classList = "libre-sale form-control form-control-lg";

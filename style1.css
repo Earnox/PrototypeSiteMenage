@@ -77,13 +77,13 @@ thead {
   background-color: #ffe599;
 }
 .app-en-chauffe {
-  background-color: #b6d7a8;
+  background-color: lightsalmon;
 }
 .pret {
   background-color: #b6d7a8;
 }
-.pret-bcs {
-  background-color: #b6d7a8;
+.bcs {
+  background-color: #29ab87;
 }
 .libre-sale {
   background-color: lightpink;
@@ -248,6 +248,10 @@ tbody > tr > td {
   border-radius: 10px;
 } */
 @media (max-width: 576px) {
+  .tdEdit,
+  .tdheaderEdit {
+    display: none;
+  }
   body {
     min-width: auto;
   }
