@@ -154,6 +154,9 @@ footer > div > ul > li > a {
   .commentaire {
     display: none;
   }
+  .tdEditGouv {
+    display: none;
+  }
 }
 
 /* here Start the css intervention Tech  */

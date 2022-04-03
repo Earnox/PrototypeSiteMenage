@@ -2,14 +2,24 @@
 let tBody = document.createElement("tbody");
 let table = document.getElementById("tableauNumeroapp");
 let thEdit = document.createElement("th");
+const smallDevice = window.matchMedia("(min-width: 576px)");
 thEdit.classList = "thEditMenage";
 let responseExt;
 // Create dropt down list
-
+function handleDeviceChangeGouvernace(e) {
+  if (e.matches) {
+  } else {
+    let rowsGouv = document.querySelectorAll(".trGouvernance");
+    console.log("hey im a test");
+    rowsGouv.forEach((row) => {
+      row.addEventListener("click", setModalSmalScreen);
+    });
+  }
+}
 const DropDownListStatus = () => {
   let listStatut = ["occupé", "app en chauffe", "prêt", "BCS", "libre/sale"];
   let select = document.createElement("select");
-
+  select.classList = "selectStatut";
   listStatut.forEach((statut) => {
     let option = document.createElement("option");
     option.key = statut;
@@ -109,8 +119,10 @@ const getDataAppart = () => {
               listStatut.classList = "libre-sale";
               listStatut.options[4].setAttribute("selected", true);
             }
+
             listStatut.classList =
-              "form-control form-control-lg " + listStatut.classList;
+              "form-control form-control-lg selectStatut " +
+              listStatut.classList;
             cell.classList = "status align-items-center";
             cell.appendChild(listStatut);
 
@@ -195,7 +207,7 @@ const getDataAppart = () => {
             btn.setAttribute("data-toggle", "modal");
             btn.setAttribute("data-target", "#exampleModal");
             let cellBtn = document.createElement("td");
-            cellBtn.classList = "align-middle";
+            cellBtn.classList = "align-middle tdEditGouv";
             cellBtn.appendChild(btn);
             trbody.appendChild(cellBtn);
           }
@@ -203,7 +215,7 @@ const getDataAppart = () => {
 
           // createbtn();
         }
-
+        trbody.classList = "trGouvernance";
         tBody.appendChild(trbody);
 
         table.appendChild(tBody);
@@ -213,6 +225,9 @@ const getDataAppart = () => {
           setModal(event);
         });
       });
+    })
+    .then((reponses) => {
+      handleDeviceChangeGouvernace(smallDevice);
     });
 };
 
@@ -340,26 +355,6 @@ const changeColorStatut = (e) => {
     eventTarget.classList = "libre-sale form-control form-control-lg";
   }
 };
-// console.log(eventTarget.classList);
-// const createbtn = () => {
-//   let tdBtn = document.createElement("td");
-//   let btn = document.createElement("button");
-//   btn.classList = "btn btn-primary";
-//   let spanBtn1 = document.createElement("span");
-//   spanBtn1.setAttribute("aria-hidden", false);
-//   // il faudrat ouer avec la classe sc-only je pense mais pas sur a regarder vitdeo pour plus
-//   spanBtn1.classList = "spinner-border spinner-border-sm ";
-//   let spanBtn2 = document.createElement("span");
-
-//   spanBtn2.classList = "sr-only";
-//   btn.appendChild(spanBtn1);
-//   btn.appendChild(spanBtn2);
-//   tdBtn.appendChild(btn);
-//   // /// ici termine btn
-
-//   trbody.appendChild(createbtn());
-//   return tdBtn;
-// };
 
 function setModal(event) {
   let headerModal = document.getElementById("headermodal");
@@ -407,7 +402,51 @@ function setModal(event) {
   $("#myModal").modal("handleUpdate");
   $("#myModal").modal("show");
 }
+function setModalSmalScreen(event) {
+  let headerModal = document.getElementById("headermodal");
+  let modalBody = document.getElementById("modalBody");
+  let tdStatut = document.getElementById("modal-td-status");
+  tdStatut.classList = "align-middle";
+  let tdtypo = document.getElementById("modal-td-typo");
+  let tdname = document.getElementById("modal-td-name");
+  let tdarrive = document.getElementById("modal-td-arrive");
+  let tddepart = document.getElementById("modal-td-depart");
+  let tdck = document.getElementById("modal-td-ck");
+  let textAreaCommentaire = document.getElementById("modal-commentaire-text");
+  // modifier le parent
+  let target = event.target;
+  let valueEvent = event.target.value;
+  let parentTarget = target.parentElement;
 
+  let appartement = parentTarget.querySelector(".numeroApp ").innerHTML;
+  let status = parentTarget.querySelector(".selectStatut").value;
+  let status2 = parentTarget.querySelector(".depart").classList;
+
+  headerModal.innerText = appartement;
+
+  tdStatut.innerText = status;
+  // typologie
+  tdtypo.innerText = parentTarget.querySelector(".typologie").innerHTML;
+  //name
+  tdname.innerText = parentTarget.querySelector(".name").innerHTML;
+
+  // arrive
+  // tdarrive.innerText = parentTarget.querySelector(".arrive").innerText;
+  tdarrive.classList = parentTarget.querySelector(".arrive").classList;
+  //depart
+  // tddepart.innerText = parentTarget.querySelector(".depart").innerText;
+  tddepart.classList = parentTarget.querySelector(".depart").classList;
+  //ck
+  // tdck.innerText = parentTarget.querySelector(".ck").innerText;
+  tdck.classList = parentTarget.querySelector(".ck").classList;
+  //commentaire
+
+  textAreaCommentaire.value =
+    parentTarget.querySelector(".commentaire ").innerHTML;
+  console.log("ttteee");
+  $("#exampleModal").modal("handleUpdate");
+  $("#exampleModal").modal("show");
+}
 function SendValueModal() {
   let headerModal = document.getElementById("headermodal");
   let tdStatut = document.getElementById("modal-td-status");
@@ -435,3 +474,4 @@ table.addEventListener("change", getChangeStatus);
 table.addEventListener("change", changeColorStatut);
 table.addEventListener("change", getChangeStatus);
 // modalBtnSave.addEventListener("click", SendValueModal());
+smallDevice.addListener(handleDeviceChangeGouvernace);

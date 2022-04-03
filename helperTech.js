@@ -8,7 +8,7 @@ function handleDeviceChange(e) {
   if (e.matches) {
   } else {
     let rowsInt = document.querySelectorAll(".trIntevention");
-      
+
     rowsInt.forEach((row) => {
       row.addEventListener("click", setEditModalMobil);
     });
