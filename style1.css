@@ -144,16 +144,15 @@ footer > div > ul > li > a {
   }
   .mainMenage {
     margin: 0;
+    width: 100%;
   }
-  .typologie {
-    display: none;
+  .status {
+    width: auto;
   }
-  .name {
-    display: none;
-  }
-  .commentaire {
-    display: none;
-  }
+  .typologie,
+  .thEditMenage,
+  .name,
+  .commentaire,
   .tdEditGouv {
     display: none;
   }
