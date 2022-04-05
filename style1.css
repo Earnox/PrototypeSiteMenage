@@ -292,6 +292,7 @@ footer > div > ul > li > a {
 }
 .statut-InterSpan {
   border-radius: 25px;
+  text-align: center;
 }
 #tableauIterventionTech > tbody > tr > td {
   vertical-align: middle;
@@ -345,7 +346,6 @@ tbody > tr > td {
   }
   .statut-InterSpan {
     padding: 15px;
-    text-align: center;
   }
   /* .td:has(.statut-InterSpan) {
     border-top-right-radius: 25px;
