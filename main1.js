@@ -10,7 +10,7 @@ function handleDeviceChangeGouvernace(e) {
   if (e.matches) {
   } else {
     let rowsGouv = document.querySelectorAll(".trGouvernance");
-    console.log("hey im a test");
+    document.querySelector("header").classList = "container-fluide";
     rowsGouv.forEach((row) => {
       row.addEventListener("click", setModalSmalScreen);
     });

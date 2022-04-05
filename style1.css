@@ -1,5 +1,4 @@
 body {
-  text-align: center;
   margin: 0%;
   padding: 0%;
 
@@ -10,35 +9,67 @@ body {
   min-width: 980px;
 }
 header {
-  width: 100%;
-  position: sticky;
-
-  top: 0;
-  left: 0;
+  align-items: center;
 }
 h1 {
-  display: block;
+  margin-left: 50px;
+  font-weight: bold;
+  flex-direction: row;
 }
+
 header,
 footer {
   /* couleur Odalys header */
   background-color: #438eb9;
   color: aliceblue;
   font-size: 1.5rem;
+  height: 70px;
+  box-sizing: border-box;
+  display: flex;
 }
 
-header > div > ul > li > a {
-  color: aliceblue;
-}
-header > div > ul > li {
+/* header > div > ul > li {
   display: flex;
   flex-direction: row;
   align-items: center;
+} */
+/* Start menu  */
+.navMenuGouv {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
 }
+.container-link-gouv {
+  color: white;
+  background-color: #438eb9;
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  padding-right: 50px;
+}
+.sticky-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.container-link-gouv :hover {
+  background-color: white;
+  color: #438eb9;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.a-nav-gouv {
+  font-size: large;
 
+  color: aliceblue;
+
+  font-size: 25px;
+}
 /* Ici comence le css pour la table main */
 .mainMenage {
   margin: 1rem;
+  margin-top: 80px;
 }
 main > #tableauNumeroapp {
   text-align: center;
@@ -139,6 +170,42 @@ footer > div > ul > li > a {
     font-size: 12px;
     font-weight: bold;
   }
+
+  header {
+    width: 100%;
+    position: relative;
+    justify-content: center;
+  }
+  h1 {
+    margin: 0;
+  }
+
+  .navMenuGouv {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    gap: 0;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  .container-link-gouv {
+    padding: 0;
+    flex: 1;
+    justify-content: space-evenly;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .a-nav-gouv {
+    flex-shrink: 1;
+  }
   body {
     min-width: auto;
   }
@@ -159,8 +226,10 @@ footer > div > ul > li > a {
 }
 
 /* here Start the css intervention Tech  */
+
 .mainTech {
   margin: 1rem;
+  margin-top: 80px;
 }
 #btnNewIntevention {
   color: #fff;
@@ -181,11 +250,6 @@ footer > div > ul > li > a {
 }
 
 /* here end css New modal */
-
-.tdheaderEdit {
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-}
 
 .action-prioritaire {
   background-color: red;
@@ -249,6 +313,7 @@ tbody > tr > td {
   border: 1px solid black;
   border-radius: 10px;
 } */
+
 @media (max-width: 576px) {
   .tdEdit,
   .tdheaderEdit {
@@ -270,7 +335,13 @@ tbody > tr > td {
     height: 40px;
     width: 40px;
   }
-
+  .statut-InterSpan {
+    padding: 15px;
+    text-align: center;
+  }
+  /* .td:has(.statut-InterSpan) {
+    border-top-right-radius: 25px;
+  } */
   #tableauIterventionTech {
     margin: 0%;
 
