@@ -80,7 +80,7 @@ thead {
   font-size: 1.5em;
 }
 .trGouvernance:hover > td {
-  background-color: #fbf6d6;
+  background-color: #fbf6d600;
 }
 .numeroApp {
   font-weight: bold;
