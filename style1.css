@@ -120,6 +120,8 @@ thead {
 .libre-sale {
   background-color: lightpink;
 }
+
+/* ici commence la modal Gouv */
 .modal-title {
   width: 100%;
   text-align: center;
@@ -224,6 +226,9 @@ footer > div > ul > li > a {
   .commentaire,
   .tdEditGouv {
     display: none;
+  }
+  #modal-commentaire-text {
+    width: 250px;
   }
 }
 
