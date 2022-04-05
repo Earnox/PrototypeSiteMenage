@@ -237,6 +237,7 @@ footer > div > ul > li > a {
 .mainTech {
   margin: 1rem;
   margin-top: 80px;
+  text-align: center;
 }
 #btnNewIntevention {
   color: #fff;
