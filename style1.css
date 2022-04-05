@@ -79,7 +79,9 @@ main > #tableauNumeroapp {
 thead {
   font-size: 1.5em;
 }
-
+.trGouvernance:hover > td {
+  background-color: #fbf6d6;
+}
 .numeroApp {
   font-weight: bold;
   font-size: 1.5rem;
@@ -120,7 +122,10 @@ thead {
 .libre-sale {
   background-color: lightpink;
 }
-
+.tdheaderEdit {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
 /* ici commence la modal Gouv */
 .modal-title {
   width: 100%;
@@ -256,7 +261,9 @@ footer > div > ul > li > a {
 .d-None-modal {
   display: none;
 }
-
+.trIntevention:hover > td {
+  background-color: #fbf6d6;
+}
 /* here end css New modal */
 
 .action-prioritaire {
