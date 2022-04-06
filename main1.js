@@ -1,4 +1,5 @@
 // ici nome toute les variables utiles (pour le scopes sinon des pb )
+
 let tBody = document.createElement("tbody");
 let table = document.getElementById("tableauNumeroapp");
 let thEdit = document.createElement("th");
@@ -464,14 +465,54 @@ function SendValueModal() {
   return SenData(valueToSend);
 }
 
+const getAppsStatut = () => {
+  let rowsApps = document.querySelectorAll(".trGouvernance");
+  let listStatut = ["occupé", "app en chauffe", "prêt", "BCS", "libre/sale"];
+
+  let nombreDappartementoccupé = 0;
+  let nombreDappartementappEnChauffe = 0;
+  let nombreDappartementPret = 0;
+  let nombreDappartementBCS = 0;
+  let nombreDappartementlibreSale = 0;
+
+  rowsApps.forEach((row) => {
+    if (row.querySelector(".selectStatut").value == listStatut[0]) {
+      nombreDappartementoccupé++;
+    } else if (row.querySelector(".selectStatut").value == listStatut[1]) {
+      nombreDappartementappEnChauffe++;
+    } else if (row.querySelector(".selectStatut").value == listStatut[2]) {
+      nombreDappartementPret++;
+    } else if (row.querySelector(".selectStatut").value == listStatut[3]) {
+      nombreDappartementBCS++;
+    } else if (row.querySelector(".selectStatut").value == listStatut[4]) {
+      nombreDappartementlibreSale++;
+    }
+  });
+
+  document.querySelector(".resltaOcc-span-occ").innerText =
+    nombreDappartementoccupé;
+  document.querySelector(".resltaOcc-span-appChauffe").innerText =
+    nombreDappartementappEnChauffe;
+  document.querySelector(".resltaOcc-span-pret").innerText =
+    nombreDappartementPret;
+  document.querySelector(".resltaOcc-span-BCS").innerText =
+    nombreDappartementBCS;
+  document.querySelector(".resltaOcc-span-LibreSale").innerText =
+    nombreDappartementlibreSale;
+  document.querySelector(".container-modal-gouv").style.display = "block";
+};
+
 let btnModal = document.getElementsByClassName("Btn-test-Modal");
 let colStatut = document.getElementsByClassName("status");
 let tr = document.getElementsByClassName("tr");
 let modalBtnSave = document.getElementsByClassName("btn-modal-save");
-
+document.querySelector(".span-close").addEventListener("click", () => {
+  document.querySelector(".container-modal-gouv").style.display = "none";
+});
 window.addEventListener("load", getDataAppart());
 table.addEventListener("change", getChangeStatus);
 table.addEventListener("change", changeColorStatut);
 table.addEventListener("change", getChangeStatus);
+document.querySelector("#menu-nav").addEventListener("click", getAppsStatut);
 // modalBtnSave.addEventListener("click", SendValueModal());
 smallDevice.addListener(handleDeviceChangeGouvernace);

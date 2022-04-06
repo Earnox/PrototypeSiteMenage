@@ -67,6 +67,74 @@ footer {
 
   font-size: 25px;
 }
+
+/* here start css for menu modals */
+.container-modal-gouv {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 00;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.moda-nB-statut-gouv {
+  background-color: #f9ededa7;
+  margin: 15% auto; /* 15% from the top and centered */
+  border-radius: 25px;
+  padding: 20px;
+  border: 1px solid #888;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: auto;
+  display: flex;
+
+  gap: 1rem; /* Could be more or less, depending on screen size */
+  flex-direction: column;
+  text-align: center;
+}
+.nb-statut-gouv-title > h2 {
+  background-color: #438eb9;
+  color: white;
+  border-radius: 25px;
+}
+.warpper-resulta-Nb-statuts {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+  font-size: clamp(16px, 4vw, 22px);
+}
+.resulta-Nb-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 10;
+  /* border: 2rem solid #438eb9; */
+  border-radius: 25px;
+}
+.span-close {
+  background-color: red;
+  padding: 0.5rem;
+  border-radius: 5px;
+  align-self: flex-end;
+}
+.span-close:hover {
+  background-color: #438eb9;
+  color: white;
+  font-size: larger;
+  cursor: pointer;
+}
+@media (max-width: 576px) {
+  .warpper-resulta-Nb-statuts {
+    flex-direction: column;
+  }
+}
+/* end  css for menu modals*/
+
 /* Ici comence le css pour la table main */
 .mainMenage {
   margin: 1rem;
@@ -126,7 +194,8 @@ thead {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
 }
-/* ici commence la modal Gouv */
+
+/* ici commence la modal edition tableau Gouv */
 .modal-title {
   width: 100%;
   text-align: center;
@@ -255,6 +324,7 @@ footer > div > ul > li > a {
   display: inline-block;
   height: 50px;
   width: 50px;
+  cursor: move;
 }
 /* Here start Css New modal  */
 

@@ -34,7 +34,7 @@
           <a class="a-nav-gouv" href="#deuxieme">Etage 2</a>
 
           <a class="a-nav-gouv" href="interventionTech.html">Technique</a>
-          <a class="a-nav-gouv" href="#deuxieme" >Menu</a>
+          <span class="a-nav-gouv" id="menu-nav">Menu</span>
           <div
             class="a-nav-gouv spinner-border d-none"
             role="status"
@@ -45,7 +45,36 @@
         </div>
       </nav>
     </header>
-
+    <div class="container-modal-gouv">
+      <div class="moda-nB-statut-gouv">
+        <div class="nb-statut-gouv-title">
+          <h2>les statuts de vos appartement</h2>
+        </div>
+        <div class="warpper-resulta-Nb-statuts">
+          <div class="resulta-Nb-statuts resulta-Nb-div occuper">
+            <span>Occupé</span>
+            <span class="resltaOcc-span-occ"></span>
+          </div>
+          <div class="resulta-Nb-statuts resulta-Nb-div app-en-chauffe">
+            <span>En chauffe</span>
+            <span class="resltaOcc-span-appChauffe"></span>
+          </div>
+          <div class="resulta-Nb-statuts resulta-Nb-div pret">
+            <span>Prêt</span>
+            <span class="resltaOcc-span-pret"></span>
+          </div>
+          <div class="resulta-Nb-statuts resulta-Nb-div bcs">
+            <span>BCS</span>
+            <span class="resltaOcc-span-BCS"></span>
+          </div>
+          <div class="resulta-Nb-statuts resulta-Nb-div libre-sale">
+            <span>Libre/sale</span>
+            <span class="resltaOcc-span-LibreSale"></span>
+          </div>
+        </div>
+        <span class="span-close">close</span>
+      </div>
+    </div>
     <main class="container-fluide table-responsive-xl mainMenage">
       <table
         class="table table-borderless table-sm justify-content-center"
@@ -159,5 +188,6 @@
     ></script>
     <!-- <script src="main.js"></script> -->
     <script src="main1.js"></script>
+    <script src="/menuFunction.js" type="module"></script>
   </body>
 </html>
