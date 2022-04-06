@@ -98,8 +98,10 @@ footer {
 }
 .nb-statut-gouv-title > h2 {
   background-color: #438eb9;
+
   color: white;
   border-radius: 25px;
+  overflow: hidden;
 }
 .warpper-resulta-Nb-statuts {
   display: flex;
@@ -118,7 +120,8 @@ footer {
 }
 .span-close {
   background-color: red;
-  padding: 0.5rem;
+  padding: 1rem 2rem;
+
   border-radius: 5px;
   align-self: flex-end;
 }
@@ -131,6 +134,16 @@ footer {
 @media (max-width: 576px) {
   .warpper-resulta-Nb-statuts {
     flex-direction: column;
+  }
+  .moda-nB-statut-gouv {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .span-close {
+    align-self: center;
+    width: 90%;
+    flex-grow: 1;
+    border-radius: 25px;
   }
 }
 /* end  css for menu modals*/
