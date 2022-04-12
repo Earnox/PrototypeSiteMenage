@@ -147,8 +147,19 @@ footer {
   }
 }
 /* end  css for menu modals*/
+/* here starte main  */
+
+.result-occ-detail-count-typo,
+.result-appChauffe-detail-count-typo,
+.result-pret-detail-count-typo,
+.result-BCS-detail-count-typo,
+.result-libre-sale-detail-count-typo {
+  display: flex;
+  gap: 1rem;
+}
 
 /* Ici comence le css pour la table main */
+
 .mainMenage {
   margin: 1rem;
   margin-top: 80px;

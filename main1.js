@@ -6,6 +6,9 @@ let thEdit = document.createElement("th");
 const queryS = (selecteur) => {
   return document.querySelector(selecteur);
 };
+const querySall = (selecteur) => {
+  return document.querySelectorAll(selecteur);
+};
 
 const smallDevice = window.matchMedia("(min-width: 576px)");
 thEdit.classList = "thEditMenage";
@@ -230,6 +233,9 @@ const getDataAppart = () => {
           setModal(event);
         });
       });
+    })
+    .then(() => {
+      getAppsStatutOneLoad();
     })
     .then((reponses) => {
       handleDeviceChangeGouvernace(smallDevice);
@@ -470,14 +476,16 @@ function SendValueModal() {
 }
 const findAppartementTypo = (listtypo, statutRechercher) => {
   let div = document.createElement("div");
-  div.innerText =
-    statutRechercher +
-    "x " +
-    listtypo.filter((x) => x === statutRechercher).length;
-  return div;
+  let nbTypo = listtypo.filter((x) => x === statutRechercher).length;
+
+  if (nbTypo > 0) {
+    div.innerText = statutRechercher + "x " + nbTypo;
+    return div;
+  } else {
+    return div;
+  }
 };
-const getAppsStatut = () => {
-  let br = document.createElement("br");
+function getAppsStatut() {
   let rowsApps = document.querySelectorAll(".trGouvernance");
   let listStatut = ["occupé", "app en chauffe", "prêt", "BCS", "libre/sale"];
 
@@ -554,8 +562,94 @@ const getAppsStatut = () => {
     findAppartementTypo(appLibreSale, "3p6-7")
   );
   document.querySelector(".container-modal-gouv").style.display = "block";
-};
+}
 
+function getAppsStatutOneLoad() {
+  let rowsApps = document.querySelectorAll(".trGouvernance");
+  let listStatut = ["occupé", "app en chauffe", "prêt", "BCS", "libre/sale"];
+
+  let nombreDappartementoccupé = 0;
+  let nombreDappartementappEnChauffe = 0;
+  let nombreDappartementPret = 0;
+  let nombreDappartementBCS = 0;
+  let nombreDappartementlibreSale = 0;
+  let appPrets = [];
+  let appPretsBcs = [];
+  let appChauffe = [];
+  let appLibreSale = [];
+  let appOccupes = [];
+
+  rowsApps.forEach((row) => {
+    if (row.querySelector(".selectStatut").value == listStatut[0]) {
+      nombreDappartementoccupé++;
+      appOccupes.push(row.querySelector(".typologie").innerText);
+    } else if (row.querySelector(".selectStatut").value == listStatut[1]) {
+      nombreDappartementappEnChauffe++;
+      appChauffe.push(row.querySelector(".typologie").innerText);
+    } else if (row.querySelector(".selectStatut").value == listStatut[2]) {
+      nombreDappartementPret++;
+      appPrets.push(row.querySelector(".typologie").innerText);
+    } else if (row.querySelector(".selectStatut").value == listStatut[3]) {
+      nombreDappartementBCS++;
+      appPretsBcs.push(row.querySelector(".typologie").innerText);
+    } else if (row.querySelector(".selectStatut").value == listStatut[4]) {
+      nombreDappartementlibreSale++;
+      appLibreSale.push(row.querySelector(".typologie").innerText);
+    }
+  });
+
+  let spanResultOCC = document.querySelector(".resltaOcc-span-occ-count-typo");
+
+  spanResultOCC.innerHTML = nombreDappartementoccupé;
+  queryS(".result-occ-2p4-2p5-detail-count-typo").append(
+    findAppartementTypo(appOccupes, "2p4"),
+    findAppartementTypo(appOccupes, "2p4-5")
+  );
+  queryS(".result-occ-3p6p5-detail-count-typo").append(
+    findAppartementTypo(appOccupes, "3p6"),
+    findAppartementTypo(appOccupes, "3p6-7")
+  );
+  document.querySelector(".resltaOcc-span-appChauffe-count-typo").innerText =
+    nombreDappartementappEnChauffe;
+  queryS(".result-appChauffe-2p4-2p5-detail-count-typo").append(
+    findAppartementTypo(appChauffe, "2p4"),
+    findAppartementTypo(appChauffe, "2p4-5")
+  );
+  queryS(".result-appChauffe-3p6p5-detail-count-typo").append(
+    findAppartementTypo(appChauffe, "3p6"),
+    findAppartementTypo(appChauffe, "3p6-7")
+  );
+  document.querySelector(".resltaOcc-span-pret-count-typo").innerText =
+    nombreDappartementPret;
+  queryS(".result-pret-2p4-2p5-detail-count-typo").append(
+    findAppartementTypo(appPrets, "2p4"),
+    findAppartementTypo(appPrets, "2p4-5")
+  );
+  queryS(".result-pret-3p6p5-detail-count-typo").append(
+    findAppartementTypo(appPrets, "3p6"),
+    findAppartementTypo(appPrets, "3p6-7")
+  );
+  document.querySelector(".resltaOcc-span-BCS-count-typo").innerText =
+    nombreDappartementBCS;
+  queryS(".result-BCS-2p4-2p5-detail-count-typo").append(
+    findAppartementTypo(appPretsBcs, "2p4"),
+    findAppartementTypo(appPretsBcs, "2p4-5")
+  );
+  queryS(".result-BCS-3p6p5-detail-count-typo").append(
+    findAppartementTypo(appPretsBcs, "3p6"),
+    findAppartementTypo(appPretsBcs, "3p6-7")
+  );
+  document.querySelector(".resltaOcc-span-LibreSale").innerText =
+    nombreDappartementlibreSale;
+  queryS(".result-libre-sale-2p4-2p5-detail-count-typo").append(
+    findAppartementTypo(appLibreSale, "2p4"),
+    findAppartementTypo(appLibreSale, "2p4-5")
+  );
+  queryS(".result-libre-sale-3p6p5-detail-count-typo").append(
+    findAppartementTypo(appLibreSale, "3p6"),
+    findAppartementTypo(appLibreSale, "3p6-7")
+  );
+}
 let btnModal = document.getElementsByClassName("Btn-test-Modal");
 let colStatut = document.getElementsByClassName("status");
 let tr = document.getElementsByClassName("tr");
@@ -563,6 +657,7 @@ let modalBtnSave = document.getElementsByClassName("btn-modal-save");
 document.querySelector(".span-close").addEventListener("click", () => {
   document.querySelector(".container-modal-gouv").style.display = "none";
 });
+
 window.addEventListener("load", getDataAppart());
 table.addEventListener("change", getChangeStatus);
 table.addEventListener("change", changeColorStatut);
