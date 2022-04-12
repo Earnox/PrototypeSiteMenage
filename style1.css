@@ -164,6 +164,9 @@ footer {
 .resulta-Nb-statuts:hover .result-libre-sale-detail-count-typo {
   display: flex;
 }
+.container-statut-count-typo {
+  margin-bottom: 1rem;
+}
 /* Ici comence le css pour la table main */
 
 .mainMenage {
