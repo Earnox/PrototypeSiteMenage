@@ -639,7 +639,7 @@ function getAppsStatutOneLoad() {
     findAppartementTypo(appPretsBcs, "3p6"),
     findAppartementTypo(appPretsBcs, "3p6-7")
   );
-  document.querySelector(".resltaOcc-span-LibreSale").innerText =
+  document.querySelector(".resltaOcc-span-LibreSale-count-typo").innerText =
     nombreDappartementlibreSale;
   queryS(".result-libre-sale-2p4-2p5-detail-count-typo").append(
     findAppartementTypo(appLibreSale, "2p4"),
