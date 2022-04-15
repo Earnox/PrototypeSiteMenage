@@ -23,7 +23,6 @@ footer {
   background-color: #438eb9;
   color: aliceblue;
   font-size: 1.5rem;
-  height: 70px;
   box-sizing: border-box;
   display: flex;
 }
@@ -83,12 +82,10 @@ footer {
 }
 .moda-nB-statut-gouv {
   background-color: #f9ededa7;
-  margin: 15% auto; /* 15% from the top and centered */
+  /* 15% from the top and centered */
   border-radius: 25px;
-  padding: 20px;
   border: 1px solid #888;
-  margin-left: 20%;
-  margin-right: 20%;
+
   width: auto;
   display: flex;
 
@@ -131,10 +128,18 @@ footer {
   font-size: larger;
   cursor: pointer;
 }
+.container-statut-count-typo {
+  margin-bottom: 1rem;
+  gap: 0;
+}
 @media (max-width: 576px) {
   .warpper-resulta-Nb-statuts {
     flex-direction: column;
   }
+  .container-statut-count-typo {
+    margin-bottom: 0;
+  }
+
   .moda-nB-statut-gouv {
     margin-left: 0;
     margin-right: 0;
@@ -157,6 +162,8 @@ footer {
   gap: 1rem;
   display: none;
 }
+@media (max-width: 576px) {
+}
 .resulta-Nb-statuts:hover .result-occ-detail-count-typo,
 .resulta-Nb-statuts:hover .result-appChauffe-detail-count-typo,
 .resulta-Nb-statuts:hover .result-pret-detail-count-typo,
@@ -164,14 +171,11 @@ footer {
 .resulta-Nb-statuts:hover .result-libre-sale-detail-count-typo {
   display: flex;
 }
-.container-statut-count-typo {
-  margin-bottom: 1rem;
-}
+
 /* Ici comence le css pour la table main */
 
 .mainMenage {
-  margin: 1rem;
-  margin-top: 80px;
+  margin-top: 4.2rem;
 }
 main > #tableauNumeroapp {
   text-align: center;
