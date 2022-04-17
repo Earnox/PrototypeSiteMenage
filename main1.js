@@ -16,6 +16,8 @@ let responseExt;
 // Create dropt down list
 function handleDeviceChangeGouvernace(e) {
   if (e.matches) {
+    console.log("big devise");
+    document.querySelector("header").classList = "container-fluide sticky-top";
   } else {
     let rowsGouv = document.querySelectorAll(".trGouvernance");
     document.querySelector("header").classList = "container-fluide";
@@ -248,8 +250,7 @@ function SenData(valueToSend) {
   spiner.classList = "spinner-border";
   const url =
     "https://script.google.com/macros/s/AKfycbxlL-y_XcTtmCX8AK4YIkKxN5s7Y9-HJLggorsn1ngI1cwCBFkb7f3ivje028EJSoe1/exec";
-  // "https://script.google.com/macros/s/AKfycby0Wn8zAfWuV6452DEE60lXDmm24QYb78WPViknHcAvmNiTSvq5x1AwxzqPAeP6xMbj/exec";
-  // let reponsefetch = await
+
   fetch(url, {
     method: "POST",
 
