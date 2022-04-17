@@ -91,7 +91,7 @@ footer {
   width: auto;
   display: flex;
 
-  gap: 1rem; /* Could be more or less, depending on screen size */
+  /* gap: 1rem; Could be more or less, depending on screen size */
   flex-direction: column;
   text-align: center;
 }
@@ -105,6 +105,7 @@ footer {
 .warpper-resulta-Nb-statuts {
   display: flex;
   gap: 1rem;
+  /* justify-content: space-around; */
   justify-content: space-evenly;
   font-size: clamp(16px, 4vw, 22px);
 }
@@ -112,8 +113,8 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex-grow: 10;
+
+  flex-grow: 0.1;
   /* border: 2rem solid #438eb9; */
   border-radius: 25px;
 }
@@ -137,6 +138,7 @@ footer {
 @media (max-width: 576px) {
   .warpper-resulta-Nb-statuts {
     flex-direction: column;
+    gap: 0;
   }
   .container-statut-count-typo {
     margin-bottom: 0;
@@ -295,7 +297,7 @@ footer > div > ul > li > a {
   h1 {
     margin: 0;
   }
-
+  /* menu nav  */
   .navMenuGouv {
     width: 100%;
     position: fixed;
