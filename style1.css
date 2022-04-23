@@ -75,7 +75,7 @@ footer {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
-  top: 00;
+  top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -85,10 +85,13 @@ footer {
 .moda-nB-statut-gouv {
   background-color: #f9ededa7;
   /* 15% from the top and centered */
+  margin-top: 5rem;
   border-radius: 25px;
   border: 1px solid #888;
 
   width: auto;
+  margin-right: 1rem;
+  margin-left: 1rem;  
   display: flex;
 
   /* gap: 1rem; Could be more or less, depending on screen size */
