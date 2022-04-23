@@ -161,6 +161,7 @@ const getDataAppart = () => {
             if (infoappartement[key] === "oui") {
               // add incon of boostrap
               cell.classList = "arrive align-middle bi-box-arrow-in-right";
+              cell.value = "oui";
             } else {
               cell.classList = "arrive align-middle ";
             }
@@ -171,6 +172,7 @@ const getDataAppart = () => {
             let cell = document.createElement("td");
             if (infoappartement[key] === "oui") {
               cell.classList = "depart align-middle bi bi-box-arrow-right";
+              cell.value = "oui";
             } else {
               cell.classList = "depart align-middle ";
             }
@@ -190,6 +192,7 @@ const getDataAppart = () => {
             let cell = document.createElement("td");
             if (infoappartement[key] === "oui") {
               cell.classList = "ck align-middle bi bi-key-fill";
+              cell.value = "oui";
             } else {
               cell.classList = "ck align-middle ";
             }
@@ -653,9 +656,49 @@ function getAppsStatutOneLoad() {
   );
 }
 
+// funtion to get the number of appartement where arrive = oui
 
+const getAppsArrive = () => {
+  let rowsApps = document.querySelectorAll(".trGouvernance");
+  let listStatut = ["occupé", "app en chauffe", "prêt", "BCS", "libre/sale"];
+  let nbAppMengage2p4 = 0;
+  let nbAppMengage2p4_5 = 0;
+  let nbAppMengage3p6 = 0;
+  let nbAppMengage3p6_7 = 0;
+  rowsApps.forEach((row) => {
+    let tdArrive = row.querySelector(".arrive");
+    let tdStatut = row.querySelector(".selectStatut");
+    // get the value of the select
 
+    if (tdArrive.value == "oui" && tdStatut.value == listStatut[4]) {
+      let typo = row.querySelector(".typologie").innerText;
+      if (typo == "2p4") {
+        return nbAppMengage2p4++;
+      } else if (typo == "2p4-5") {
+        return nbAppMengage2p4_5++;
+      } else if (typo == "3p6") {
+        return nbAppMengage3p6++;
+      } else if (typo == "3p6-7") {
+        return nbAppMengage3p6_7++;
+      }
+    }
+  });
 
+  alert(
+    "Nombre d'appartement mengagé 2p4 : " +
+      nbAppMengage2p4 +
+      "\n" +
+      "Nombre d'appartement mengagé 2p4-5 : " +
+      nbAppMengage2p4_5 +
+      "\n" +
+      "Nombre d'appartement mengagé 3p6 : " +
+      nbAppMengage3p6 +
+      "\n" +
+      "Nombre d'appartement mengagé 3p6-7 : " +
+      nbAppMengage3p6_7 +
+      "\n"
+  );
+};
 let btnModal = document.getElementsByClassName("Btn-test-Modal");
 let colStatut = document.getElementsByClassName("status");
 let tr = document.getElementsByClassName("tr");
@@ -668,6 +711,6 @@ window.addEventListener("load", getDataAppart());
 table.addEventListener("change", getChangeStatus);
 table.addEventListener("change", changeColorStatut);
 table.addEventListener("change", getChangeStatus);
-document.querySelector("#menu-nav").addEventListener("click", getAppsStatut);
+document.querySelector("#menu-nav").addEventListener("click", getAppsArrive);
 // modalBtnSave.addEventListener("click", SendValueModal());
 smallDevice.addListener(handleDeviceChangeGouvernace);
