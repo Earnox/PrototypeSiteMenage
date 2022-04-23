@@ -376,6 +376,10 @@ footer > div > ul > li > a {
 .trIntevention:hover > td {
   background-color: #fbf6d6;
 }
+.validation-modal {
+  color: red;
+  font-size: 1.5rem;
+}
 /* here end css New modal */
 
 .action-prioritaire {

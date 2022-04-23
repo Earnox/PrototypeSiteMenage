@@ -652,6 +652,10 @@ function getAppsStatutOneLoad() {
     findAppartementTypo(appLibreSale, "3p6-7")
   );
 }
+
+
+
+
 let btnModal = document.getElementsByClassName("Btn-test-Modal");
 let colStatut = document.getElementsByClassName("status");
 let tr = document.getElementsByClassName("tr");
