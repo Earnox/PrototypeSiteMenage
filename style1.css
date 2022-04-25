@@ -91,7 +91,7 @@ footer {
 
   width: auto;
   margin-right: 1rem;
-  margin-left: 1rem;  
+  margin-left: 1rem;
   display: flex;
 
   /* gap: 1rem; Could be more or less, depending on screen size */
@@ -160,7 +160,17 @@ footer {
 }
 /* end  css for menu modals*/
 /* here starte main  */
-
+/* btn for funtion  */
+.btn-stat {
+  background-color: #438eb9;
+  color: white;
+  border-radius: 25px;
+  padding: 1rem 2rem;
+  font-size: larger;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+}
 .result-occ-detail-count-typo,
 .result-appChauffe-detail-count-typo,
 .result-pret-detail-count-typo,
@@ -178,7 +188,12 @@ footer {
 .resulta-Nb-statuts:hover .result-libre-sale-detail-count-typo {
   display: flex;
 }
-
+.btn-stat {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+}
 /* Ici comence le css pour la table main */
 
 .mainMenage {

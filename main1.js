@@ -794,20 +794,117 @@ function getAppsStatutArring() {
   );
   document.querySelector(".container-modal-gouv").style.display = "block";
 }
+
+function getAppsStatutleaving() {
+  let rowsApps = document.querySelectorAll(".trGouvernance");
+  let listStatut = ["occupé", "app en chauffe", "prêt", "BCS", "libre/sale"];
+
+  let nombreDappartementoccupé = 0;
+  let nombreDappartementappEnChauffe = 0;
+  let nombreDappartementPret = 0;
+  let nombreDappartementBCS = 0;
+  let nombreDappartementlibreSale = 0;
+  let appPrets = [];
+  let appPretsBcs = [];
+  let appChauffe = [];
+  let appLibreSale = [];
+  let appOccupes = [];
+  rowsApps.forEach((row) => {
+    let tdArrive = row.querySelector(".depart");
+
+    if (
+      row.querySelector(".selectStatut").value == listStatut[0] &&
+      tdArrive.value == "oui"
+    ) {
+      nombreDappartementoccupé++;
+      appOccupes.push(row.querySelector(".typologie").innerText);
+    } else if (
+      row.querySelector(".selectStatut").value == listStatut[1] &&
+      tdArrive.value == "oui"
+    ) {
+      nombreDappartementappEnChauffe++;
+      appChauffe.push(row.querySelector(".typologie").innerText);
+    } else if (
+      row.querySelector(".selectStatut").value == listStatut[2] &&
+      tdArrive.value == "oui"
+    ) {
+      nombreDappartementPret++;
+      appPrets.push(row.querySelector(".typologie").innerText);
+    } else if (
+      row.querySelector(".selectStatut").value == listStatut[3] &&
+      tdArrive.value == "oui"
+    ) {
+      nombreDappartementBCS++;
+      appPretsBcs.push(row.querySelector(".typologie").innerText);
+    } else if (
+      row.querySelector(".selectStatut").value == listStatut[4] &&
+      tdArrive.value == "oui"
+    ) {
+      nombreDappartementlibreSale++;
+      appLibreSale.push(row.querySelector(".typologie").innerText);
+    }
+  });
+
+  let spanResultOCC = document.querySelector(".resltaOcc-span-occ");
+
+  spanResultOCC.innerHTML = nombreDappartementoccupé;
+  queryS(".result-occ-detail").append(
+    findAppartementTypo(appOccupes, "2p4"),
+    findAppartementTypo(appOccupes, "2p4-5"),
+    findAppartementTypo(appOccupes, "3p6"),
+    findAppartementTypo(appOccupes, "3p6-7")
+  );
+
+  document.querySelector(".resltaOcc-span-appChauffe").innerText =
+    nombreDappartementappEnChauffe;
+  queryS(".result-chauffe-detail").append(
+    findAppartementTypo(appChauffe, "2p4"),
+    findAppartementTypo(appChauffe, "2p4-5"),
+    findAppartementTypo(appChauffe, "3p6"),
+    findAppartementTypo(appChauffe, "3p6-7")
+  );
+  document.querySelector(".resltaOcc-span-pret").innerText =
+    nombreDappartementPret;
+  queryS(".result-pret-detail").append(
+    findAppartementTypo(appPrets, "2p4"),
+    findAppartementTypo(appPrets, "2p4-5"),
+    findAppartementTypo(appPrets, "3p6"),
+    findAppartementTypo(appPrets, "3p6-7")
+  );
+  document.querySelector(".resltaOcc-span-BCS").innerText =
+    nombreDappartementBCS;
+  queryS(".result-BCS-detail").append(
+    findAppartementTypo(appPretsBcs, "2p4"),
+    findAppartementTypo(appPretsBcs, "2p4-5"),
+    findAppartementTypo(appPretsBcs, "3p6"),
+    findAppartementTypo(appPretsBcs, "3p6-7")
+  );
+  document.querySelector(".resltaOcc-span-LibreSale").innerText =
+    nombreDappartementlibreSale;
+  queryS(".result-libre-sale-detail").append(
+    findAppartementTypo(appLibreSale, "2p4"),
+    findAppartementTypo(appLibreSale, "2p4-5"),
+    findAppartementTypo(appLibreSale, "3p6"),
+    findAppartementTypo(appLibreSale, "3p6-7")
+  );
+  document.querySelector(".container-modal-gouv").style.display = "block";
+}
+
 let btnModal = document.getElementsByClassName("Btn-test-Modal");
 let colStatut = document.getElementsByClassName("status");
 let tr = document.getElementsByClassName("tr");
 let modalBtnSave = document.getElementsByClassName("btn-modal-save");
 document.querySelector(".span-close").addEventListener("click", () => {
-  document.querySelector(".container-modal-gouv").style.display = "none";
+  location.reload();
 });
 
+queryS("#btn-stat-depart").addEventListener("click", getAppsStatutleaving);
 window.addEventListener("load", getDataAppart());
 table.addEventListener("change", getChangeStatus);
 table.addEventListener("change", changeColorStatut);
 table.addEventListener("change", getChangeStatus);
 document
-  .querySelector("#menu-nav")
+  .querySelector("#btn-stat-arrive")
   .addEventListener("click", getAppsStatutArring);
 // modalBtnSave.addEventListener("click", SendValueModal());
 smallDevice.addListener(handleDeviceChangeGouvernace);
