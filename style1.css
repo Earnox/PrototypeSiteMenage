@@ -142,12 +142,22 @@ header {
   gap: 0;
 }
 @media (max-width: 900px) {
+  .h1 {
+    flex-shrink: 1;
+    font-size: 1rem;
+  }
+
+  .container-link-gouv {
+    flex-shrink: auto;
+  }
+
   .warpper-resulta-Nb-statuts {
     flex-direction: column;
-    gap: 0;
+    gap: 0.25rem;
   }
   .container-statut-count-typo {
     margin-bottom: 0;
+    margin-top: 0.5rem;
   }
 
   .moda-nB-statut-gouv {
