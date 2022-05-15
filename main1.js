@@ -3,6 +3,7 @@
 let tBody = document.createElement("tbody");
 let table = document.getElementById("tableauNumeroapp");
 let thEdit = document.createElement("th");
+
 const queryS = (selecteur) => {
   return document.querySelector(selecteur);
 };
@@ -340,9 +341,11 @@ async function getChangeStatus(event) {
 }
 
 // funtion to change the colot of the column statut changed
+// befor form-control form-control-lg selectStatut pret
+// after occuper form-control form-control-lg
 const changeColorStatut = (e) => {
   let tdStatut = table.getElementsByClassName("status")[0];
-  console.log(tdStatut);
+  // console.log(tdStatut);
   let listStatut = DropDownListStatus();
   let classtdStatut = tdStatut.classList;
   // console.log(e.target.parentElement);
@@ -354,21 +357,23 @@ const changeColorStatut = (e) => {
     // console.log(eventTargetValue);
 
     // console.log("event class : " + eventTarget.classList);
-    eventTarget.classList = "occuper form-control form-control-lg";
+    eventTarget.classList = "form-control form-control-lg occuper selectStatut";
     // eventTarget.options[0].setAttribute("selected", true);
     // console.log("event class : " + eventTarget.classList);
     // console.log("on est dans occ");
   } else if (eventTargetValue == "app en chauffe") {
-    eventTarget.classList = "form-control form-control-lg app-en-chauffe";
+    eventTarget.classList =
+      "form-control form-control-lg app-en-chauffe selectStatut";
     // eventTarget.options[1].setAttribute("selected", true);
   } else if (eventTargetValue == "prêt") {
-    eventTarget.classList = "pret  form-control form-control-lg";
+    eventTarget.classList = "pret  form-control form-control-lg selectStatut";
     //eventTarget.options[2].setAttribute("selected", true);
   } else if (eventTargetValue == "BCS") {
-    eventTarget.classList = "bcs  form-control form-control-lg";
+    eventTarget.classList = "bcs  form-control form-control-lg selectStatut";
     //eventTarget.options[3].setAttribute("selected", true);
   } else if (eventTargetValue == "libre/sale") {
-    eventTarget.classList = "libre-sale form-control form-control-lg";
+    eventTarget.classList =
+      "libre-sale form-control form-control-lg selectStatut";
   }
 };
 
@@ -902,7 +907,7 @@ queryS("#btn-stat-depart").addEventListener("click", getAppsStatutleaving);
 window.addEventListener("load", getDataAppart());
 table.addEventListener("change", getChangeStatus);
 table.addEventListener("change", changeColorStatut);
-table.addEventListener("change", getChangeStatus);
+// table.addEventListener("change", getChangeStatus);
 document
   .querySelector("#btn-stat-arrive")
   .addEventListener("click", getAppsStatutArring);

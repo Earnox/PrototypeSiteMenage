@@ -172,6 +172,13 @@ header {
   }
 }
 /* end  css for menu modals*/
+/* here wrapper & btn stat */
+.wapper-btn-stat {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 0.1;
+}
 /* here starte main  */
 /* btn for funtion  */
 .btn-stat {
@@ -193,13 +200,21 @@ header {
   display: none;
 }
 @media (max-width: 900px) {
+  .wapper-btn-stat {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 1em; */
+    gap: 0.5rem;
+  }
+
   .btn-stat {
-    padding: 0;
-    margin-left: 0;
-    margin-right: 0;
+    width: 100%;
+
     text-align: center;
   }
 }
+/* end btn for funtion  */
 .resulta-Nb-statuts:hover .result-occ-detail-count-typo,
 .resulta-Nb-statuts:hover .result-appChauffe-detail-count-typo,
 .resulta-Nb-statuts:hover .result-pret-detail-count-typo,
