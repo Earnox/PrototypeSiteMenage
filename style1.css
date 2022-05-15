@@ -178,6 +178,7 @@ header {
   flex-direction: row;
   align-items: center;
   flex-grow: 0.1;
+  justify-content: center;
 }
 /* here starte main  */
 /* btn for funtion  */
@@ -203,7 +204,7 @@ header {
   .wapper-btn-stat {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+
     /* margin-top: 1em; */
     gap: 0.5rem;
   }
