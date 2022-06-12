@@ -449,6 +449,10 @@ const sendEditInteventioTech = () => {
     "#remarqueInteventionEditModalIntTech"
   );
   let statutModal = modalEditBody.querySelector("#statutEditModalIntTech");
+  if (statutModal.value === "résolu" && dateRalisation.value === "") {
+    let date = new Date();
+    dateRalisation.value = createDate(date);
+  }
   if (dateModal.value === "") {
     modalEditBody
       .querySelector(".date-validation-modal")
