@@ -1,254 +1,264 @@
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" href="photo/iconErnoixjpg.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<html lang="fr">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+			<link rel="icon" href="photo/iconErnoixjpg.jpg"/>
+			<meta
+			name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- CSS only Boostrap 4.6-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-      crossorigin="anonymous"
-    />
-    <!-- icon boostrap cdn  -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="style1.css" />
+			<!-- CSS only Boostrap 4.6-->
+			<link
+			rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"/>
+			<!-- icon boostrap cdn  -->
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"/>
+			<link rel="stylesheet" href="style1.css"/>
 
-    <title>Application Gouvernance</title>
-  </head>
-  <body>
-    <header class="container-fluide sticky-top">
-      <h1 class="h1">Prototype Application Gouvernance</h1>
-      <nav class="navMenuGouv">
-        <div class="container-link-gouv">
-          <a class="a-nav-gouv" href="#">RDC</a>
+			<title>
+				Application Gouvernance
+			</title>
+		</head>
+		<body>
+			<header class="container-fluide sticky-top">
+				<h1 class="h1">
+					Prototype Application Gouvernance
+				</h1>
+				<nav class="navMenuGouv">
+					<div class="container-link-gouv">
+						<a class="a-nav-gouv" href="#">
+							RDC
+						</a>
 
-          <a class="a-nav-gouv" href="#premier">Etage 1</a>
+						<a class="a-nav-gouv" href="#premier">
+							Etage 1
+						</a>
 
-          <a class="a-nav-gouv" href="#deuxieme">Etage 2</a>
+						<a class="a-nav-gouv" href="#deuxieme">
+							Etage 2
+						</a>
 
-          <a class="a-nav-gouv" href="interventionTech.html">Technique</a>
+						<a class="a-nav-gouv" href="https://steven.chx.ski/Chamonix/">
+							Technique
+						</a>
 
-          <div
-            class="a-nav-gouv spinner-border d-none"
-            role="status"
-            id="spinerHeader"
-          >
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <!-- here modal stat -->
-    <div class="container-modal-gouv">
-      <div class="moda-nB-statut-gouv">
-        <div class="nb-statut-gouv-title">
-          <h2>les statuts de vos appartement en Arrivée</h2>
-        </div>
-        <div class="warpper-resulta-Nb-statuts">
-          <div class="resulta-Nb-statuts resulta-Nb-div occuper">
-            <span>Occupé</span>
-            <div class="resltaOcc-span-occ"></div>
-            <div class="result-occ-detail"></div>
-          </div>
-          <div class="resulta-Nb-statuts resulta-Nb-div app-en-chauffe">
-            <span>En chauffe</span>
-            <span class="resltaOcc-span-appChauffe"></span>
-            <div class="result-chauffe-detail"></div>
-          </div>
-          <div class="resulta-Nb-statuts resulta-Nb-div pret">
-            <span>Prêt</span>
-            <span class="resltaOcc-span-pret"></span>
-            <div class="result-pret-detail"></div>
-          </div>
-          <div class="resulta-Nb-statuts resulta-Nb-div bcs">
-            <span>BCS</span>
-            <span class="resltaOcc-span-BCS"></span>
-            <div class="result-BCS-detail"></div>
-          </div>
-          <div class="resulta-Nb-statuts resulta-Nb-div libre-sale">
-            <span>Libre/sale</span>
-            <span class="resltaOcc-span-LibreSale"></span>
-            <div class="result-libre-sale-detail"></div>
-          </div>
-        </div>
-        <span class="span-close">close</span>
-      </div>
-    </div>
-    <main class="container-fluide table-responsive-xl mainMenage">
-      <div class="container-statut-count-typo">
-        <!-- here stat bar of the app  -->
-        <div class="warpper-resulta-Nb-statuts">
-          <div class="wapper-btn-stat">
-            <span class="btn-stat-arrive btn-stat" id="btn-stat-arrive"
-              >Stat Arrivée</span
-            >
-            <span class="btn-stat-arrive btn-stat" id="btn-stat-depart"
-              >Stat Départ</span
-            >
-          </div>
 
-          <div class="resulta-Nb-statuts resulta-Nb-div occuper">
-            <span>Occupé </span>
-            <div class="resltaOcc-span-occ-count-typo"></div>
-            <div class="result-occ-detail-count-typo">
-              <div class="result-occ-2p4-2p5-detail-count-typo"></div>
-              <div class="result-occ-3p6p5-detail-count-typo"></div>
-            </div>
-          </div>
-          <div class="resulta-Nb-statuts resulta-Nb-div app-en-chauffe">
-            <span>En chauffe</span>
-            <div class="resltaOcc-span-appChauffe-count-typo"></div>
-            <div class="result-appChauffe-detail-count-typo">
-              <div class="result-appChauffe-2p4-2p5-detail-count-typo"></div>
-              <div class="result-appChauffe-3p6p5-detail-count-typo"></div>
-            </div>
-          </div>
-          <div class="resulta-Nb-statuts resulta-Nb-div pret">
-            <span>Prêt</span>
-            <div class="resltaOcc-span-pret-count-typo"></div>
-            <div class="result-pret-detail-count-typo">
-              <div class="result-pret-2p4-2p5-detail-count-typo"></div>
-              <div class="result-pret-3p6p5-detail-count-typo"></div>
-            </div>
-          </div>
-          <div class="resulta-Nb-statuts resulta-Nb-div bcs">
-            <span>BCS</span>
-            <span class="resltaOcc-span-BCS-count-typo"></span>
-            <div class="result-BCS-detail-count-typo">
-              <div class="result-BCS-2p4-2p5-detail-count-typo"></div>
-              <div class="result-BCS-3p6p5-detail-count-typo"></div>
-            </div>
-          </div>
-          <div class="resulta-Nb-statuts resulta-Nb-div libre-sale">
-            <span>Libre/sale</span>
-            <div class="resltaOcc-span-LibreSale-count-typo"></div>
-            <div class="result-libre-sale-detail-count-typo">
-              <div class="result-libre-sale-2p4-2p5-detail-count-typo"></div>
-              <div class="result-libre-sale-3p6p5-detail-count-typo"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+						<div class="a-nav-gouv spinner-border d-none" role="status" id="spinerHeader">
+							<span class="sr-only">
+								Loading...
+							</span>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<!-- here modal stat -->
+			<div class="container-modal-gouv">
+				<div class="moda-nB-statut-gouv">
+					<div class="nb-statut-gouv-title">
+						<h2>
+							les statuts de vos appartement en Arrivée
+						</h2>
+					</div>
+					<div class="warpper-resulta-Nb-statuts">
+						<div class="resulta-Nb-statuts resulta-Nb-div occuper">
+							<span>
+								Occupé
+							</span>
+							<div class="resltaOcc-span-occ"></div>
+							<div class="result-occ-detail"></div>
+						</div>
+						<div class="resulta-Nb-statuts resulta-Nb-div app-en-chauffe">
+							<span>
+								En chauffe
+							</span>
+							<span class="resltaOcc-span-appChauffe"></span>
+							<div class="result-chauffe-detail"></div>
+						</div>
+						<div class="resulta-Nb-statuts resulta-Nb-div pret">
+							<span>
+								Prêt
+							</span>
+							<span class="resltaOcc-span-pret"></span>
+							<div class="result-pret-detail"></div>
+						</div>
+						<div class="resulta-Nb-statuts resulta-Nb-div bcs">
+							<span>
+								BCS
+							</span>
+							<span class="resltaOcc-span-BCS"></span>
+							<div class="result-BCS-detail"></div>
+						</div>
+						<div class="resulta-Nb-statuts resulta-Nb-div libre-sale">
+							<span>
+								Libre/sale
+							</span>
+							<span class="resltaOcc-span-LibreSale"></span>
+							<div class="result-libre-sale-detail"></div>
+						</div>
+					</div>
+					<span class="span-close">
+						close
+					</span>
+				</div>
+			</div>
+			<main class="container-fluide table-responsive-xl mainMenage">
+				<div
+					class="container-statut-count-typo">
+					<!-- here stat bar of the app  -->
+					<div class="warpper-resulta-Nb-statuts">
+						<div class="wapper-btn-stat">
+							<span class="btn-stat-arrive btn-stat" id="btn-stat-arrive">
+								Stat Arrivée
+							</span>
+							<span class="btn-stat-arrive btn-stat" id="btn-stat-depart">
+								Stat Départ
+							</span>
+						</div>
 
-      <table
-        class="table table-borderless table-sm justify-content-center"
-        id="tableauNumeroapp"
-      ></table>
-      <!-- Button trigger modal -->
-      <!-- <button type="button" id="" class="btn btn-primary Btn-test-Modal" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button> -->
-      <!--    -->
-      <!-- Modal for the appartement -->
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="headermodal">Modal title</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body" id="modalBody">
-              <table
-                class="table table-borderless table-hover justify-content-start"
-                id="modal-table"
-              >
-                <!-- table-sm justify-content-center -->
-                <thead></thead>
-                <tbody class="">
-                  <tr class="">
-                    <th id="modal-th-status">status</th>
-                    <td id="modal-td-status">tdd</td>
-                  </tr>
+						<div class="resulta-Nb-statuts resulta-Nb-div occuper">
+							<span>
+								Occupé
+							</span>
+							<div class="resltaOcc-span-occ-count-typo"></div>
+							<div class="result-occ-detail-count-typo">
+								<div class="result-occ-2p4-2p5-detail-count-typo"></div>
+								<div class="result-occ-3p6p5-detail-count-typo"></div>
+							</div>
+						</div>
+						<div class="resulta-Nb-statuts resulta-Nb-div app-en-chauffe">
+							<span>
+								En chauffe
+							</span>
+							<div class="resltaOcc-span-appChauffe-count-typo"></div>
+							<div class="result-appChauffe-detail-count-typo">
+								<div class="result-appChauffe-2p4-2p5-detail-count-typo"></div>
+								<div class="result-appChauffe-3p6p5-detail-count-typo"></div>
+							</div>
+						</div>
+						<div class="resulta-Nb-statuts resulta-Nb-div pret">
+							<span>
+								Prêt
+							</span>
+							<div class="resltaOcc-span-pret-count-typo"></div>
+							<div class="result-pret-detail-count-typo">
+								<div class="result-pret-2p4-2p5-detail-count-typo"></div>
+								<div class="result-pret-3p6p5-detail-count-typo"></div>
+							</div>
+						</div>
+						<div class="resulta-Nb-statuts resulta-Nb-div bcs">
+							<span>
+								BCS
+							</span>
+							<span class="resltaOcc-span-BCS-count-typo"></span>
+							<div class="result-BCS-detail-count-typo">
+								<div class="result-BCS-2p4-2p5-detail-count-typo"></div>
+								<div class="result-BCS-3p6p5-detail-count-typo"></div>
+							</div>
+						</div>
+						<div class="resulta-Nb-statuts resulta-Nb-div libre-sale">
+							<span>
+								Libre/sale
+							</span>
+							<div class="resltaOcc-span-LibreSale-count-typo"></div>
+							<div class="result-libre-sale-detail-count-typo">
+								<div class="result-libre-sale-2p4-2p5-detail-count-typo"></div>
+								<div class="result-libre-sale-3p6p5-detail-count-typo"></div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                  <tr class="">
-                    <th id="modal-th-typo">typologie</th>
-                    <td id="modal-td-typo"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-name">name</th>
-                    <td id="modal-td-name"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-arrive">arrive</th>
-                    <td id="modal-td-arrive"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-depart">depart</th>
-                    <td id="modal-td-depart"></td>
-                  </tr>
-                  <tr class="">
-                    <th id="modal-th-ck">CK</th>
-                    <td id="modal-td-ck"></td>
-                  </tr>
-                </tbody>
-              </table>
+				<table class="table table-borderless table-sm justify-content-center" id="tableauNumeroapp"></table>
+				<!-- Button trigger modal -->
+				<!-- <button type="button" id="" class="btn btn-primary Btn-test-Modal" data-toggle="modal" data-target="#exampleModal">
+								  Launch demo modal
+								</button> -->
+				<!--    -->
+				<!-- Modal for the appartement -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="headermodal">
+									Modal title
+								</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">
+										&times;
+									</span>
+								</button>
+							</div>
+							<div class="modal-body" id="modalBody">
+								<table
+									class="table table-borderless table-hover justify-content-start" id="modal-table">
+									<!-- table-sm justify-content-center -->
+									<thead></thead>
+									<tbody class="">
+										<tr class="">
+											<th id="modal-th-status">
+												status
+											</th>
+											<td id="modal-td-status">
+												tdd
+											</td>
+										</tr>
 
-              <div id="modal-th-commentaire">commentaire</div>
+										<tr class="">
+											<th id="modal-th-typo">
+												typologie
+											</th>
+											<td id="modal-td-typo"></td>
+										</tr>
+										<tr class="">
+											<th id="modal-th-name">
+												name
+											</th>
+											<td id="modal-td-name"></td>
+										</tr>
+										<tr class="">
+											<th id="modal-th-arrive">
+												arrive
+											</th>
+											<td id="modal-td-arrive"></td>
+										</tr>
+										<tr class="">
+											<th id="modal-th-depart">
+												depart
+											</th>
+											<td id="modal-td-depart"></td>
+										</tr>
+										<tr class="">
+											<th id="modal-th-ck">
+												CK
+											</th>
+											<td id="modal-td-ck"></td>
+										</tr>
+									</tbody>
+								</table>
 
-              <textarea
-                name="modal-commentaire-text"
-                id="modal-commentaire-text"
-                cols="40"
-                rows="3"
-              >
-              </textarea>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary btn-modal-save"
-                onclick="SendValueModal()"
-              >
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer class="container-fluide"></footer>
-    <!-- JavaScript Bundle with Popper Boostrap-->
+								<div id="modal-th-commentaire">
+									commentaire
+								</div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-      crossorigin="anonymous"
-    ></script>
-    <!-- <script src="main.js"></script> -->
-    <script src="main1.js"></script>
-    <script src="/menuFunction.js" type="module"></script>
-  </body>
-</html>
+								<textarea name="modal-commentaire-text" id="modal-commentaire-text" cols="40" rows="3"></textarea>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">
+									Close
+								</button>
+								<button type="button" class="btn btn-primary btn-modal-save" onclick="SendValueModal()">
+									Save changes
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer class="container-fluide"></footer>
+			<!-- JavaScript Bundle with Popper Boostrap-->
+
+			<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+			<!-- <script src="main.js"></script> -->
+			<script src="main1.js"></script>
+			<script src="/menuFunction.js" type="module"></script>
+		</body>
+	</html>
