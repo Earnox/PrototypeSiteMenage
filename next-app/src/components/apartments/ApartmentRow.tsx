@@ -28,7 +28,7 @@ const ApartmentRow: React.FC<ApartmentRowProps> = ({ apartment, onStatusChange, 
   return (
     <tr className={`${baseRowClass}`}>
       {/* Apply typologyClass to cells that should have this background, and new text styles for numeroApp */}
-      <td className={`p-2 text-lg font-bold text-center ${typologyClass}`}>{apartment.numeroApp}</td>
+      <td className={`p-2 text-xl sm:text-2xl font-bold text-center ${typologyClass}`}>{apartment.numeroApp}</td>
       <td className="p-2 min-w-[150px]"> {/* This cell should not inherit typologyClass if it needs to be white for dropdown */}
         <ApartmentStatusDropdown
           currentStatus={apartment.status}

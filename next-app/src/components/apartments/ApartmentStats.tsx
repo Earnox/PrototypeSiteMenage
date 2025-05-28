@@ -46,7 +46,7 @@ const ApartmentStatsDisplay: React.FC<ApartmentStatsProps> = ({ stats, title }) 
         {(Object.keys(stats) as ApartmentStatus[]).map((statusKey) => {
           const containerClass = statusContainerClasses[statusKey] || 'bg-gray-200 border-gray-400 text-gray-800';
           return (
-            <div key={statusKey} className={`p-2 rounded-md border-2 ${containerClass}`}>
+            <div key={statusKey} className={`p-2 rounded-2xl border-2 ${containerClass}`}>
               <div className="font-bold text-sm">{statusDisplayNames[statusKey]}</div>
               <div className="text-xl font-black">{stats[statusKey].count}</div>
               <div className="mt-1">{renderTypologyDetails(stats[statusKey].typologies)}</div>

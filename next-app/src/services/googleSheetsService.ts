@@ -1,12 +1,11 @@
 import { Apartment, ApartmentStatus } from '@/models/Apartment';
-import { Intervention } from '@/models/Intervention';
+// Intervention model import removed
 
 // URL to fetch apartment data from Google Apps Script
 const APARTMENT_DATA_URL = 'https://script.google.com/macros/s/AKfycby0Wn8zAfWuV6452DEE60lXDmm24QYb78WPViknHcAvmNiTSvq5x1AwxzqPAeP6xMbj/exec';
 // URL to update apartment data via Google Apps Script
 const APARTMENT_UPDATE_URL = 'https://script.google.com/macros/s/AKfycbxlL-y_XcTtmCX8AK4YIkKxN5s7Y9-HJLggorsn1ngI1cwCBFkb7f3ivje028EJSoe1/exec';
-// URL to fetch and submit intervention data via Google Apps Script
-const INTERVENTION_URL = 'https://script.google.com/macros/s/AKfycbzNtaNcX8zovKIEx0mZetSageepeBjYRzeqOvXWozThYJwXA4R2hFm6N1fEdgTJuOW6/exec';
+// INTERVENTION_URL constant removed
 
 // Helper function to create a consistent date string if needed by Google Sheets.
 // The old app uses createDate(date) which results in "D/M/YYYY".
@@ -95,75 +94,6 @@ export async function updateApartment(updateData: ApartmentUpdateData): Promise<
   }
 }
 
-/**
- * Fetches the list of interventions from the Google Apps Script endpoint.
- * @returns A Promise that resolves to an array of Intervention objects.
- * @throws Throws an error if the network response is not ok or if fetching fails.
- */
-export async function fetchInterventions(): Promise<Intervention[]> {
-  try {
-    const response = await fetch(INTERVENTION_URL);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data: Intervention[] = await response.json();
-    // Data cleansing/transformation: Ensure IDs are strings and dates are formatted.
-    return data.map(intervention => ({
-        ...intervention,
-        id: String(intervention.id), // Ensure id is a string.
-        // Format dates as "DD/MM/YYYY" strings, similar to the original app's createDate function.
-        date: intervention.date ? formatDateForGoogleSheet(new Date(intervention.date)) : '',
-        dateIntevention: intervention.dateIntevention ? formatDateForGoogleSheet(new Date(intervention.dateIntevention)) : '',
-    }));
-  } catch (error) {
-    console.error("Failed to fetch interventions:", error);
-    throw error; // Re-throw to allow caller to handle the error
-  }
-}
-
-/**
- * Interface for submitting new or edited intervention data.
- * 'requet' field indicates if it's a new ("newInter") or an edit ("editIntevention") operation.
- * 'lieu' is an alias for 'appartement' used in forms.
- */
-export interface SubmitInterventionData extends Omit<Intervention, 'id' | 'date' | 'dateIntevention'> {
-    id?: string | number;       // id is not present for new interventions, but required for edits.
-    requet: "newInter" | "editIntevention"; // Type of request.
-    date: string;               // Expecting a pre-formatted date string.
-    dateIntevention?: string;   // Expecting a pre-formatted date string (optional).
-    lieu?: string;              // Optional alias for 'appartement', used in some forms.
-}
-
-/**
- * Submits a new or edited intervention to the Google Apps Script endpoint.
- * Handles mapping 'lieu' to 'appartement' for compatibility with form data.
- * Uses 'no-cors' mode, similar to updateApartment.
- * @param interventionData The intervention data to submit.
- * @returns A Promise that resolves to the raw Response object.
- * @throws Throws an error if the fetch operation fails.
- */
-export async function submitIntervention(interventionData: SubmitInterventionData): Promise<Response> {
-    // Map 'lieu' to 'appartement' if 'lieu' is provided (as in original forms)
-    // This ensures compatibility with data structures used in the original application's forms.
-    if (interventionData.lieu) {
-        (interventionData as any).appartement = interventionData.lieu; // Type assertion to add property
-        delete interventionData.lieu; // Remove the alias property
-    }
-
-  try {
-    const response = await fetch(INTERVENTION_URL, {
-      method: 'POST',
-      mode: 'no-cors', // Important: 'no-cors' mode for Google Apps Script POSTs.
-      cache: 'no-cache',
-      headers: {
-        // Content-Type considerations are similar to updateApartment due to 'no-cors'.
-      },
-      body: JSON.stringify(interventionData), // Body is stringified JSON.
-    });
-    // As with other 'no-cors' POSTs, the response is opaque.
-    return response;
-  } catch (error) {
-    console.error("Failed to submit intervention:", error);
-    throw error; // Re-throw to allow caller to handle the error
-  }
-}
+// fetchInterventions function removed
+// SubmitInterventionData interface removed
+// submitIntervention function removed
