@@ -8,41 +8,42 @@ interface InterventionRowProps {
   onEdit: (intervention: Intervention) => void;
 }
 
-// Based on style1.css and helperTech.js
-const statusStyles: Record<InterventionStatus, string> = {
-  'Action prioritaire': 'bg-red-500 text-white',
-  'Arrivée du jour': 'bg-lime-200 text-lime-800', // rgb(191, 233, 166)
-  'demande inter': 'bg-orange-300 text-orange-800', // lightsalmon
-  'résolu': 'bg-green-500 text-white', // lightseagreen
-  'En Attente': 'bg-purple-300 text-purple-800', // rgb(246, 176, 246)
-  'En Commande': 'bg-yellow-300 text-yellow-800', // #ffe599
-  'départ du client': 'bg-fuchsia-500 text-white', // rgb(190, 84, 190)
-  'VTA': 'bg-sky-300 text-sky-800', // lightskyblue
-  'bloqué tech': 'bg-indigo-700 text-white', // #1600dd
+const interventionStatusClasses: Record<InterventionStatus, string> = {
+  'Action prioritaire': 'bg-int-action-prioritaire text-white',
+  'Arrivée du jour': 'bg-int-arrivee-du-jour text-green-800',
+  'demande inter': 'bg-int-demande-inter text-orange-800',
+  'résolu': 'bg-int-resolu text-white',
+  'En Attente': 'bg-int-en-attente text-purple-800',
+  'En Commande': 'bg-int-en-commande text-yellow-800',
+  'départ du client': 'bg-int-depart-du-client text-white',
+  'VTA': 'bg-int-vta text-sky-800',
+  'bloqué tech': 'bg-int-bloque-tech text-white',
 };
 
 const statusDisplayNames: Record<InterventionStatus, string> = {
-  'Action prioritaire': 'Action Prioritaire',
-  'Arrivée du jour': 'Arrivée du Jour',
-  'demande inter': 'Demande Inter',
-  'résolu': 'Résolu',
-  'En Attente': 'En Attente',
-  'En Commande': 'En Commande',
-  'départ du client': 'Départ Client',
-  'VTA': 'VTA',
-  'bloqué tech': 'Bloqué Tech',
+    'Action prioritaire': 'Action Prioritaire',
+    'Arrivée du jour': 'Arrivée du Jour',
+    'demande inter': 'Demande Inter',
+    'résolu': 'Résolu',
+    'En Attente': 'En Attente',
+    'En Commande': 'En Commande',
+    'départ du client': 'Départ Client',
+    'VTA': 'VTA',
+    'bloqué tech': 'Bloqué Tech',
 };
 
 const InterventionRow: React.FC<InterventionRowProps> = ({ intervention, onEdit }) => {
+  const currentClass = interventionStatusClasses[intervention.statut] || 'bg-gray-200 text-gray-800';
   return (
-    <tr className="border-b border-gray-200 hover:bg-gray-100 bg-white">
-      <td className="p-2 text-sm">{intervention.date}</td>
-      <td className="p-2 text-sm">{intervention.post}</td>
-      <td className="p-2 text-sm font-semibold">{intervention.appartement}</td>
+    // Added rounded-md, shadow-sm, hover:shadow-md. Removed border-b from original as spacing is handled by table.
+    <tr className="bg-white rounded-md shadow-sm hover:shadow-md"> 
+      <td className="p-2 text-sm hidden sm:table-cell">{intervention.date}</td>
+      <td className="p-2 text-sm hidden md:table-cell">{intervention.post}</td>
+      <td className="p-2 text-sm font-semibold">{intervention.appartement}</td> {/* Lieu */}
       <td className="p-2 text-sm">{intervention.natureInervention}</td>
-      <td className="p-2 text-sm">{intervention.remarque}</td>
+      <td className="p-2 text-sm hidden lg:table-cell">{intervention.remarque}</td>
       <td className="p-2 text-sm text-center">
-        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${statusStyles[intervention.statut] || 'bg-gray-200 text-gray-800'}`}>
+        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${currentClass}`}>
           {statusDisplayNames[intervention.statut] || intervention.statut}
         </span>
       </td>

@@ -95,6 +95,20 @@ const InterventionFormModal: React.FC<InterventionFormModalProps> = ({ isOpen, i
     setErrors({}); // Clear errors when modal opens or intervention changes
   }, [isOpen, interventionToEdit]);
 
+  // Effect to handle Escape key for closing the modal
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -161,11 +175,11 @@ const InterventionFormModal: React.FC<InterventionFormModalProps> = ({ isOpen, i
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="id" className="block text-sm font-medium text-gray-700">ID</label>
-              <input type="text" name="id" id="id" value={formData.id || ''} readOnly className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-gray-100"/>
+              <input type="text" name="id" id="id" value={formData.id || ''} readOnly className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 focus:ring-blue-500 focus:border-blue-500"/>
             </div>
             <div>
               <label htmlFor="date" className="block text-sm font-medium text-gray-700">Date*</label>
-              <input type="date" name="date" id="date" value={formData.date} onChange={handleChange} required className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"/>
+              <input type="date" name="date" id="date" value={formData.date} onChange={handleChange} required className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
               {errors.date && <p className="text-red-500 text-xs mt-1">{errors.date}</p>}
             </div>
           </div>
@@ -173,48 +187,48 @@ const InterventionFormModal: React.FC<InterventionFormModalProps> = ({ isOpen, i
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="post" className="block text-sm font-medium text-gray-700">Poste</label>
-              <select name="post" id="post" value={formData.post} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm">
+              <select name="post" id="post" value={formData.post} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 {postOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
               </select>
             </div>
             <div>
               <label htmlFor="appartement" className="block text-sm font-medium text-gray-700">Lieu (Appartement/Studio/Etage)*</label>
-              <input type="text" name="appartement" id="appartement" value={formData.appartement} onChange={handleChange} required placeholder="Ex: A201, Studio B, Etage 1" className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"/>
+              <input type="text" name="appartement" id="appartement" value={formData.appartement} onChange={handleChange} required placeholder="Ex: A201, Studio B, Etage 1" className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
               {errors.appartement && <p className="text-red-500 text-xs mt-1">{errors.appartement}</p>}
             </div>
           </div>
 
           <div>
             <label htmlFor="natureInervention" className="block text-sm font-medium text-gray-700">Nature d'intervention*</label>
-            <textarea name="natureInervention" id="natureInervention" value={formData.natureInervention} onChange={handleChange} required rows={2} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"></textarea>
+            <textarea name="natureInervention" id="natureInervention" value={formData.natureInervention} onChange={handleChange} required rows={2} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
             {errors.natureInervention && <p className="text-red-500 text-xs mt-1">{errors.natureInervention}</p>}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label htmlFor="risque" className="block text-sm font-medium text-gray-700">Risque</label>
-              <select name="risque" id="risque" value={formData.risque} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm">
+              <select name="risque" id="risque" value={formData.risque} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 {risqueOptions.map(opt => <option key={opt} value={opt}>{opt || 'Aucun'}</option>)}
               </select>
             </div>
             <div>
               <label htmlFor="information" className="block text-sm font-medium text-gray-700">Info (Client)</label>
-              <input type="text" name="information" id="information" value={formData.information} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-gray-100" readOnly placeholder="Info client si applicable"/>
+              <input type="text" name="information" id="information" value={formData.information} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 focus:ring-blue-500 focus:border-blue-500" readOnly placeholder="Info client si applicable"/>
             </div>
             <div>
               <label htmlFor="dateIntevention" className="block text-sm font-medium text-gray-700">Date Réalisation</label>
-              <input type="date" name="dateIntevention" id="dateIntevention" value={formData.dateIntevention} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" />
+              <input type="date" name="dateIntevention" id="dateIntevention" value={formData.dateIntevention} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
             </div>
           </div>
 
           <div>
             <label htmlFor="remarque" className="block text-sm font-medium text-gray-700">Remarque</label>
-            <textarea name="remarque" id="remarque" value={formData.remarque} onChange={handleChange} rows={2} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"></textarea>
+            <textarea name="remarque" id="remarque" value={formData.remarque} onChange={handleChange} rows={2} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
           </div>
 
           <div>
             <label htmlFor="statut" className="block text-sm font-medium text-gray-700">Statut</label>
-            <select name="statut" id="statut" value={formData.statut} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm">
+            <select name="statut" id="statut" value={formData.statut} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
               {statusOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
             </select>
           </div>
@@ -223,7 +237,7 @@ const InterventionFormModal: React.FC<InterventionFormModalProps> = ({ isOpen, i
             <button type="button" onClick={onClose} className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               Annuler
             </button>
-            <button type="submit" className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
               Sauvegarder
             </button>
           </div>

@@ -6,7 +6,6 @@ import InterventionRow from './InterventionRow';
 interface InterventionTableProps {
   interventions: Intervention[];
   onEditIntervention: (intervention: Intervention) => void;
-  // onAddNewIntervention: () => void; // Button for this will be likely at page level
 }
 
 const InterventionTable: React.FC<InterventionTableProps> = ({ interventions, onEditIntervention }) => {
@@ -15,17 +14,17 @@ const InterventionTable: React.FC<InterventionTableProps> = ({ interventions, on
   }
 
   return (
-    <div className="overflow-x-auto bg-white rounded-lg shadow-md">
-      <table className="min-w-full table-auto">
-        <thead className="bg-gray-200 border-b-2 border-gray-300">
+    <div className="overflow-x-auto"> {/* Removed shadow from here, will be on rows */}
+      <table className="min-w-full table-auto border-separate border-spacing-y-2"> {/* Added border-separate and spacing */}
+        <thead className="bg-gray-200"> {/* Removed bottom border */}
           <tr>
-            <th className="p-3 text-left text-sm font-semibold text-gray-700">Date</th>
-            <th className="p-3 text-left text-sm font-semibold text-gray-700">Poste</th>
-            <th className="p-3 text-left text-sm font-semibold text-gray-700">Lieu (#)</th>
-            <th className="p-3 text-left text-sm font-semibold text-gray-700">Nature d'intervention</th>
-            <th className="p-3 text-left text-sm font-semibold text-gray-700">Remarque</th>
-            <th className="p-3 text-center text-sm font-semibold text-gray-700">Statut</th>
-            <th className="p-3 text-center text-sm font-semibold text-gray-700">Modifier</th>
+            <th className="p-3 text-left text-lg font-semibold text-gray-700 hidden sm:table-cell">Date</th>
+            <th className="p-3 text-left text-lg font-semibold text-gray-700 hidden md:table-cell">Poste</th>
+            <th className="p-3 text-left text-lg font-semibold text-gray-700">Lieu (#)</th>
+            <th className="p-3 text-left text-lg font-semibold text-gray-700">Nature d'intervention</th>
+            <th className="p-3 text-left text-lg font-semibold text-gray-700 hidden lg:table-cell">Remarque</th>
+            <th className="p-3 text-center text-lg font-semibold text-gray-700">Statut</th>
+            <th className="p-3 text-center text-lg font-semibold text-gray-700">Modifier</th>
           </tr>
         </thead>
         <tbody>

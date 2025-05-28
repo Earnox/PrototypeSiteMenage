@@ -74,7 +74,7 @@ export default function InterventionsPage() {
         <h1 className="text-2xl font-bold text-gray-700">Interventions Techniques</h1>
         <button
           onClick={handleOpenNewInterventionModal}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md flex items-center"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md flex items-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           <span className="mr-2 text-xl">+</span> Nouvelle Intervention
         </button>

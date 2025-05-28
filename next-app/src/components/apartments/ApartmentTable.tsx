@@ -19,15 +19,15 @@ const ApartmentTable: React.FC<ApartmentTableProps> = ({ apartments, onStatusCha
       <table className="min-w-full table-auto">
         <thead className="bg-gray-100 border-b-2 border-gray-300">
           <tr>
-            <th className="p-3 text-left text-sm font-semibold text-gray-600 w-16">#</th>
-            <th className="p-3 text-left text-sm font-semibold text-gray-600 min-w-[170px]">Status</th>
-            <th className="p-3 text-left text-sm font-semibold text-gray-600">Typologie</th>
-            <th className="p-3 text-left text-sm font-semibold text-gray-600">Nom</th>
-            <th className="p-3 text-center text-sm font-semibold text-gray-600">Arrivé</th>
-            <th className="p-3 text-center text-sm font-semibold text-gray-600">Départ</th>
-            <th className="p-3 text-center text-sm font-semibold text-gray-600">CK</th>
-            <th className="p-3 text-left text-sm font-semibold text-gray-600 max-w-xs">Commentaire</th>
-            <th className="p-3 text-center text-sm font-semibold text-gray-600">Modifier</th>
+            <th className="p-3 text-left text-lg font-semibold text-gray-600 w-16">#</th>
+            <th className="p-3 text-left text-lg font-semibold text-gray-600 min-w-[170px]">Status</th>
+            <th className="p-3 text-left text-lg font-semibold text-gray-600 hidden md:table-cell">Typologie</th>
+            <th className="p-3 text-left text-lg font-semibold text-gray-600 hidden lg:table-cell">Nom</th>
+            <th className="p-3 text-center text-lg font-semibold text-gray-600">Arrivé</th>
+            <th className="p-3 text-center text-lg font-semibold text-gray-600">Départ</th>
+            <th className="p-3 text-center text-lg font-semibold text-gray-600">CK</th>
+            <th className="p-3 text-left text-lg font-semibold text-gray-600 hidden md:table-cell max-w-xs">Commentaire</th>
+            <th className="p-3 text-center text-lg font-semibold text-gray-600">Modifier</th>
           </tr>
         </thead>
         <tbody>

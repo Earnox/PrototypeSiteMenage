@@ -19,6 +19,20 @@ const ApartmentEditModal: React.FC<ApartmentEditModalProps> = ({ isOpen, apartme
     }
   }, [apartment]);
 
+  // Effect to handle Escape key for closing the modal
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen || !apartment) {
     return null;
   }
@@ -83,7 +97,7 @@ const ApartmentEditModal: React.FC<ApartmentEditModalProps> = ({ isOpen, apartme
           </button>
           <button
             onClick={handleSave}
-            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             Sauvegarder
           </button>
